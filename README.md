@@ -59,9 +59,9 @@
 
 ③位置情報と近い場所に紐づくタスクがあればタスク内容をLINEで通知する。もしくはブラウザで近くでできるタスク一覧が表示される。
 
-![LINEを使用する場合](https://gyazo.com/4fb76eacbeb45edfc1866aaed7e9a48d)
-![スマホでブラウザを使用する場合](https://gyazo.com/ac20583722c4da91a1b1d8e4d48dc03f)
-![PCでブラウザを使用する場合](https://gyazo.com/cea0e1563659665185148e769e03e7b4)
+![LINEを使用する場合](https://gyazo.com/4fb76eacbeb45edfc1866aaed7e9a48d.jpg)
+![スマホでブラウザを使用する場合](https://gyazo.com/ac20583722c4da91a1b1d8e4d48dc03f.jpg)
+![PCでブラウザを使用する場合](https://gyazo.com/cea0e1563659665185148e769e03e7b4.jpg)
 
 ※追加機能予定
 　位置情報と近い場所に紐づくタスクがない場合は、おすすめのカフェ情報（ユーザーが登録時に指定した興味のある情報）を通知する。
@@ -86,4 +86,4 @@ README〜ER図作成：6/25 〆切
 
 
 ## 内部構成イメージ
-![内部構成イメージ](https://gyazo.com/4b05e8896e9eb0068348ab86dfe39187)
+![内部構成イメージ](https://gyazo.com/4b05e8896e9eb0068348ab86dfe39187.jpg)
