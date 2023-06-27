@@ -93,5 +93,7 @@ README〜ER図作成：6/25 〆切
 ![内部構成イメージ](https://gyazo.com/4b05e8896e9eb0068348ab86dfe39187.jpg)
 
 ## ============================================================
+## ■画面遷移図
+
 Figma:
 https://www.figma.com/file/x0rqj83uB120oE1iL4bI0u/Untitled?type=design&node-id=0%3A1&mode=design&t=F0h0Y4ckaqSyHUsU-1
