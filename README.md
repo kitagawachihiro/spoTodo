@@ -97,8 +97,3 @@ README〜ER図作成：6/25 〆切
 
 Figma:
 https://www.figma.com/file/x0rqj83uB120oE1iL4bI0u/Untitled?type=design&node-id=0%3A1&mode=design&t=F0h0Y4ckaqSyHUsU-1
-
-
-## ■ER図
-
-![ER図](https://gyazo.com/757fbe4567e44a37e0c925116637132a.png)
