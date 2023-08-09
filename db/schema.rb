@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_08_09_030127) do
+ActiveRecord::Schema.define(version: 2023_08_09_030355) do
 
   create_table "authentications", force: :cascade do |t|
     t.integer "user_id", null: false
@@ -44,6 +44,7 @@ ActiveRecord::Schema.define(version: 2023_08_09_030127) do
   create_table "users", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.float "distance", default: 0.0
   end
 
 end
