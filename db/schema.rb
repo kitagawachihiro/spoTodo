@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_08_09_030355) do
+ActiveRecord::Schema.define(version: 2023_08_09_032935) do
 
   create_table "authentications", force: :cascade do |t|
     t.integer "user_id", null: false
@@ -22,19 +22,19 @@ ActiveRecord::Schema.define(version: 2023_08_09_030355) do
   end
 
   create_table "spots", force: :cascade do |t|
-    t.string "name"
-    t.string "address"
-    t.float "latitude"
-    t.float "longitude"
+    t.string "name", null: false
+    t.string "address", null: false
+    t.float "latitude", null: false
+    t.float "longitude", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "todos", force: :cascade do |t|
-    t.string "content"
+    t.string "content", null: false
     t.boolean "finished", default: false, null: false
-    t.integer "user_id"
-    t.integer "spot_id"
+    t.integer "user_id", null: false
+    t.integer "spot_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["spot_id"], name: "index_todos_on_spot_id"
