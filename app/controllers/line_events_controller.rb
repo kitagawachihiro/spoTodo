@@ -62,7 +62,7 @@ class LineEventsController < ApplicationController
   
               #内容を編集する
                 "type": 'flex',
-                "altText": "近くでできるtodoはこちら↓ https://89ad-116-220-68-14.ngrok-free.app/currentlocation/index?user_id=#{now_user.id}&openExternalBrowser=1",
+                "altText": "近くでできるtodoはこちら↓ #{Settings.ngrok[:url]}/currentlocation/index?user_id=#{now_user.id}&openExternalBrowser=1",
                 "contents": {
                   "type": "bubble",
                   "hero": {
@@ -73,7 +73,7 @@ class LineEventsController < ApplicationController
                     "aspectMode": "cover",
                     "action": {
                       "type": "uri",
-                      "uri": "https://89ad-116-220-68-14.ngrok-free.app/currentlocation/index?user_id=#{now_user.id}&openExternalBrowser=1"
+                      "uri": "#{Settings.ngrok[:url]}/currentlocation/index?user_id=#{now_user.id}&openExternalBrowser=1"
                     }
                   },
                   "body": {
@@ -134,7 +134,7 @@ class LineEventsController < ApplicationController
                         "action": {
                           "type": "uri",
                           "label": "リストへ",
-                          "uri": "https://89ad-116-220-68-14.ngrok-free.app/currentlocation/index?user_id=#{now_user.id}&openExternalBrowser=1"
+                          "uri": "#{Settings.ngrok[:url]}/currentlocation/index?user_id=#{now_user.id}&openExternalBrowser=1"
                         }
                       },
                       {
