@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'line_events/client'
+  get 'line_events/recieve'
   # login
   #helper		path		Controller#Action
   #login_path 	/login	oauths#login
