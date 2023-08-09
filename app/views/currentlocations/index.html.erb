@@ -1,0 +1,22 @@
+<h1>近くでできること一覧</h1>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Todo</th>
+      <th>ステータス</th>
+      <th>場所</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @todolist.each do |todo| %>
+        <tr>
+        <td><%= todo.content %></td>
+        <td><%= todo.finished %></td>
+        <td><%= todo.spot.name %></td>
+        <td><a href="https://www.google.com/maps/dir/?api=1&origin=<%= current_user.currentlocation.address %>&destination=<%= todo.spot.name %>">経路</a></td>
+        </tr>
+    <% end %>
+  </tbody>
+</table>
