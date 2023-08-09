@@ -225,7 +225,9 @@ Rails.application.config.sorcery.configure do |config|
    config.line.scope = "profile openid"
   # config.line.bot_prompt = "normal"
   # config.line.user_info_mapping = {name: 'displayName'}
-
+  #自分で追記
+   config.line.bot_prompt = "aggressive"
+  #ユーザー認証後、友達追加してもらう
   
   # For information about Discord API
   # https://discordapp.com/developers/docs/topics/oauth2
