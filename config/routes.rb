@@ -1,5 +1,15 @@
 Rails.application.routes.draw do
-  get 'oauths/oauth'
-  get 'oauths/callback'
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+
+  # login
+  #helper		path		Controller#Action
+  #login_path 	/login	oauths#login
+  scope module: :oauths do
+    get 'login'
+  end
+
+  # OAuth
+  get 'oauths/oauth', to: "oauths#callback"
+  get 'oauths/callback', to: "oauths#callback"
+  get "oauth/:provider", to: "oauths#oauth", as: :auth_at_provider
+
 end
