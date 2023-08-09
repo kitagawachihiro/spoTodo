@@ -14,4 +14,6 @@ Rails.application.routes.draw do
   get 'oauths/callback', to: "oauths#callback"
   get "oauth/:provider", to: "oauths#oauth", as: :auth_at_provider
 
+  #line_events webhookを受けるURL
+  post :line_events, to: 'line_events#recieve'
 end
