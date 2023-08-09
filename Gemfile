@@ -45,9 +45,13 @@ gem 'config'
 #`<module:HTML4>': uninitialized constant Nokogiri::HTML4 (NameError)発生のため追加
 gem 'loofah', '~> 2.19.1'
 
+#Linebot用
+gem 'line-bot-api'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-  gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  # gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem 'pry-rails'
 end
 
 group :development do

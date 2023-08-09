@@ -1,2 +1,4 @@
 sorcery:
-    line_callback_url: 'https://localhost:3000/oauth/callback?provider=line'
+    line_callback_url: 'https://8dd8-103-5-140-176.ngrok-free.app/oauth/callback?provider=line'
+ngrok:
+    url: 'https://8dd8-103-5-140-176.ngrok-free.app'
