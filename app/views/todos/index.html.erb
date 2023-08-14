@@ -1,0 +1,44 @@
+
+<h1>All</h1>
+<%= link_to '新規作成', new_todo_path, class: "btn btn-primary" %>
+<div class="row">
+    <% @spots.each do |spot| %>
+      <div class="col-sm-4">
+        <div class="card mb-3" style="width:36rem;">
+          <div class="card-body">
+            <h5 class="card-title"><%= spot.name %></h5>
+          </div>
+
+          <ul class="list-group">
+            <% spot.todos.each do |todo| %>
+              <li class="list-group-item">
+                <%= render 'checks/check', todo: todo  %>
+                <%= todo.content %>
+              </li>
+            <% end %>
+          </ul>
+        </div>
+      </div>
+    <% end %>
+  </div>
+
+<style>
+  .card {
+    border-radius: 10px;
+    padding: 10px;
+    margin-bottom :20px;
+    margin-right :10px;
+}
+
+  .card-title{
+    border-radius: 10px;
+    background-color :#D4DEDD;
+    padding: 16px;
+  }
+
+  .list-group-item{
+    border: none;
+}
+
+
+</style>
