@@ -1,5 +1,6 @@
 class TodosController < ApplicationController
- before_action :ensure_correct_user, only:[:index, :new]
+ #before_action :ensure_correct_user, only:[:index, :new]
+ before_action :require_login
 
  def index
    @spots = current_user.spots.includes(:todos).select(:id, :name).distinct
@@ -65,7 +66,7 @@ class TodosController < ApplicationController
    params.require(:todo).permit(:content, :address, :name, :latitude, :longitude, :current_user_id)
  end
  
- def ensure_correct_user
-   redirect_to login_path unless current_user.present?
- end
+ #def ensure_correct_user
+ #  redirect_to login_path unless current_user.present?
+ #end
 end

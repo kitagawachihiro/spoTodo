@@ -1,14 +1,12 @@
 class CurrentlocationsController < ApplicationController
-    before_action :require_login, only:[:index]
-    before_action :ensure_correct_user, only:[:index]
+    before_action :require_login
+    # before_action :ensure_correct_user
   
     def index
       #現在のユーザーの現在地で検索する必要がある
       #paramsで送られてきたuser_idをでcurrent_userをセットする
       #current_user = User.find(params[:user_id]) if params[:user_id].present?
       spotlist = Spot.near([current_user.currentlocation.latitude, current_user.currentlocation.longitude], current_user.distance)
-  
-  
       
       #spotolistのidで順にtodoの検索をかけ、取得する
       @todolist = []
@@ -37,11 +35,10 @@ class CurrentlocationsController < ApplicationController
       end
     end
   
-    private
+    #private
   
-    def ensure_correct_user
-      user = User.find(params[:user_id])
-      redirect_to login_path unless current_user == user
-    end
+    #def ensure_correct_user
+    #  redirect_to login_path unless current_user == nil
+    #end
   
   end
