@@ -7,30 +7,41 @@
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-    
+
   </head>
 
   <body>
-  <div class="row">
-      <!-- 2列 サイドバー -->
-      <div class="col-xs-2">
-        <%= render partial: 'shared/sidebar' %>
-      </div>
-
-      <!-- 10列 コンテンツ表示 -->
-      <div class="col-xs-10">
-        <%= render partial: 'shared/flash_message' %>
-        <div class="container">
-          <%= yield %>
+  <div class="container-fluid">
+    <div class="row">
+        <!-- 3列 サイドバー -->
+        <div class="col-lg-2">
+          <%= render partial: 'shared/sidebar' %>
         </div>
-      </div>
+
+        <!-- 9列 コンテンツ表示 -->
+        <div class="col-lg-10">
+          <%= render partial: 'shared/flash_message' %>
+          <div class="container">
+            <%= yield %>
+          </div>
+        </div>
     </div>
+  </div>
   </body>
   
 </html>
 
 <style>
-html, body, header,.row, .col-xs-2,.col-xs-10{
+html, body,.row, .col-lg-2,.col-lg-10{
   height: 100vh;
+}
+
+body {
+  font-family:'メイリオ', 'Meiryo', 'Hiragino Kaku Gothic ProN', 'ヒラギノ角ゴ ProN W3', sans-serif;
+}
+.col-lg-2{
+  background-color: #D4DEDD;
+  font-size: 16px;
+  padding-left: 14px;
 }
 </style>
