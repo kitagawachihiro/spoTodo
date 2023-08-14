@@ -10,6 +10,26 @@
   </head>
 
   <body>
-    <%= yield %>
+  <div class="row">
+      <!-- 2列 サイドバー -->
+      <div class="col-xs-2">
+        <%= render partial: 'shared/sidebar' %>
+      </div>
+
+      <!-- 10列 コンテンツ表示 -->
+      <div class="col-xs-10">
+        <%= render partial: 'shared/flash_message' %>
+        <div class="container">
+          <%= yield %>
+        </div>
+      </div>
+    </div>
   </body>
+  
 </html>
+
+<style>
+html, body, header,.row, .col-xs-2,.col-xs-10{
+  height: 100vh;
+}
+</style>
