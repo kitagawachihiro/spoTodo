@@ -28,7 +28,7 @@
 <% end %>
 </div>
 
-<script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['GOOGLE_MAP_API_KEY'] %>&libraries=places&callback=initMap">
+<script src="https://maps.googleapis.com/maps/api/js?key=<%= Rails.application.credentials.dig(:googlemap, :api_key) %>&libraries=places&callback=initMap">
 </script>
 
 <style>
