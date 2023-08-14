@@ -1,7 +1,6 @@
 
 <h1>All</h1>
 <%= link_to '新規作成', new_todo_path, class: "btn btn-primary" %>
-<div class="row">
     <% @spots.each do |spot| %>
       <div class="col-sm-4">
         <div class="card mb-3" style="width:36rem;">
@@ -20,7 +19,6 @@
         </div>
       </div>
     <% end %>
-  </div>
 
 <style>
   .card {
