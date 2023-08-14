@@ -5,11 +5,43 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
   </head>
 
   <body>
-    <%= yield %>
+  <div class="container-fluid">
+    <div class="row">
+        <!-- 3列 サイドバー -->
+        <div class="col-lg-2">
+          <%= render partial: 'shared/sidebar' %>
+        </div>
+
+        <!-- 9列 コンテンツ表示 -->
+        <div class="col-lg-10">
+          <%= render partial: 'shared/flash_message' %>
+          <div class="container">
+            <%= yield %>
+          </div>
+        </div>
+    </div>
+  </div>
   </body>
+  
 </html>
+
+<style>
+html, body,.row, .col-lg-2,.col-lg-10{
+  height: 100vh;
+}
+
+body {
+  font-family:'メイリオ', 'Meiryo', 'Hiragino Kaku Gothic ProN', 'ヒラギノ角ゴ ProN W3', sans-serif;
+}
+.col-lg-2{
+  background-color: #D4DEDD;
+  font-size: 16px;
+  padding-left: 14px;
+}
+</style>
