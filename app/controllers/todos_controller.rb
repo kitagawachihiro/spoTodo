@@ -1,5 +1,5 @@
 class TodosController < ApplicationController
- #before_action :ensure_correct_user, only:[:index, :new]
+ before_action :ensure_correct_user, only:[:edit, :update, :finish, :continue]
  before_action :require_login
 
  def index
@@ -32,6 +32,7 @@ class TodosController < ApplicationController
  end
 
  def edit
+
  end
 
  def update
@@ -66,7 +67,8 @@ class TodosController < ApplicationController
    params.require(:todo).permit(:content, :address, :name, :latitude, :longitude, :current_user_id)
  end
  
- #def ensure_correct_user
- #  redirect_to login_path unless current_user.present?
- #end
+ def ensure_correct_user
+    #もしparamsのidが現在のユーザーのtodo一覧に含まれていなかったら、一覧ページにリダイレクトするようにする
+   redirect_to login_path unless current_user.todos.ids.include?(params[:id])
+ end
 end
