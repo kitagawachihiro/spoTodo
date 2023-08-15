@@ -1,0 +1,5 @@
+<% if todo.finished? %>
+    <%= render 'checks/finished',todo: todo %>
+<% else %>
+    <%= render 'checks/continue', todo: todo %>
+<% end %>

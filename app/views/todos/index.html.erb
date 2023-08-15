@@ -14,8 +14,8 @@
       <ul class="list-group">
         <% spot.todos.each do |todo| %>
           <li class="list-group-item">
-            <%= render 'checks/check', todo: todo  %>
-            <%= todo.content %>
+              <%= render 'checks/check', todo: todo  %>
+              <%= todo.content %>
           </li>
         <% end %>
       </ul>
@@ -71,5 +71,8 @@ h1,.btn{
     color: #F2C67F;
 }
 
-
+i{
+  margin-right:1vh;
+  color:#D4DEDD;
+}
 </style>
