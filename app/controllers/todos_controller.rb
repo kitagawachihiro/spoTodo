@@ -27,6 +27,7 @@ class TodosController < ApplicationController
 
    rescue => e #eはerrorのe error情報が格納される変数
      flash.now[:danger] = 'todoを作成できませんでしたよ'
+     @todo = Todo.new(todo_params)
      render :new
  
  end

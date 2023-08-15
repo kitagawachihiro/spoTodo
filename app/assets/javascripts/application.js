@@ -19,4 +19,5 @@
 //= require activestorage
 
 //= require turbolinks
+//= require googlemap
 
