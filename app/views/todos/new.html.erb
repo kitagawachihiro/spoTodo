@@ -1,4 +1,6 @@
-<h1>Add Todo</h1>
+<div class="title">
+    <h1>Add Todo</h1>
+</div>
 
 <div class="container-mid">
 <%= form_with model: @todo, local: true do |f| %>
@@ -32,6 +34,17 @@
 </script>
 
 <style>
+.title{
+  position: relative;
+  height: 10vh;
+  width:100vh;
+}
+
+h1{
+  position: absolute; 
+  display: inline-block; 
+  bottom: 0;
+}
 
 span input {
   display: block;

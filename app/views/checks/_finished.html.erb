@@ -1,0 +1,6 @@
+<%= link_to continue_todo_path(todo.id),
+    id: "js-check-button-for-todo-#{todo.id}",
+    method: :patch,
+    remote: true do %>
+    <%= icon 'fa', 'check-square fa-lg' %>
+<% end %>

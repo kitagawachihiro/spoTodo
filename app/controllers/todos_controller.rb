@@ -69,7 +69,7 @@ class TodosController < ApplicationController
  end
  
  def ensure_correct_user
-    #もしparamsのidが現在のユーザーのtodo一覧に含まれていなかったら、一覧ページにリダイレクトするようにする
-   redirect_to login_path unless current_user.todos.ids.include?(params[:id])
+    todo = Todo.find(params[:id])
+    redirect_to login_path unless current_user.todos.include?(todo)
  end
 end
