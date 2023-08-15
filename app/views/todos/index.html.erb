@@ -1,24 +1,27 @@
 
-<h1>All</h1>
-<%= link_to '新規作成', new_todo_path, class: "btn btn-primary" %>
-    <% @spots.each do |spot| %>
-      <div class="col-sm-4">
-        <div class="card mb-3" style="width:36rem;">
-          <div class="card-body">
-            <h5 class="card-title"><%= spot.name %></h5>
-          </div>
+<div class="title">
+  <h1>All</h1>
+  <%= link_to 'Add Todo', new_todo_path, class: "btn btn-primary" %>
+</div>
 
-          <ul class="list-group">
-            <% spot.todos.each do |todo| %>
-              <li class="list-group-item">
-                <%= render 'checks/check', todo: todo  %>
-                <%= todo.content %>
-              </li>
-            <% end %>
-          </ul>
-        </div>
+<% @spots.each do |spot| %>
+  <div class="col-sm-4">
+    <div class="card mb-3" style="width:36rem;">
+      <div class="card-body">
+        <h5 class="card-title"><%= spot.name %></h5>
       </div>
-    <% end %>
+
+      <ul class="list-group">
+        <% spot.todos.each do |todo| %>
+          <li class="list-group-item">
+            <%= render 'checks/check', todo: todo  %>
+            <%= todo.content %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+<% end %>
 
 <style>
   .card {
@@ -36,6 +39,36 @@
 
   .list-group-item{
     border: none;
+}
+
+.title{
+  position: relative;
+  height: 10vh;
+  width:100vh;
+}
+h1,.btn{
+  position: absolute; 
+  display: inline-block; 
+  bottom: 0;
+}
+
+.btn{
+  margin-left:8vh;
+  margin-bottom:1.5vh;
+  display: inline-block;
+  border-radius: 100vh;
+  height: 3.5vh;
+  width: 12vh;
+  background-color: #F2C67F;
+  border:none;
+  color: white;
+  font-size: 16px;
+
+}
+
+.btn:hover{
+    background-color: #FCEACE;
+    color: #F2C67F;
 }
 
 
