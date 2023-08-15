@@ -1,6 +1,8 @@
 class TodosController < ApplicationController
+ before_action :current_todo, only:[:edit, :update, :finish, :continue]
  before_action :ensure_correct_user, only:[:edit, :update, :finish, :continue]
  before_action :require_login
+
 
  def index
    @spots = current_user.spots.includes(:todos).select(:id, :name).distinct
@@ -32,9 +34,7 @@ class TodosController < ApplicationController
  
  end
 
- def edit
-
- end
+ def edit; end
 
  def update
  end
@@ -64,12 +64,15 @@ class TodosController < ApplicationController
  
  private
 
+ def current_todo
+    @todo = Todo.find(params[:id])
+ end
+
  def todo_params
    params.require(:todo).permit(:content, :address, :name, :latitude, :longitude, :current_user_id)
  end
  
  def ensure_correct_user
-    todo = Todo.find(params[:id])
-    redirect_to login_path unless current_user.todos.include?(todo)
+    redirect_to login_path unless current_user.todos.include?(@todo)
  end
 end
