@@ -1,5 +1,9 @@
 <% flash.each do |key,value| %>
     <p class = "alert alert-<%= key %>">
-      <%= value %>
+      <%= value %></br>
+      <% if @spot.present? && @spot.errors.any? %>
+        場所は入力後、必ず「検索」ボタンを押してください
+      <% end %>
     </p>
   <% end %>
+
