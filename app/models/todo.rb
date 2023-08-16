@@ -1,6 +1,6 @@
 class Todo < ApplicationRecord
   belongs_to :user
-  belongs_to :spot, dependent: :destroy
+  belongs_to :spot
 
   validates :content, presence: true
   validates :finished, inclusion: [true, false]
