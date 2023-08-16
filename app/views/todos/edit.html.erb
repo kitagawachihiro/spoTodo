@@ -1,6 +1,7 @@
 <div class="title">
     <h1>Edit Todo</h1>
 </div>
+
 <div class="container-mid">
 <%= form_with model:@todo, local: true do |f| %>
     <div class="field">
@@ -25,10 +26,7 @@
             <%= f.hidden_field :current_user_id, value: current_user.id %>
         </div>
         <%= render 'todos/map' %>
-    <%= f.submit class:"create" %>
-    <div class="delete">
-        <%= link_to "削除", todo_path, method: :delete  %>
-    </div>
+    <%= f.submit "更新", class:"submitbtn" %>
 <% end %>
 </div>
 
@@ -47,7 +45,6 @@ h1{
   display: inline-block; 
   bottom: 0;
 }
-
 span input {
   display: block;
   border:1px #D4DEDD solid;
@@ -77,7 +74,7 @@ span input {
     margin-bottom: 2vh;
 }
 
-.create, .delete{
+.submitbtn{
     display: block;
     border-radius: 100vh;
     margin: 0 auto;
