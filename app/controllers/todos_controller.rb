@@ -44,7 +44,6 @@ class TodosController < ApplicationController
         @new_spot = Spot.new(name: todo_params[:name], address: todo_params[:address], latitude: todo_params[:latitude], longitude: todo_params[:longitude])
     end
 
-    binding.pry
     #もし@spot.addressと@new_spotが違ったら新しいspotを生成する。
     if @spot != @new_spot
       begin
