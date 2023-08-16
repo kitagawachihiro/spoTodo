@@ -12,9 +12,10 @@
 
         <div class="spot">
             <%= f.label :name, "どこで？" %></br>
+            <p style="color:#F2C67F">※場所を入力後、必ず「検索」ボタンを押してmapで確認してください。</p>
             <div style="display:inline-flex">
                 <span><%= f.text_field :name, style: "width:52vh", placeholder:"○×カフェ", id:"spot_name" %></span>
-                <input type="button" value="住所検索" class="search" onclick="getAddress()">
+                <input type="button" value="検索" class="search" onclick="getAddress()">
             </div>
         </div>
         <div>
