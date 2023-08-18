@@ -19,7 +19,7 @@
         </div>
 
         <!-- 9列 コンテンツ表示 -->
-        <div class="col-lg-10">
+        <div class="col-lg-10 col-sm-offset-2">
           <%= render partial: 'shared/flash_message' %>
           <div class="container">
             <%= yield %>
@@ -44,5 +44,9 @@ body {
   background-color: #D4DEDD;
   font-size: 16px;
   padding-left: 14px;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
 }
 </style>

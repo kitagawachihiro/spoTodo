@@ -12,17 +12,18 @@
 
         <div class="spot">
             <%= f.label :name, "どこで？" %></br>
+            <p style="color:orange">※場所を入力後、必ず「検索」ボタンを押してmapで確認してください。</p>
             <div style="display:inline-flex">
                 <span><%= f.text_field :name, style: "width:52vh", placeholder:"○×カフェ", id:"spot_name" %></span>
-                <input type="button" value="住所検索" class="search" onclick="getAddress()">
+                <input type="button" value="検索" class="search" onclick="getAddress()">
             </div>
         </div>
         <div>
-            <%= f.hidden_field :address, value: "住所", id: "spot_address" %>
+            <%= f.hidden_field :address, id: "spot_address" %>
         </div>
         <div>
-            <%= f.hidden_field :latitude, value: "緯度", id:"spot_lat" %>
-            <%= f.hidden_field :longitude, value: "経度", id:"spot_lon"%>
+            <%= f.hidden_field :latitude, id:"spot_lat" %>
+            <%= f.hidden_field :longitude, id:"spot_lon"%>
             <%= f.hidden_field :current_user_id, value: current_user.id %>
         </div>
         <%= render 'todos/map' %>
