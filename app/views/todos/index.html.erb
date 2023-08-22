@@ -1,12 +1,11 @@
 
 <div class="title">
   <h1>All</h1>
-  <%= link_to 'Add Todo', new_todo_path, class: "btn btn-primary" %>
 </div>
 
 <% @spots.each do |spot| %>
-  <div class="col-sm-4">
-    <div class="card mb-3" style="width:36rem;">
+  <div class="col-lg-4">
+    <div class="card mb-3">
       <div class="card-body">
         <h5 class="card-title"><%= spot.name %></h5>
       </div>
@@ -30,28 +29,18 @@
   </div>
 <% end %>
 
+<div class="plus_icon">
+  <%= link_to new_todo_path do %>
+    <%= image_tag 'plus_icon.png' %>
+  <% end %>
+</div>
+
 <style>
-  .card {
-    border-radius: 10px;
-    padding: 10px;
-    margin-bottom :20px;
-    margin-right :10px;
-}
-
-  .card-title{
-    border-radius: 10px;
-    background-color :#D4DEDD;
-    padding: 16px;
-  }
-
-  .list-group-item{
-    border: none;
-    display:flex;
-}
+/* タイトル部分（共通）*/
 
 .title{
   position: relative;
-  height: 10vh;
+  height: 100px;
   width:100vh;
 }
 h1,.btn{
@@ -60,18 +49,18 @@ h1,.btn{
   bottom: 0;
 }
 
+/* Add Todoボタン */
 .btn{
-  margin-left:8vh;
-  margin-bottom:1.5vh;
-  display: inline-block;
+  left: 70px;
+  margin-bottom:10px;
   border-radius: 100vh;
-  height: 3.5vh;
-  width: 12vh;
+  height: 40px;
+  width: 100px;
   background-color: #F2C67F;
   border:none;
   color: white;
   font-size: 16px;
-
+  text-align: center;
 }
 
 .btn:hover{
@@ -79,8 +68,38 @@ h1,.btn{
     color: #F2C67F;
 }
 
+/* カード */
+.card {
+    border-radius: 10px;
+    padding: 10px;
+    margin-bottom :20px;
+    margin-right :10px;
+}
+
+/* 場所名 */
+  .card-title{
+    border-radius: 10px;
+    background-color :#D4DEDD;
+    padding: 16px;
+  }
+
+/* todoの中身 */
+
+  .list-group-item{
+    border: none;
+    display:flex;
+    position: relative;
+}
+
+.item-content{
+  width:70%;
+  word-break: break-all;
+}
+
+/* 編集・削除ボタン */
+
 i{
-  margin-right:1vh;
+  margin-right:5px;
   color:#D4DEDD;
 }
 
@@ -88,11 +107,17 @@ a:hover {
 text-decoration: none;
 }
 
-.item-content{
-  width:70%;
-  word-break: break-all;
-}
 .item-right{
-  width:20%;
+  width:60px;
+  right : 0;
+  position: absolute;
+
+}
+
+.plus_icon {
+  position: fixed;
+  right: 80px;
+  bottom: 50px;
+  z-index: 10;
 }
 </style>

@@ -57,9 +57,9 @@ function success(position) {
      const lat = position.coords.latitude;
      const lng = position.coords.longitude;
      const token = $('meta[name="csrf-token"]').attr('content');
-     
+
     $.ajax({
-    url: '/currentlocation/create',
+    url: '/currentlocations',
     type: "POST",
     headers: {'X-CSRF-Token' : token },
     data: {
@@ -77,7 +77,7 @@ function success(position) {
             
 // 失敗時の処理 
  function fail(position){
-   alert('位置情報の取得に失敗しました。');
+   alert('位置情報の取得に失敗しました。サーバーが混み合っており、ただいまこのサービスは利用できません。');
  }
 
 

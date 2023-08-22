@@ -3,43 +3,50 @@
 </div>
 
 <div class="container-mid">
-<%= form_with model: @todo, local: true do |f| %>
-    <div class="field">
-        <div class="todo">
-            <%= f.label :content, "何をしたい？" %></br>
-            <span><%= f.text_field :content, style: "width:60vh", placeholder:"TVで見た幻のプリンを食べる" %></span>
-        </div>
-
-        <div class="spot">
-            <%= f.label :name, "どこで？" %></br>
-            <p style="color:orange">※場所を入力後、必ず「検索」ボタンを押してmapで確認してください。</p>
-            <div style="display:inline-flex">
-                <span><%= f.text_field :name, style: "width:52vh", placeholder:"○×カフェ", id:"spot_name" %></span>
-                <input type="button" value="検索" class="search" onclick="getAddress()">
+    <%= form_with model: @todo, local: true do |f| %>
+            <div class="todo">
+                <%= f.label :content, "何をしたい？" %></br>
+                <div style="display:inline-flex">
+                    <span><%= f.text_field :content, placeholder:"TVで見た幻のプリンを食べる", id:"todo_content" %></span>
+                </div>
             </div>
-        </div>
-        <div>
-            <%= f.hidden_field :address, id: "spot_address" %>
-        </div>
-        <div>
-            <%= f.hidden_field :latitude, id:"spot_lat" %>
-            <%= f.hidden_field :longitude, id:"spot_lon"%>
-            <%= f.hidden_field :current_user_id, value: current_user.id %>
-        </div>
-        <%= render 'todos/map' %>
-    <%= f.submit "追加", class:"create" %>
-<% end %>
+
+            <div class="spot">
+                <%= f.label :name, "どこで？" %></br>
+                <p style="color:orange">※場所を入力後、必ず「検索」ボタンを押してmapで確認してください。</p>
+                <div style="display:inline-flex">
+                    <span><%= f.text_field :name, placeholder:"○×カフェ", id:"spot_name" %></span>
+                    <input type="button" value="検索" class="search" onclick="getAddress()">
+                </div>
+            </div>
+
+            <div>
+                <%= f.hidden_field :address, id: "spot_address" %>
+            </div>
+
+            <div>
+                <%= f.hidden_field :latitude, id:"spot_lat" %>
+                <%= f.hidden_field :longitude, id:"spot_lon"%>
+                <%= f.hidden_field :current_user_id, value: current_user.id %>
+            </div>
+
+            <%= render 'todos/map' %>
+            
+        <%= f.submit "追加", class:"create" %>
+    <% end %>
 </div>
 
 <script src="https://maps.googleapis.com/maps/api/js?key=<%= Rails.application.credentials.dig(:googlemap, :api_key) %>&libraries=places&callback=initMap">
 </script>
 
+
+
 <style>
 .title{
   position: relative;
-  height: 10vh;
-  width:100vh;
-}
+  height: 100px;
+  max-width:100vw;
+    }
 
 h1{
   position: absolute; 
@@ -53,38 +60,45 @@ span input {
   padding: 0.5em 0.5em;
   border-radius: 10px;
   color: #5C6060;
-  height: 5vh;
+  height: 50px;
+  margin: 0 auto;
 }
 
 .search{
-    margin-left: 10px;
-    width:70px;
-    height :5vh;
+    margin-left: 5px;
+    width: 50px;
+    height:50px;
     padding: 0.5em 0.1em;
     border:1px #D4DEDD solid;
     border-radius: 10px;
 }
-
-.container-mid{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
 .todo,.spot{
-    margin-top: 2vh;
-    margin-bottom: 2vh;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    width: 34vw;
+    min-width: 450px;
+    margin: 0 auto;
 }
 
 .create{
     display: block;
     border-radius: 100vh;
     margin: 0 auto;
-    height: 7vh;
-    width: 20vh;
+    height: 60px;
+    width: 200px;
     background-color: #F2C67F;
     border:none;
     color: white;
     font-size: 16px;
+}
+
+#spot_name{
+    width: 30vw;
+    min-width: 395px;
+}
+
+#todo_content{
+    width: 34vw;
+    min-width: 450px;
 }
 </style>
