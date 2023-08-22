@@ -3,16 +3,7 @@ class CurrentlocationsController < ApplicationController
     # before_action :ensure_correct_user
   
     def index
-      spotlist = Spot.near([current_user.currentlocation.latitude, current_user.currentlocation.longitude], current_user.distance)
-      
-      #spotolistのidで順にtodoの検索をかけ、取得する
-      @todolist = []
-      spotlist.each do |s|
-        todo = Todo.where(spot_id: s.id).includes(:spot)
-        todo.each do |t|
-          @todolist << t
-        end
-      end
+        @spots = current_user.spots.includes(:todos).near([current_user.currentlocation.latitude, current_user.currentlocation.longitude], current_user.distance)
     end
   
     def new; end
