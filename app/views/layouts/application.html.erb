@@ -13,18 +13,19 @@
   <body>
   <div class="container-fluid">
     <div class="row">
-        <!-- 3列 サイドバー -->
+        <!-- 2列 サイドバー -->
         <div class="col-lg-2">
           <%= render partial: 'shared/sidebar' %>
         </div>
 
-        <!-- 9列 コンテンツ表示 -->
+        <!-- 10列 コンテンツ表示 -->
         <div class="col-lg-10 col-sm-offset-2">
           <%= render partial: 'shared/flash_message' %>
           <div class="container">
             <%= yield %>
           </div>
         </div>
+
     </div>
   </div>
   </body>
@@ -32,10 +33,6 @@
 </html>
 
 <style>
-html, body,.row, .col-lg-2,.col-lg-10{
-  height: 100vh;
-}
-
 body {
   font-family:'メイリオ', 'Meiryo', 'Hiragino Kaku Gothic ProN', 'ヒラギノ角ゴ ProN W3', sans-serif;
   color: #5C6060;
@@ -49,4 +46,10 @@ body {
   bottom: 0;
   left: 0;
 }
+
+
+@media screen and (max-width: 1200px){
+.col-lg-2 {display:none}
+}
+
 </style>
