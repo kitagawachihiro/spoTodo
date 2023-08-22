@@ -1,22 +1,111 @@
-<h1>近くでできること一覧</h1>
 
-<table class="table table-striped">
-  <thead>
-    <tr>
-      <th>Todo</th>
-      <th>ステータス</th>
-      <th>場所</th>
-    </tr>
-  </thead>
+<div class="title">
+  <h1>近くでできるTodo</h1>
+</div>
 
-  <tbody>
-    <% @todolist.each do |todo| %>
-        <tr>
-        <td><%= todo.content %></td>
-        <td><%= todo.finished %></td>
-        <td><%= todo.spot.name %></td>
-        <td><a href="https://www.google.com/maps/dir/?api=1&origin=<%= current_user.currentlocation.address %>&destination=<%= todo.spot.name %>">経路</a></td>
-        </tr>
-    <% end %>
-  </tbody>
-</table>
+<% @spots.each do |spot| %>
+  <div class="col-lg-4">
+    <div class="card mb-3">
+      <div class="card-body">
+        <h5 class="card-title"><%= spot.name %></h5>
+      </div>
+
+      <ul class="list-group">
+        <% spot.todos.each do |todo| %>
+          <li class="list-group-item">
+            <div class="item-check">
+              <%= render 'checks/check', todo: todo  %>
+            </div>
+            <div class="item-content">
+              <%= todo.content %>
+            </div>
+            <div class="item-right">
+              <%= render 'todos/btn', todo: todo  %>
+            </div>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+<% end %>
+
+<style>
+/* タイトル部分（共通）*/
+
+.title{
+  position: relative;
+  height: 100px;
+  width:100vh;
+}
+h1,.btn{
+  position: absolute; 
+  display: inline-block; 
+  bottom: 0;
+}
+
+/* Add Todoボタン */
+.btn{
+  left: 320px;
+  margin-bottom:10px;
+  border-radius: 100vh;
+  height: 40px;
+  width: 100px;
+  background-color: #F2C67F;
+  border:none;
+  color: white;
+  font-size: 16px;
+  text-align: center;
+}
+
+.btn:hover{
+    background-color: #FCEACE;
+    color: #F2C67F;
+}
+
+/* カード */
+.card {
+    border-radius: 10px;
+    padding: 10px;
+    margin-bottom :20px;
+    margin-right :10px;
+}
+
+/* 場所名 */
+  .card-title{
+    border-radius: 10px;
+    background-color :#D4DEDD;
+    padding: 16px;
+  }
+
+/* todoの中身 */
+
+  .list-group-item{
+    border: none;
+    display:flex;
+    position: relative;
+}
+
+.item-content{
+  width:70%;
+  word-break: break-all;
+}
+
+/* 編集・削除ボタン */
+
+i{
+  margin-right:5px;
+  color:#D4DEDD;
+}
+
+a:hover {
+text-decoration: none;
+}
+
+.item-right{
+  width:60px;
+  right : 0;
+  position: absolute;
+
+}
+
+</style>
