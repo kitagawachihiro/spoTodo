@@ -1,0 +1,61 @@
+<div class="title">
+    <h1>今できるTodoは？</h1>
+</div>
+
+<div class="container-mid">
+    <div class="content">
+        <p>今いる場所の近くで出来るTodoリストを作ります。</br> ※ボタンを押した後、しばらくお待ちください。</p>
+        <button type="button" class="get-current-position-btn">現在地を取得する</button>
+        <button type="button" class="btn" onclick="location.href='/currentlocations'">前回いた地点でのTodoを見る</button>
+    </div>
+</div>
+
+
+<style>
+/* タイトル部分（共通）*/
+
+.title{
+  position: relative;
+  height: 100px;
+  width:100vh;
+}
+
+h1{
+  position: absolute; 
+  display: inline-block; 
+  bottom: 0;
+}
+
+.container-mid{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height:80vh;
+}
+
+p{
+    display: block;
+}
+
+.get-current-position-btn, .btn{
+    display: block;
+    border-radius: 100vh;
+    margin: 0 auto;
+    margin-bottom: 10vh;
+    height: 8vh;
+    width: 30vh;
+    background-color: #F2C67F;
+    border:none;
+    color: white;
+    font-size: 16px;
+}
+
+.btn{
+    background-color: #BEC7C6;
+}
+
+button:hover {
+  opacity: 0.5;
+  color: gray;
+}
+</style>
