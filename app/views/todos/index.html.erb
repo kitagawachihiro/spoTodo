@@ -1,7 +1,6 @@
 
 <div class="title">
   <h1>All</h1>
-  <%= link_to 'Add Todo', new_todo_path, class: "btn btn-primary" %>
 </div>
 
 <% @spots.each do |spot| %>
@@ -29,6 +28,12 @@
     </div>
   </div>
 <% end %>
+
+<div class="plus_icon">
+  <%= link_to new_todo_path do %>
+    <%= image_tag 'plus_icon.png' %>
+  <% end %>
+</div>
 
 <style>
 /* タイトル部分（共通）*/
@@ -109,4 +114,10 @@ text-decoration: none;
 
 }
 
+.plus_icon {
+  position: fixed;
+  right: 80px;
+  bottom: 50px;
+  z-index: 10;
+}
 </style>
