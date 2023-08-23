@@ -1,0 +1,7 @@
+ja:
+  activerecord:
+    models:
+      user: 'ユーザー'
+    attributes:
+      user:
+        distance: '距離設定'
