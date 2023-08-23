@@ -10,7 +10,8 @@ Rails.application.routes.draw do
   end
 
   #user
-  get 'usersetting', to: "users#update"
+  get 'usersetting', to: "users#edit"
+  post 'usersetting', to: "users#update"
 
   # OAuth
   get 'oauth/oauth', to: "oauths#callback"
