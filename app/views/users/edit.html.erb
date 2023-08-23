@@ -1,0 +1,60 @@
+<div class="title">
+    <h1>ユーザー設定</h1>
+</div>
+
+<div class="container-mid">   
+  <%= form_with url: usersetting_path, local: true do |f| %>
+    <div class="form-group">
+      <%= f.label :distance, '距離設定' %>
+      <p>今できるto doは？(現在地近くでできるTodoリストの作成)の対象とする<br>
+        現在位置からのTodoの距離を変更できます<br><br>
+        例）1km → 1km以内でできるTodoを現在地近くでできるTodoとする</p><br>
+      <%= f.select :distance, [['1km', 0.621371], ['3km', 1.86411], ['5km', 3.10686], ['10km', 6.21371]], { selected: current_user.distance}, class: "form-control" %>
+    </div>
+    <%= f.submit "更新", class:"submit_btn" %>
+  <% end %>
+</div>
+
+<style>
+.title{
+  position: relative;
+  height: 100px;
+  max-width:100vw;
+    }
+
+h1{
+  position: absolute; 
+  display: inline-block; 
+  bottom: 0;
+}
+
+
+.submit_btn{
+    display: block;
+    border-radius: 100vh;
+    margin: 0 auto;
+    height: 7vh;
+    width: 20vh;
+    background-color: #F2C67F;
+    border:none;
+    color: white;
+    font-size: 16px;
+}
+
+.container-mid{
+  height: 500px;
+  padding-top:50px;
+}
+
+.form-group{
+  width: 500px;
+  margin: 0 auto;
+  margin-bottom: 50px;
+
+}
+
+.form-control{
+  height: 50px;
+  width: 150px;
+}
+</style>
