@@ -15,9 +15,12 @@ class TodosController < ApplicationController
  def create  
   current_user = User.find(todo_params[:current_user_id])
 
-  if current_user.spots.find_by(address: todo_params[:address]).present?
-      @spot = current_user.spots.find_by(address: todo_params[:address])
+  if Spot.find_by(address: todo_params[:address]).present?
+    @spot = Spot.find_by(address: todo_params[:address])
   else
+  #if current_user.spots.find_by(address: todo_params[:address]).present?
+  #    @spot = current_user.spots.find_by(address: todo_params[:address])
+  #else
       @spot = Spot.new(name: todo_params[:name], address: todo_params[:address], latitude: todo_params[:latitude], longitude: todo_params[:longitude])
   end
 
