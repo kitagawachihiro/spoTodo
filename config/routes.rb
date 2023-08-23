@@ -9,6 +9,9 @@ Rails.application.routes.draw do
     get 'login'
   end
 
+  #user
+  get 'usersetting', to: "users#update"
+
   # OAuth
   get 'oauth/oauth', to: "oauths#callback"
   get 'oauth/callback', to: "oauths#callback"
