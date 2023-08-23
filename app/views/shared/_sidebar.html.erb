@@ -13,7 +13,7 @@
 
         <div class="bottom">
             <ul class="nav nav-pills nav-stacked">
-                <li class="nav-item"><a class="nav-link" href="#">ユーザー設定</a></li>
+                <div class="nav-item setting-btn"><a href="/usersetting"><%= image_tag 'gear-solid.svg',width: '50px', height: '50px'%></a></div>
                 <li class="nav-item"><a class="nav-link" href="#">プライバシーポリシー</a></li>
                 <li class="nav-item"><a class="nav-link" href="#">利用規約</a></li>
                 <li class="nav-item"><a class="nav-link" href="#">問い合わせ</a></li>
@@ -46,7 +46,7 @@
         padding-top: 10%;
     }
     .top {
-        height: 60%;
+        height: 55%;
         text-align: center;
     }
 
@@ -58,7 +58,7 @@
     }
 
     .bottom{
-        height: 25%;
+        height: 30%;
         text-align: center;
     }
     .logo-item{
@@ -79,5 +79,10 @@
         background-color: white;
         border-radius: 100vh;
     }
-
+    .setting-btn{
+        margin-bottom: 20px;
+    }
+    .setting-btn:hover{
+        opacity: 0.5;
+    }
 </style>
