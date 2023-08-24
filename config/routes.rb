@@ -1,10 +1,5 @@
 Rails.application.routes.draw do
 
-  #get 'line_events/client'
-  #get 'line_events/recieve'
-  # login
-  #helper		path		Controller#Action
-  #login_path 	/login	oauths#login
   scope module: :oauths do
     get 'login'
   end
@@ -17,6 +12,7 @@ Rails.application.routes.draw do
   get 'oauth/oauth', to: "oauths#callback"
   get 'oauth/callback', to: "oauths#callback"
   get "oauth/:provider", to: "oauths#oauth", as: :auth_at_provider
+  delete 'logout', to: "oauths#destroy"
 
   #line_events webhookを受けるURL
   post :line_events, to: 'line_events#recieve'
@@ -31,4 +27,6 @@ Rails.application.routes.draw do
   #currentlocations
   resources :currentlocations, only: [:index, :new, :create]
 
+  #toppage
+  root to: "explanations#top"
 end
