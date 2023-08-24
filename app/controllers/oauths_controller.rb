@@ -19,6 +19,12 @@ class OauthsController < ApplicationController
     end
   end
 
+  def destroy
+    logout
+    redirect_to login_path
+    flash[:success] = "ログアウトしました"
+  end
+
   private
 
   def auth_params
