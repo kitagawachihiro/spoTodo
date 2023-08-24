@@ -1,1 +1,31 @@
-<%= link_to 'Login with Line', auth_at_provider_path(response_type: 'code', provider: :line)%>
+<div class="container-mid">
+<div class="explain-logo">
+    <%= image_tag 'spotodo_logo.png', width:"350px" %>
+    <p>“今度行ったらやりたい”を記録する</p>
+</div>
+<%= link_to auth_at_provider_path(response_type: 'code', provider: :line), class:"btn" do image_tag 'btn_login_base.png' end %>
+<p>※loginで新規登録も完了します</p>
+</div>
+<style>
+
+.container-mid{
+    padding-top:250px;
+    text-align:center;
+    padding-bottom:100px;
+}
+
+.explain-logo p {
+    color: #BEC7C6;
+}
+
+.explain{
+    margin-top:50px;
+    text-align:cenetr;
+    line-height: 4em;
+    font-size: 16px;
+}
+
+.btn{
+    margin-top: 50px;
+}
+</style>
