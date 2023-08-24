@@ -1,0 +1,122 @@
+
+<div class="container-mid">
+<div class="explain-logo">
+    <%= image_tag 'spotodo_logo.png', width:"350px" %>
+    <p>“今度行ったらやりたい”を記録する</p>
+</div>
+
+<div class="explain">
+    <p>TVで目にした飲食店　SNSで話題になっていたスポット<br>
+    雑誌で目にしたあの新作<br>
+    「今度近くに行ったら行きたいな」「次にここに行った時に見たいな」<br>
+    そんなことをspoTodoにメモしておきましょう</p>
+
+    <%= link_to logout_path, method: :delete, class:"btn" do %>スタート<% end %>
+</div>
+
+<div class="explain">
+
+    <div class="exp-container">
+        <div class="exp-content">
+            <h3>STEP1</h3>
+            <h3>Todoを登録する</h3>
+            <p>”今度行ったらやりたい”内容と場所を登録する</p>
+        </div>
+
+        <div class="exp-image">
+            <%= image_tag 'undraw_to_do_list_re_9nt7.svg', width: "500px;" %>
+        </div>
+    </div>
+
+    <div class="exp-container">
+        <div class="exp-image">
+            <%= image_tag 'undraw_beer_celebration_re_0iqw.svg', width: "400px;" %>
+        </div>
+        <div class="exp-content">
+            <h3>STEP2</h3>
+            <h3>外出先で時間ができたら 現在地を送信！</h3>
+            <p>送信はLINEorブラウザから</p>
+        </div>
+    </div>
+
+    <div class="exp-container">
+        <div class="exp-content">
+            <h3>STEP3</h3>
+            <h3>近くでできるTodoリストが届く</h3>
+            <p>近くでできるTodoをリストでお送りします</p>
+        </div>
+
+        <div class="exp-image">
+            <%= image_tag 'undraw_delivery_address_re_cjca.svg', width: "400px;"%>
+        </div>
+    </div>
+
+    <div class="exp-container">
+        <div class="exp-image">
+            <%= image_tag 'undraw_happy_news_re_tsbd.svg', width: "400px;" %>
+        </div>
+        <div class="exp-content">
+            <h3>STEP4</h3>
+            <h3>Todoを実行しよう　　　　　　　　　　　</h3>
+            <p>やりたかったことをやろう！　　　　　　　　　　　</p>
+        </div>
+    </div>
+</div>
+
+<%= link_to logout_path, method: :delete, class:"btn" do %>スタート<% end %>
+<style>
+
+.container-mid{
+    padding-top:100px;
+    text-align:center;
+    padding-bottom:100px;
+}
+
+.explain-logo p {
+    color: #BEC7C6;
+}
+
+.explain{
+    margin-top:50px;
+    text-align:cenetr;
+    line-height: 4em;
+    font-size: 16px;
+}
+
+.btn{
+  display: block;
+  border-radius: 100vh;
+  margin: 0 auto;
+  height: 60px;
+  width: 200px;
+  background-color: #F2C67F;
+  border:none;
+  color: white;
+  font-size: 16px;
+  text-decoration: none;
+  padding-top:18px;
+  margin-top: 500px0px;
+  margin-bottom: 100px;
+}
+
+.btn:hover{
+    color: white;
+    opacity: 0.5;
+}
+
+.exp-container{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 100px;
+    padding-left: 100px;
+    padding-right: 100px;
+}
+
+.exp-content{
+    text-align:left;
+}
+
+h3{
+    color: #BEC7C6;
+}
+</style>
