@@ -1,12 +1,12 @@
 <div class="title">
-    <h1>今できるTodoは？</h1>
+    <h1><%= t ('.title') %></h1>
 </div>
 
 <div class="container-mid">
     <div class="content">
         <p>今いる場所の近くで出来るTodoリストを作ります。</br> ※ボタンを押した後、しばらくお待ちください。</p>
-        <button type="button" class="get-current-position-btn">現在地を取得する</button>
-        <button type="button" class="btn" onclick="location.href='/currentlocations'">前回いた地点でのTodoを見る</button>
+        <button type="button" class="get-current-position-btn"><%= t ('.get') %></button>
+        <button type="button" class="btn" onclick="location.href='/currentlocations'"><%= t ('.check') %></button>
     </div>
     <div class="qr">
         <p>外出先ではLINEから現在地送信 <%= image_tag 'location-dot-solid.svg', width: "15px;" %><br>「spoTodo」を友達追加</p>

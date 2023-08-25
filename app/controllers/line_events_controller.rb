@@ -62,7 +62,7 @@ class LineEventsController < ApplicationController
   
               #内容を編集する
                 "type": 'flex',
-                "altText": "近くでできるtodoはこちら↓ #{Settings.ngrok[:url]}/currentlocation/index?user_id=#{now_user.id}&openExternalBrowser=1",
+                "altText": "近くでできるtodoはこちら↓ #{Settings.ngrok[:url]}/currentlocations?user_id=#{now_user.id}&openExternalBrowser=1",
                 "contents": {
                   "type": "bubble",
                   "hero": {
@@ -73,7 +73,7 @@ class LineEventsController < ApplicationController
                     "aspectMode": "cover",
                     "action": {
                       "type": "uri",
-                      "uri": "#{Settings.ngrok[:url]}/currentlocations/index?user_id=#{now_user.id}&openExternalBrowser=1"
+                      "uri": "#{Settings.ngrok[:url]}/currentlocations?user_id=#{now_user.id}&openExternalBrowser=1"
                     }
                   },
                   "body": {
@@ -134,7 +134,7 @@ class LineEventsController < ApplicationController
                         "action": {
                           "type": "uri",
                           "label": "リストへ",
-                          "uri": "#{Settings.ngrok[:url]}/currentlocations/index?user_id=#{now_user.id}&openExternalBrowser=1"
+                          "uri": "#{Settings.ngrok[:url]}/currentlocations?user_id=#{now_user.id}&openExternalBrowser=1"
                         }
                       },
                       {

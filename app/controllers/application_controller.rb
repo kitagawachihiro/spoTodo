@@ -5,6 +5,6 @@ class ApplicationController < ActionController::Base
     # 外部から隠蔽したい,レシーバーを仲間が利用するメソッド
 
     def not_authenticated
-      redirect_to login_path, alert: 'ログインしてください'
+      redirect_to login_path, danger: t('notice.login.danger')
     end
 end

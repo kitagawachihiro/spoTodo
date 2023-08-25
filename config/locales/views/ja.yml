@@ -1,0 +1,56 @@
+ja:
+  currentlocations:
+    index:
+      title: '近くでできるTodo'
+    new:
+      title: '今できるTodoは？'
+      get: '現在地を取得する'
+      check: '前回いた地点でのTodoを見る'
+  todos:
+    index:
+      title: 'All'
+    new:
+      title: 'AddTodo'
+      what: '何をしたい？'
+      where: 'どこで？'
+      search: '検索'
+      create: '登録'
+    edit:
+      title: 'EditTodo'
+      what: '何をしたい？'
+      where: 'どこで？'
+      search: '検索'
+      update: '更新'      
+  explanations:
+    top:
+      start: 'スタート'
+  users:
+    edit:
+      title: 'ユーザー設定'
+      distance: '距離設定'
+      update: '更新'
+      logout: 'ログアウト'
+  shared:
+    sidebar:
+      login: 'ログイン'
+      privacy_policy: 'プライバシーポリシー'
+      terms_of_service: '利用規約'
+      ask: '問い合わせ'
+  notice:
+    login:
+      success: 'ログインしました'
+      danger: 'ログインしてください'
+      fail: 'ログインに失敗しました'
+      logout: 'ログアウトしました'
+    currentlocation:
+      danger: '現在地を正しく取得できませんでしたので前回の一覧を表示しました'
+    todo:
+      create: 'Todoを登録しました'
+      not_create: 'Todoが登録できませんでした'
+      update: 'Todoを更新しました'
+      not_update: 'Todoを更新できませんでした'
+    user:
+      update: '距離設定を更新しました'
+      not_update: '距離設定が更新できませんでした'
+
+      
