@@ -5,18 +5,18 @@
         </div>
         <div class="top">
             <ul class="nav nav-pills nav-stacked ">
-                <li class="nav-item"><a class="nav-link" href="/todos/new">Add Todo</a></li>
-                <li class="nav-item"><a class="nav-link" href="/currentlocations/new">今できるTodoは？</a></li>
-                <li class="nav-item"><a class="nav-link" href="/todos">All</a></li>
+                <li class="nav-item"><a class="nav-link" href="/todos/new"><%= t 'todos.new.title' %></a></li>
+                <li class="nav-item"><a class="nav-link" href="/currentlocations/new"><%= t 'currentlocations.new.title' %></a></li>
+                <li class="nav-item"><a class="nav-link" href="/todos"><%= t 'todos.index.title' %></a></li>
             </ul>
         </div>
 
         <div class="bottom">
             <ul class="nav nav-pills nav-stacked">
                 <div class="nav-item setting-btn"><%= link_to usersetting_path do image_tag 'gear-solid.svg',width: '50px', height: '50px' end %></div>
-                <li class="nav-item"><a class="nav-link" href="#">プライバシーポリシー</a></li>
-                <li class="nav-item"><a class="nav-link" href="#">利用規約</a></li>
-                <li class="nav-item"><a class="nav-link" href="#">問い合わせ</a></li>
+                <li class="nav-item"><a class="nav-link" href="#"><%= t 'shared.sidebar.privacy_policy' %></a></li>
+                <li class="nav-item"><a class="nav-link" href="#"><%= t 'shared.sidebar.terms_of_service' %></a></li>
+                <li class="nav-item"><a class="nav-link" href="#"><%= t 'shared.sidebar.ask' %></a></li>
             </ul>
          </div>
 
@@ -27,14 +27,14 @@
         </div>
         <div class="top"> 
             <ul class="nav nav-pills nav-stacked">
-                <li class="nav-item login"><a class="nav-link" href="/login"><span>ログイン</span></a></li>
+                <li class="nav-item login"><a class="nav-link" href="/login"><span><%= t 'shared.sidebar.login' %></span></a></li>
             </ul>
         </div>
         <div class="bottom">
             <ul class="nav nav-pills nav-stacked">
-                <li class="nav-item"><a class="nav-link" href="#">プライバシーポリシー</a></li>
-                <li class="nav-item"><a class="nav-link" href="#">利用規約</a></li>
-                <li class="nav-item"><a class="nav-link" href="#">問い合わせ</a></li>
+                <li class="nav-item"><a class="nav-link" href="#"><%= t 'shared.sidebar.privacy_policy' %></a></li>
+                <li class="nav-item"><a class="nav-link" href="#"><%= t 'shared.sidebar.terms_of_service' %></a></li>
+                <li class="nav-item"><a class="nav-link" href="#"><%= t 'shared.sidebar.ask' %></a></li>
             </ul>
         </div>
         
