@@ -8,6 +8,10 @@
         <button type="button" class="get-current-position-btn">現在地を取得する</button>
         <button type="button" class="btn" onclick="location.href='/currentlocations'">前回いた地点でのTodoを見る</button>
     </div>
+    <div class="qr">
+        <p>外出先ではLINEから現在地送信 <%= image_tag 'location-dot-solid.svg', width: "15px;" %><br>「spoTodo」を友達追加</p>
+        <%= image_tag 'qr.png', width: "150px;" %>
+    </div>
 </div>
 
 
@@ -17,7 +21,6 @@
 .title{
   position: relative;
   height: 100px;
-  width:100vh;
 }
 
 h1{
@@ -27,10 +30,9 @@ h1{
 }
 
 .container-mid{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height:80vh;
+    text-align: center;
+    height:500px;
+    padding: 100px;
 }
 
 p{
@@ -41,9 +43,9 @@ p{
     display: block;
     border-radius: 100vh;
     margin: 0 auto;
-    margin-bottom: 10vh;
-    height: 8vh;
-    width: 30vh;
+    margin-bottom: 50px;
+    height: 80px;
+    width: 300px;
     background-color: #F2C67F;
     border:none;
     color: white;
@@ -57,5 +59,15 @@ p{
 button:hover {
   opacity: 0.5;
   color: gray;
+}
+
+.qr{
+    width: 350px;
+    background-color: #06C755;
+    margin: 0 auto;
+    margin-top:100px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border-radius: 30px;
 }
 </style>
