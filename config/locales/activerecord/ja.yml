@@ -1,0 +1,14 @@
+ja:
+  activerecord:
+    models:
+      user: 'ユーザー'
+      cullentlocation: '現在地'
+      oauth: '認証'
+      todo: 'Todo'
+    attributes:
+      user:
+        distance: '距離設定'
+      cullentlocation:
+        address: '住所'
+        latitude: '緯度'
+        longitude: '経度'
