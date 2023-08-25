@@ -67,7 +67,7 @@ class LineEventsController < ApplicationController
                   "type": "bubble",
                   "hero": {
                     "type": "image",
-                    "url": "https://scdn.line-apps.com/n/channel_devcenter/img/fx/01_1_cafe.png",
+                    "url": "https://i.gyazo.com/3e34a4d3fe1f0c60742dc02d1aead03e.png",
                     "size": "full",
                     "aspectRatio": "20:13",
                     "aspectMode": "cover",
@@ -99,14 +99,14 @@ class LineEventsController < ApplicationController
                             "contents": [
                               {
                                 "type": "text",
-                                "text": "今いる場所の近くでできるTodoのリストができました📝",
+                                "text": "今いる場所の近くでできるTodoをピックアップしました",
                                 "color": "#aaaaaa",
                                 "size": "sm",
                                 "margin": "none",
                                 "contents": [
                                   {
                                     "type": "span",
-                                    "text": "今いる場所の近くでできるTodoのリストができました📝",
+                                    "text": "今いる場所の近くでできるTodoをピックアップしました",
                                     "style": "normal",
                                     "decoration": "none",
                                     "weight": "regular",
