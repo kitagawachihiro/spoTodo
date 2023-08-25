@@ -1,0 +1,48 @@
+/* form コンテナ */
+span input {
+    display: block;
+    border:1px #D4DEDD solid;
+    padding: 0.5em 0.5em;
+    border-radius: 10px;
+    color: #5C6060;
+    height: 50px;
+    margin: 0 auto;
+  }
+  
+  .search{
+      margin-left: 5px;
+      width: 50px;
+      height:50px;
+      padding: 0.5em 0.1em;
+      border:1px #D4DEDD solid;
+      border-radius: 10px;
+  }
+  .todo,.spot{
+      padding-top: 10px;
+      padding-bottom: 10px;
+      width: 34vw;
+      min-width: 450px;
+      margin: 0 auto;
+  }
+  
+  .create{
+      display: block;
+      border-radius: 100vh;
+      margin: 0 auto;
+      height: 60px;
+      width: 200px;
+      background-color: #F2C67F;
+      border:none;
+      color: white;
+      font-size: 16px;
+  }
+  
+  #spot_name{
+      width: 30vw;
+      min-width: 395px;
+  }
+  
+  #todo_content{
+      width: 34vw;
+      min-width: 450px;
+  }

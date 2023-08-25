@@ -1,3 +1,4 @@
+    <%= stylesheet_link_tag 'shared/sidebar', media: 'all', 'data-turbolinks-track': 'reload' %>
 
     <% if current_user %>
         <div class="logo">
@@ -40,49 +41,3 @@
         
     <% end %>
 
-<style>
-    .logo{
-        height: 15%;
-        padding-top: 20%;
-    }
-    .top {
-        height: 55%;
-        text-align: center;
-    }
-
-    .top .nav-item{
-        margin-top: 20px;
-        margin-bottom :20px;
-        font-size: 20px;
-        letter-spacing : 0.1em;
-    }
-
-    .bottom{
-        height: 30%;
-        text-align: center;
-    }
-    .logo-item{
-        text-align: center;
-    }
-    .nav-item a{
-        color : #FFFFFF;
-    }
-    .nav-link:hover{
-        border-radius: 100vh;
-        color : #BEC7C6;
-    }
-    span{
-        color : #BEC7C6;
-    }
-    .login{
-        color : #BEC7C6;
-        background-color: white;
-        border-radius: 100vh;
-    }
-    .setting-btn{
-        margin-bottom: 20px;
-    }
-    .setting-btn:hover{
-        opacity: 0.5;
-    }
-</style>

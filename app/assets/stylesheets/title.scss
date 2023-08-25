@@ -1,0 +1,11 @@
+/* タイトル部分（共通）*/
+
+.title{
+    position: relative;
+    height: 100px;
+  }
+  h1,.btn{
+    position: absolute; 
+    display: inline-block; 
+    bottom: 0;
+  }

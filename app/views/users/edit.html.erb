@@ -1,3 +1,6 @@
+<%= stylesheet_link_tag 'title', media: 'all', 'data-turbolinks-track': 'reload' %>
+<%= stylesheet_link_tag 'user/edit', media: 'all', 'data-turbolinks-track': 'reload' %>
+
 <div class="title">
     <h1><%= t '.title' %></h1>
 </div>
@@ -10,81 +13,14 @@
         現在位置からのTodoの距離を変更できます<br><br>
         例）1km → 1km以内でできるTodoを現在地近くでできるTodoとする</p><br>
       <%= f.select :distance, [['1km', 0.621371], ['3km', 1.86411], ['5km', 3.10686], ['10km', 6.21371]], { selected: current_user.distance}, class: "form-control" %>
-    <%= f.submit t('.update'), class:"submit_btn" %>
+    <%= f.submit t('.update'), class:"submit-btn" %>
     </div>
   <% end %>
 
   <div class="container-sm">
     <h4><%= t '.logout' %></h4>
-    <%= link_to logout_path, method: :delete, class:"btn" do t '.logout' end %>
+    <%= link_to logout_path, method: :delete, class:"logout-btn" do t('.logout') end %>
   </div>
-
-
+  
 </div>
 
-
-
-<style>
-.title{
-  position: relative;
-  height: 100px;
-  max-width:100vw;
-    }
-
-h1{
-  position: absolute; 
-  display: inline-block; 
-  bottom: 0;
-}
-
-
-.submit_btn{
-    display: block;
-    border-radius: 100vh;
-    margin: 0 auto;
-    height: 60px;
-    width: 200px;
-    background-color: #F2C67F;
-    border:none;
-    color: white;
-    font-size: 16px;
-}
-
-.btn{
-  display: block;
-  border-radius: 100vh;
-  margin: 0 auto;
-  height: 60px;
-  width: 200px;
-  background-color: #BEC7C6;
-  border:none;
-  color: white;
-  font-size: 16px;
-  text-decoration: none;
-  padding-top:18px;
-}
-
-.submit_btn:hover,.btn:hover{
-  color: white;
-  opacity: 0.5;
-}
-
-.container-mid{
-  height: 500px;
-  padding-top:50px;
-}
-
-.container-sm{
-  width: 500px;
-  margin: 0 auto;
-  margin-bottom: 100px;
-
-}
-
-.form-control{
-  height: 50px;
-  width: 150px;
-  margin-bottom:50px;
-}
-
-</style>

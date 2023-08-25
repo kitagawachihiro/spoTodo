@@ -1,0 +1,49 @@
+.submit-btn{
+    display: block;
+    border-radius: 100vh;
+    margin: 0 auto;
+    height: 60px;
+    width: 200px;
+    background-color: #F2C67F;
+    border:none;
+    color: white;
+    font-size: 16px;
+}
+
+.logout-btn{
+  display: block;
+  border-radius: 100vh;
+  margin: 0 auto;
+  height: 60px;
+  width: 200px;
+  background-color: #BEC7C6;
+  border:none;
+  color: white;
+  font-size: 16px;
+  text-decoration: none;
+  padding-top:18px;
+  text-align: center;
+}
+
+.submit-btn:hover,.logout-btn:hover{
+  color: white;
+  opacity: 0.5;
+}
+
+.container-mid{
+  height: 500px;
+  padding-top:50px;
+}
+
+.container-sm{
+  width: 500px;
+  margin: 0 auto;
+  margin-bottom: 100px;
+
+}
+
+.form-control{
+  height: 50px;
+  width: 150px;
+  margin-bottom:50px;
+}

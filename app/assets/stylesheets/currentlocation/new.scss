@@ -1,0 +1,41 @@
+/* form コンテナ */
+.container-mid{
+    text-align: center;
+    padding: 100px;
+}
+
+p{
+    display: block;
+}
+
+.get-current-position-btn, .check-list-btn{
+    display: block;
+    border-radius: 100vh;
+    margin: 0 auto;
+    margin-bottom: 50px;
+    height: 80px;
+    width: 300px;
+    background-color: #F2C67F;
+    border:none;
+    color: white;
+    font-size: 16px;
+}
+
+.check-list-btn{
+    background-color: #BEC7C6;
+}
+
+button:hover {
+  opacity: 0.5;
+  color: gray;
+}
+
+.qr{
+    width: 350px;
+    background-color: #06C755;
+    margin: 0 auto;
+    margin-top:100px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border-radius: 30px;
+}
