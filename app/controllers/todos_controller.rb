@@ -2,8 +2,6 @@ class TodosController < ApplicationController
  before_action :current_todo, only:[:edit, :update, :finish, :continue, :destroy]
  before_action :require_login
 
-
-
  def index
    @spots = current_user.spots.includes(:todos).select(:id, :name).distinct
  end
@@ -18,19 +16,16 @@ class TodosController < ApplicationController
   if Spot.find_by(address: todo_params[:address]).present?
     @spot = Spot.find_by(address: todo_params[:address])
   else
-  #if current_user.spots.find_by(address: todo_params[:address]).present?
-  #    @spot = current_user.spots.find_by(address: todo_params[:address])
-  #else
-      @spot = Spot.new(name: todo_params[:name], address: todo_params[:address], latitude: todo_params[:latitude], longitude: todo_params[:longitude])
+    @spot = Spot.new(name: todo_params[:name], address: todo_params[:address], latitude: todo_params[:latitude], longitude: todo_params[:longitude])
   end
 
   if @spot.save
     @todo = current_user.todos.new(content: todo_params[:content], spot_id: @spot.id)
     @todo.save
-    redirect_to todos_path, success: 'todoを作成しました'
+    redirect_to todos_path, success: t('notice.todo.create')
   else
     @todo = Todo.new(content:todo_params[:content])
-    flash.now[:danger] = 'todoを作成できませんでしたよ'
+    flash.now[:danger] = t('notice.todo.not_create')
     render :new
   end
 
@@ -57,17 +52,17 @@ class TodosController < ApplicationController
           #紐づくtodoが0になってしまったspotは削除する
           @spot.destroy if @spot.todos.empty?
           
-          redirect_to todos_path, success: 'todoを更新しました'
+          redirect_to todos_path, success: t('notice.todo.update')
         }
       rescue Exception => e
-        flash.now[:danger] = 'todoを更新できませんでした'
+        flash.now[:danger] = t('notice.todo.not_update')
         render :edit
       end
     else
       if @todo.update!(content: todo_params[:content])
-        redirect_to todos_path, success: 'todoを更新しました'
+        redirect_to todos_path, success: t('notice.todo.update')
       else
-        flash.now[:danger] = 'todoを更新できませんでした'
+        flash.now[:danger] = t('notice.todo.not_update')
         render :edit
       end
     end

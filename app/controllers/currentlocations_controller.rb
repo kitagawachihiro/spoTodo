@@ -1,6 +1,5 @@
 class CurrentlocationsController < ApplicationController
     before_action :require_login
-    # before_action :ensure_correct_user
   
     def index
       spots = current_user.spots.includes(:todos).select(:id, :name).distinct
@@ -19,15 +18,9 @@ class CurrentlocationsController < ApplicationController
       elsif current_user.currentlocation.nil?
         Currentlocation.create(address: address, latitude: params[:latitude], longitude: params[:longitude], user_id:current_user.id)
       else #どちらもできなかった場合は
-        flash[:danger] = '現在地を正しく取得できませんでしたので前回の一覧を表示しました'
+        flash[:danger] = t('notice.login.danger')
       end
       redirect_to action: 'index'
     end
-  
-    #private
-  
-    #def ensure_correct_user
-    #  redirect_to login_path unless current_user == nil
-    #end
   
   end

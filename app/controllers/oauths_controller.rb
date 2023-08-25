@@ -6,15 +6,15 @@ class OauthsController < ApplicationController
   def callback
     provider = auth_params[:provider]
     if (@user = login_from(provider))
-      redirect_back_or_to todos_path, notice: "LINEでログインしました"
+      redirect_back_or_to todos_path, success: t('notice.login.success')
     else
       begin
         @user = create_from(provider)
         reset_session
         auto_login(@user)
-        redirect_back_or_to todos_path, notice: "LINEでログインしました"
+        redirect_back_or_to todos_path, t('notice.login.success')
       rescue StandardError
-        redirect_to todos_path, alert: "LINEでのログインに失敗しました"
+        redirect_to todos_path, alert: t('notice.login.fail')
       end
     end
   end
@@ -22,7 +22,7 @@ class OauthsController < ApplicationController
   def destroy
     logout
     redirect_to login_path
-    flash[:success] = "ログアウトしました"
+    flash[:success] = t('notice.login.logout')
   end
 
   private
