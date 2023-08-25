@@ -1,3 +1,6 @@
+<%= stylesheet_link_tag 'title', media: 'all', 'data-turbolinks-track': 'reload' %>
+<%= stylesheet_link_tag 'index', media: 'all', 'data-turbolinks-track': 'reload' %>
+<%= stylesheet_link_tag 'currentlocation/index', media: 'all', 'data-turbolinks-track': 'reload' %>
 
 <div class="title">
   <h1><%= t ('.title') %></h1>
@@ -28,84 +31,3 @@
     </div>
   </div>
 <% end %>
-
-<style>
-/* タイトル部分（共通）*/
-
-.title{
-  position: relative;
-  height: 100px;
-  width:100vh;
-}
-h1,.btn{
-  position: absolute; 
-  display: inline-block; 
-  bottom: 0;
-}
-
-/* Add Todoボタン */
-.btn{
-  left: 320px;
-  margin-bottom:10px;
-  border-radius: 100vh;
-  height: 40px;
-  width: 100px;
-  background-color: #F2C67F;
-  border:none;
-  color: white;
-  font-size: 16px;
-  text-align: center;
-}
-
-.btn:hover{
-    background-color: #FCEACE;
-    color: #F2C67F;
-}
-
-/* カード */
-.card {
-    border-radius: 10px;
-    padding: 10px;
-    margin-bottom :20px;
-    margin-right :10px;
-}
-
-/* 場所名 */
-  .card-title{
-    border-radius: 10px;
-    background-color :#D4DEDD;
-    padding: 16px;
-  }
-
-/* todoの中身 */
-
-  .list-group-item{
-    border: none;
-    display:flex;
-    position: relative;
-}
-
-.item-content{
-  width:70%;
-  word-break: break-all;
-}
-
-/* 編集・削除ボタン */
-
-i{
-  margin-right:5px;
-  color:#D4DEDD;
-}
-
-a:hover {
-text-decoration: none;
-}
-
-.item-right{
-  width:60px;
-  right : 0;
-  position: absolute;
-
-}
-
-</style>

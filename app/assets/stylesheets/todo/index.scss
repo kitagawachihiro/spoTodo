@@ -1,0 +1,10 @@
+/* Add Todoボタン */
+.btn{
+  left: 70px; /*ここだけ違う*/
+}
+.plus_icon {
+  position: fixed;
+  right: 10vw;
+  bottom: 100px;
+  z-index: 10;
+}

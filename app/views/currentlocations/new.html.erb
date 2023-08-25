@@ -1,3 +1,6 @@
+<%= stylesheet_link_tag 'title', media: 'all', 'data-turbolinks-track': 'reload' %>
+<%= stylesheet_link_tag 'currentlocation/new', media: 'all', 'data-turbolinks-track': 'reload' %>
+
 <div class="title">
     <h1><%= t ('.title') %></h1>
 </div>
@@ -5,69 +8,13 @@
 <div class="container-mid">
     <div class="content">
         <p>今いる場所の近くで出来るTodoリストを作ります。</br> ※ボタンを押した後、しばらくお待ちください。</p>
-        <button type="button" class="get-current-position-btn"><%= t ('.get') %></button>
-        <button type="button" class="btn" onclick="location.href='/currentlocations'"><%= t ('.check') %></button>
     </div>
+    
+    <button type="button" class="get-current-position-btn"><%= t ('.get') %></button>
+    <button type="button" class="check-list-btn" onclick="location.href='/currentlocations'"><%= t ('.check') %></button>
+    
     <div class="qr">
         <p>外出先ではLINEから現在地送信 <%= image_tag 'location-dot-solid.svg', width: "15px;" %><br>「spoTodo」を友達追加</p>
         <%= image_tag 'qr.png', width: "150px;" %>
     </div>
 </div>
-
-
-<style>
-/* タイトル部分（共通）*/
-
-.title{
-  position: relative;
-  height: 100px;
-}
-
-h1{
-  position: absolute; 
-  display: inline-block; 
-  bottom: 0;
-}
-
-.container-mid{
-    text-align: center;
-    height:500px;
-    padding: 100px;
-}
-
-p{
-    display: block;
-}
-
-.get-current-position-btn, .btn{
-    display: block;
-    border-radius: 100vh;
-    margin: 0 auto;
-    margin-bottom: 50px;
-    height: 80px;
-    width: 300px;
-    background-color: #F2C67F;
-    border:none;
-    color: white;
-    font-size: 16px;
-}
-
-.btn{
-    background-color: #BEC7C6;
-}
-
-button:hover {
-  opacity: 0.5;
-  color: gray;
-}
-
-.qr{
-    width: 350px;
-    background-color: #06C755;
-    margin: 0 auto;
-    margin-top:100px;
-    padding-top: 20px;
-    padding-bottom: 20px;
-    border-radius: 30px;
-}
-</style>
