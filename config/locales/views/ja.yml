@@ -49,6 +49,7 @@ ja:
       not_create: 'Todoが登録できませんでした'
       update: 'Todoを更新しました'
       not_update: 'Todoを更新できませんでした'
+      destroy: 'Todoを削除しました'
     user:
       update: '距離設定を更新しました'
       not_update: '距離設定が更新できませんでした'
