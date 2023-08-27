@@ -25,6 +25,6 @@ production:
   adapter: postgresql
   encoding: unicode
   pool:  <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-  database: <任意のデータベース名>
-  username: <任意のユーザー名>
-  password: <%= Rails.application.credentials.db_password %> # .envで設定
+  database: spotodo-db
+  #username: <任意のユーザー名>
+  #password: <%= Rails.application.credentials.db_password %> # .envで設定
