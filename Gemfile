@@ -58,6 +58,12 @@ gem 'font-awesome-sass', '~> 5.15.1'
 #住所取得のため　Geocoder
 gem 'geocoder'
 
+#かみなりを導入 rails5系を使用しているので、0.17.0(Rails5で動作するよう改善されている)
+gem 'kaminari', '~> 0.17.0'
+
+#かみなりのbootstrapレイアウト
+gem 'bootstrap4-kaminari-views'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   # gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
