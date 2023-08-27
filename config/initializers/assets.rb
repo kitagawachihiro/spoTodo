@@ -20,6 +20,7 @@ Rails.application.config.assets.precompile += %w(
     explanation/top.scss
     oauth/login.scss
     shared/sidebar.scss
+    shared/mobile_sidebar.scss
     todo/index.scss
     todo/edit.scss
     todo/form.scss

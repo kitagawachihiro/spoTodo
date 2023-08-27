@@ -51,3 +51,12 @@
 h3{
     color: #BEC7C6;
 }
+
+@media screen and (max-width: 1200px){
+    .exp-container{
+        display:block;
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+}

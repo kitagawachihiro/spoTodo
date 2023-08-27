@@ -1,0 +1,35 @@
+<%= stylesheet_link_tag 'shared/mobile_sidebar', media: 'all', 'data-turbolinks-track': 'reload' %>
+<span class="nav_toggle">
+  <i></i>
+  <i></i>
+  <i></i>
+</span>
+<!-- クリックで表示されるメニュー -->
+<% if current_user %>
+    <nav class="nav">
+        <ul class="nav_menu_ul">
+            <li class="nav_menu_li"><a href="/todos/new"><%= t 'todos.new.title' %></a></li>
+            <li class="nav_menu_li"><a href="/currentlocations/new"><%= t 'currentlocations.new.title' %></a></li>
+            <li class="nav_menu_li"><a href="/todos"><%= t 'todos.index.title' %></a></li>
+            <li class="nav_menu_li"><a href="/usersetting"><%= t 'users.edit.title' %></a></li>
+            <li class="nav_menu_li"><a href="#"><%= t 'shared.sidebar.privacy_policy' %></a></li>
+            <li class="nav_menu_li"><a href="#"><%= t 'shared.sidebar.terms_of_service' %></a></li>
+            <li class="nav_menu_li"><a href="#"><%= t 'shared.sidebar.ask' %></a></li>
+        </ul>
+    </nav>
+<% else %>
+    <nav class="nav">
+        <ul class="nav_menu_ul">
+            <li class="nav_menu_li"><a href="/login"><%= t 'shared.sidebar.login' %></span></a></li>
+            <li class="nav_menu_li"><a href="#"><%= t 'shared.sidebar.privacy_policy' %></a></li>
+            <li class="nav_menu_li"><a href="#"><%= t 'shared.sidebar.terms_of_service' %></a></li>
+            <li class="nav_menu_li"><a href="#"><%= t 'shared.sidebar.ask' %></a></li>
+        </ul>
+    </nav>
+<% end %>
+
+<script>
+  $(".nav_toggle").on("click", function () {
+    $(".nav_toggle, .nav").toggleClass("show");
+  });
+</script>
