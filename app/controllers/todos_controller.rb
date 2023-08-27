@@ -3,7 +3,7 @@ class TodosController < ApplicationController
  before_action :require_login
 
  def index
-   @spots = current_user.spots.includes(:todos).select(:id, :name).distinct
+   @spots = current_user.spots.includes(:todos).select(:id, :name).distinct.page(params[:page])
  end
 
  def new
@@ -70,7 +70,7 @@ class TodosController < ApplicationController
 
  def destroy
   @todo.destroy
-  flash[:success] = "Article deleted"
+  flash[:success] = t('notice.todo.destroy')
 
 #もし紐づくtodoがなくなってしまった場合は、そのspotも削除する
   @todo.spot.destroy if @todo.spot.todos.nil?

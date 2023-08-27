@@ -3,7 +3,7 @@ class CurrentlocationsController < ApplicationController
   
     def index
       spots = current_user.spots.includes(:todos).select(:id, :name).distinct
-      @spots = spots.near([current_user.currentlocation.latitude, current_user.currentlocation.longitude], current_user.distance)
+      @spots = spots.near([current_user.currentlocation.latitude, current_user.currentlocation.longitude], current_user.distance).page(params[:page])
     end
   
     def new; end
