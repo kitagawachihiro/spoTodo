@@ -24,7 +24,4 @@ production:
   <<: *default
   adapter: postgresql
   encoding: unicode
-  pool:  <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-  database: spotodo-db
-  username: postgres
-  password: <%= Rails.application.credentials.db_password %> 
+  pool: 5
