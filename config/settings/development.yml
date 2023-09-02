@@ -1,4 +1,0 @@
-sorcery:
-    line_callback_url: 'https://e315-240b-c010-490-ce15-24b4-2e-d50c-8a78.ngrok-free.app/oauth/callback?provider=line'
-app:
-    url: 'https://e315-240b-c010-490-ce15-24b4-2e-d50c-8a78.ngrok-free.app'
