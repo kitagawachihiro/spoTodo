@@ -2,8 +2,13 @@ class CurrentlocationsController < ApplicationController
     before_action :require_login
   
     def index
-      spots = current_user.spots.includes(:todos).select(:id, :name).distinct
-      @spots = spots.near([current_user.currentlocation.latitude, current_user.currentlocation.longitude], current_user.distance).page(params[:page])
+      if current_user.currentlocation.nil?
+        flash.now[:danger] = t('notice.currentlocation.nil')
+        render 'new'
+      else
+        spots = current_user.spots.includes(:todos).select(:id, :name).distinct
+        @spots = spots.near([current_user.currentlocation.latitude, current_user.currentlocation.longitude], current_user.distance).page(params[:page])
+      end
     end
   
     def new; end
@@ -12,6 +17,7 @@ class CurrentlocationsController < ApplicationController
     
       results = Geocoder.search([params[:latitude], params[:longitude]])
       address = results.first.address
+
       #すでにcurrentlocationがある場合はupdate
       if current_user.currentlocation.present?
         current_user.currentlocation.update(address: address, latitude: params[:latitude], longitude: params[:longitude])
