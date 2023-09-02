@@ -29,4 +29,5 @@ Rails.application.routes.draw do
 
   #toppage
   root to: "explanations#top"
+
 end

@@ -1,5 +1,7 @@
 {
   "name": "spoTodo",
   "private": true,
-  "dependencies": {}
+  "dependencies": {
+  },
+  "packageManager": "yarn@1.22.19"
 }

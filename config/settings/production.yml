@@ -1,0 +1,4 @@
+sorcery:
+    line_callback_url: 'https://spotodo.fly.dev/oauth/callback?provider=line'
+app:
+    url: 'https://spotodo.fly.dev'

@@ -1,4 +1,6 @@
 class OauthsController < ApplicationController
+  before_action :not_allow_access, only: [:login]
+
   def oauth
     login_at(auth_params[:provider])
   end
@@ -12,9 +14,9 @@ class OauthsController < ApplicationController
         @user = create_from(provider)
         reset_session
         auto_login(@user)
-        redirect_back_or_to todos_path, t('notice.login.success')
+        redirect_back_or_to todos_path, success: t('notice.login.success')
       rescue StandardError
-        redirect_to todos_path, alert: t('notice.login.fail')
+        redirect_to login_path, alert: t('notice.login.fail')
       end
     end
   end
@@ -30,4 +32,10 @@ class OauthsController < ApplicationController
   def auth_params
     params.permit(:code, :provider, :error, :state)
   end
+
+
+  def not_allow_access
+    redirect_to todos_path if current_user.present?
+  end
+
 end
