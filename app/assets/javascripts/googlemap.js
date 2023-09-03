@@ -38,7 +38,7 @@
    });
  }
  
- $(function () {
+ $(document).on ("turbolinks:load", function () {
    $(".get-current-position-btn").click(() => {
      navigator.geolocation.getCurrentPosition(success, fail);
    });
