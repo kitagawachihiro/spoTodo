@@ -37,7 +37,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'bootsnap', '>= 1.1.0', require: false
 
 # 認証機能実装のためにsorceryを導入
-gem 'sorcery', '0.16.5'
+gem 'sorcery'
 
 # URL等の管理のため
 gem 'config'
