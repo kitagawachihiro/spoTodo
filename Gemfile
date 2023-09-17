@@ -59,7 +59,7 @@ gem 'font-awesome-sass', '~> 5.15.1'
 gem 'geocoder'
 
 #かみなりを導入 rails5系を使用しているので、0.17.0(Rails5で動作するよう改善されている)
-gem 'kaminari', '~> 0.17.0'
+gem 'kaminari'
 
 #かみなりのbootstrapレイアウト
 gem 'bootstrap4-kaminari-views'
