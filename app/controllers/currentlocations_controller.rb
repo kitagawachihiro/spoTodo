@@ -6,7 +6,7 @@ class CurrentlocationsController < ApplicationController
         flash.now[:danger] = t('notice.currentlocation.nil')
         render 'new'
       else
-        spots = current_user.spots.includes(:todos).select(:id, :name).distinct
+        spots = current_user.spots.includes(:todos).select(:id, :name).order(id: "DESC").distinct
         @spots = spots.near([current_user.currentlocation.latitude, current_user.currentlocation.longitude], current_user.distance).page(params[:page])
       end
     end
