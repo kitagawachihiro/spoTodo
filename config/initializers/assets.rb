@@ -11,19 +11,5 @@ Rails.application.config.assets.paths << Rails.root.join('node_modules')
 # Precompile additional assets.
 # application.js, application.css, and all non-JS/CSS in the app/assets
 # folder are already added.
-Rails.application.config.assets.precompile += %w(
-    title.scss
-    index.scss
-
-    currentlocation/index.scss
-    currentlocation/new.scss
-    explanation/top.scss
-    oauth/login.scss
-    shared/sidebar.scss
-    shared/mobile_sidebar.scss
-    todo/index.scss
-    todo/edit.scss
-    todo/form.scss
-    todo/map.scss
-    user/edit.scss
-)
+#Rails.application.config.assets.precompile += %w(
+#)
