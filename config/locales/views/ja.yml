@@ -1,9 +1,9 @@
 ja:
   currentlocations:
     index:
-      title: '近くでできるTodo'
+      title: '今できるTodo'
     new:
-      title: '今できるTodoは？'
+      title: '今できるTodo'
       get: '現在地を取得する'
       check: '前回いた地点でのTodoを見る'
   todos:
