@@ -5,14 +5,14 @@ Rails.application.routes.draw do
   end
 
   #user
-  get 'usersetting', to: "users#edit"
-  post 'usersetting', to: "users#update"
+  get 'usersetting', to: 'users#edit'
+  post 'usersetting', to: 'users#update'
 
   # OAuth
-  get 'oauth/oauth', to: "oauths#callback"
-  get 'oauth/callback', to: "oauths#callback"
-  get "oauth/:provider", to: "oauths#oauth", as: :auth_at_provider
-  delete 'logout', to: "oauths#destroy"
+  get 'oauth/oauth', to: 'oauths#callback'
+  get 'oauth/callback', to: 'oauths#callback'
+  get 'oauth/:provider', to: 'oauths#oauth', as: :auth_at_provider
+  delete 'logout', to: 'oauths#destroy'
 
   #line_events webhookを受けるURL
   post :line_events, to: 'line_events#recieve'
@@ -28,6 +28,6 @@ Rails.application.routes.draw do
   resources :currentlocations, only: [:index, :new, :create]
 
   #toppage
-  root to: "explanations#top"
+  root to: 'explanations#top'
 
 end

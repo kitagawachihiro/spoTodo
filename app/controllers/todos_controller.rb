@@ -3,7 +3,7 @@ class TodosController < ApplicationController
  before_action :require_login
 
  def index
-   @spots = current_user.spots.includes(:todos).select(:id, :name).order(id: "DESC").distinct.page(params[:page])
+   @spots = current_user.spots.includes(:todos).select(:id, :name).order(id: 'DESC').distinct.page(params[:page])
  end
 
  def new
