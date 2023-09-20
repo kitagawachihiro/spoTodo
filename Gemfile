@@ -97,8 +97,8 @@ end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
-gem "dockerfile-rails", :group => :development
+gem 'dockerfile-rails', :group => :development
 
-gem "sentry-ruby"
+gem 'sentry-ruby'
 
-gem "sentry-rails"
+gem 'sentry-rails'

@@ -222,11 +222,11 @@ Rails.application.config.sorcery.configure do |config|
    config.line.key = Rails.application.credentials.dig(:line, :channel_id)
    config.line.secret = Rails.application.credentials.dig(:line, :channel_secret)
    config.line.callback_url = Settings.sorcery[:line_callback_url]
-   config.line.scope = "profile openid"
+   config.line.scope = 'profile openid'
   # config.line.bot_prompt = "normal"
   # config.line.user_info_mapping = {name: 'displayName'}
   #自分で追記
-   config.line.bot_prompt = "aggressive"
+   config.line.bot_prompt = 'aggressive'
   #ユーザー認証後、友達追加してもらう
   
   # For information about Discord API
@@ -565,5 +565,5 @@ Rails.application.config.sorcery.configure do |config|
 
   # This line must come after the 'user config' block.
   # Define which model authenticates with sorcery.
-  config.user_class = "User"
+  config.user_class = 'User'
 end

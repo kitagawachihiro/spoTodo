@@ -64,84 +64,84 @@ class LineEventsController < ApplicationController
                 "type": 'flex',
                 "altText": "近くでできるtodoはこちら↓ #{Settings.app[:url]}/currentlocations?user_id=#{now_user.id}&openExternalBrowser=1",
                 "contents": {
-                  "type": "bubble",
+                  "type": 'bubble',
                   "hero": {
-                    "type": "image",
-                    "url": "https://i.gyazo.com/3e34a4d3fe1f0c60742dc02d1aead03e.png",
-                    "size": "full",
-                    "aspectRatio": "20:13",
-                    "aspectMode": "cover",
+                    "type": 'image',
+                    "url": 'https://i.gyazo.com/3e34a4d3fe1f0c60742dc02d1aead03e.png',
+                    "size": 'full',
+                    "aspectRatio": '20:13',
+                    "aspectMode": 'cover',
                     "action": {
-                      "type": "uri",
+                      "type": 'uri',
                       "uri": "#{Settings.app[:url]}/currentlocations?user_id=#{now_user.id}&openExternalBrowser=1"
                     }
                   },
                   "body": {
-                    "type": "box",
-                    "layout": "vertical",
+                    "type": 'box',
+                    "layout": 'vertical',
                     "contents": [
                       {
-                        "type": "text",
-                        "weight": "bold",
-                        "size": "xl",
-                        "text": "Todoリストができました"
+                        "type": 'text',
+                        "weight": 'bold',
+                        "size": 'xl',
+                        "text": 'Todoリストができました'
                       },
                       {
-                        "type": "box",
-                        "layout": "vertical",
-                        "margin": "lg",
-                        "spacing": "sm",
+                        "type": 'box',
+                        "layout": 'vertical',
+                        "margin": 'lg',
+                        "spacing": 'sm',
                         "contents": [
                           {
-                            "type": "box",
-                            "layout": "baseline",
-                            "spacing": "sm",
+                            "type": 'box',
+                            "layout": 'baseline',
+                            "spacing": 'sm',
                             "contents": [
                               {
-                                "type": "text",
-                                "text": "今いる場所の近くでできるTodoをピックアップしました",
-                                "color": "#aaaaaa",
-                                "size": "sm",
-                                "margin": "none",
+                                "type": 'text',
+                                "text": '今いる場所の近くでできるTodoをピックアップしました',
+                                "color": '#aaaaaa',
+                                "size": 'sm',
+                                "margin": 'none',
                                 "contents": [
                                   {
-                                    "type": "span",
-                                    "text": "今いる場所の近くでできるTodoをピックアップしました",
-                                    "style": "normal",
-                                    "decoration": "none",
-                                    "weight": "regular",
-                                    "size": "md"
+                                    "type": 'span',
+                                    "text": '今いる場所の近くでできるTodoをピックアップしました',
+                                    "style": 'normal',
+                                    "decoration": 'none',
+                                    "weight": 'regular',
+                                    "size": 'md'
                                   }
                                 ],
                                 "wrap": true
                               }
                             ],
-                            "offsetTop": "none"
+                            "offsetTop": 'none'
                           }
                         ]
                       }
                     ]
                   },
                   "footer": {
-                    "type": "box",
-                    "layout": "vertical",
-                    "spacing": "sm",
+                    "type": 'box',
+                    "layout": 'vertical',
+                    "spacing": 'sm',
                     "contents": [
                       {
-                        "type": "button",
-                        "style": "link",
-                        "height": "sm",
+                        "type": 'button',
+                        "style": 'link',
+                        "height": 'sm',
                         "action": {
-                          "type": "uri",
-                          "label": "リストへ",
+                          "type": 'uri',
+                          "label": 'リストへ',
                           "uri": "#{Settings.app[:url]}/currentlocations?user_id=#{now_user.id}&openExternalBrowser=1"
                         }
                       },
                       {
-                        "type": "box",
-                        "layout": "vertical",
+                        "type": 'box',
+                        "layout": 'vertical',
                         "contents": [],
-                        "margin": "sm"
+                        "margin": 'sm'
                       }
                     ],
                     "flex": 0
@@ -158,7 +158,7 @@ class LineEventsController < ApplicationController
       end
     end
   
-    "OK"
+    'OK'
   end
   
   
