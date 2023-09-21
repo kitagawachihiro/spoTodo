@@ -4,17 +4,43 @@
     position: relative;
     height: 100px;
   }
+
   h1,.btn{
     position: absolute; 
     display: inline-block; 
     bottom: 0;
   }
 
+.search_form{
+  position: absolute; 
+  right: 80px;
+  bottom: 0;
+}
+
+.form {
+  border: 1px #BEC7C6 solid;
+  padding: 0.5em 0.5em;
+  border-radius: 5px;
+  color: #5C6060;
+  height: 30px;
+  margin: 0 auto;
+}
+
+.search_btn{
+  position:absolute;
+  margin-left: 5px;
+  width: 50px;
+  height:30px;
+  padding: 0.2em;
+  border:1px #BEC7C6 solid;
+  border-radius: 5px;
+}
+
 
 /* ページネーション */
 .pagenate{
   position: absolute;
-  top:50px;
-  right: 15%;
+  bottom: -20px;
+  left: 150px;
   
 }
