@@ -3,7 +3,8 @@ class TodosController < ApplicationController
  before_action :require_login
 
  def index
-   @spots = current_user.spots.includes(:todos).select(:id, :name).order(id: 'DESC').distinct.page(params[:page])
+  @q = current_user.spots.ransack(params[:q])
+  @spots = @q.result.includes(:todos).select(:id, :name).order(id: 'DESC').distinct.page(params[:page])
  end
 
  def new
@@ -99,7 +100,6 @@ class TodosController < ApplicationController
    end
  end
 
- 
  private
 
  def current_todo

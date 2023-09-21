@@ -276,6 +276,10 @@ GEM
       thor (~> 1.0)
     rainbow (3.1.1)
     rake (13.0.6)
+    ransack (4.0.0)
+      activerecord (>= 6.1.5)
+      activesupport (>= 6.1.5)
+      i18n
     rb-fsevent (0.11.2)
     rb-inotify (0.10.1)
       ffi (~> 1.0)
@@ -390,6 +394,7 @@ DEPENDENCIES
   pry-rails
   puma
   rails (~> 6.1.7)
+  ransack
   rubocop
   sass-rails
   selenium-webdriver
