@@ -79,7 +79,7 @@ class TodosController < ApplicationController
 
  def finish
    @todo= Todo.find(params[:id])
-   @todo.update_attributes(finished:true)
+   @todo.update(finished:true)
 
    #現在のユーザーでお気に入りを作成
    respond_to do |format|
@@ -90,7 +90,7 @@ class TodosController < ApplicationController
 
  def continue
    @todo= Todo.find(params[:id])
-   @todo.update_attributes(finished:false)
+   @todo.update(finished:false)
 
    #現在のユーザーでお気に入りを作成
    respond_to do |format|
