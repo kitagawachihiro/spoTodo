@@ -4,16 +4,24 @@
 
 <div class="title">
   <h1><%= t ('.title') %></h1>
-</div>
-
-
-<% if @spots.empty? %>
-  <%= render 'shared/none' %>
-<% else %>
-
   <div class="pagenate">
     <%= paginate @spots, theme: 'twitter-bootstrap-4' %>
   </div>
+  
+  <div class='search_form'>
+    <%= search_form_for @q, url: currentlocations_path do |f| %>
+      <%= f.search_field :name_cont, placeholder:"場所", class:'form' %>
+      <%= f.submit class:'search_btn' %>
+    <% end %>
+  </div>
+
+</div>
+
+<% if @spots.empty? %>
+  <%= render 'none' %>
+<% else %>
+
+
 
   <% @spots.each do |spot| %>
     <div class="col-lg-4">
