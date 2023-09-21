@@ -6,32 +6,39 @@
   <h1><%= t ('.title') %></h1>
 </div>
 
-<div class="pagenate">
-  <%= paginate @spots, theme: 'twitter-bootstrap-4' %>
-</div>
 
-<% @spots.each do |spot| %>
-  <div class="col-lg-4">
-    <div class="card mb-3">
-      <div class="card-body">
-        <h5 class="card-title"><%= spot.name %></h5>
-      </div>
+<% if @spots.empty? %>
+  <%= render 'shared/none' %>
+<% else %>
 
-      <ul class="list-group">
-        <% spot.todos.each do |todo| %>
-          <li class="list-group-item">
-            <div class="item-check">
-              <%= render 'checks/check', todo: todo  %>
-            </div>
-            <div class="item-content">
-              <%= todo.content %>
-            </div>
-            <div class="item-right">
-              <%= render 'todos/btn', todo: todo  %>
-            </div>
-          </li>
-        <% end %>
-      </ul>
-    </div>
+  <div class="pagenate">
+    <%= paginate @spots, theme: 'twitter-bootstrap-4' %>
   </div>
+
+  <% @spots.each do |spot| %>
+    <div class="col-lg-4">
+      <div class="card mb-3">
+        <div class="card-body">
+          <h5 class="card-title"><%= spot.name %></h5>
+        </div>
+
+        <ul class="list-group">
+          <% spot.todos.each do |todo| %>
+            <li class="list-group-item">
+              <div class="item-check">
+                <%= render 'checks/check', todo: todo  %>
+              </div>
+              <div class="item-content">
+                <%= todo.content %>
+              </div>
+              <div class="item-right">
+                <%= render 'todos/btn', todo: todo  %>
+              </div>
+            </li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+  <% end %>
+
 <% end %>
