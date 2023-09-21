@@ -74,7 +74,7 @@ class TodosController < ApplicationController
 
 #もし紐づくtodoがなくなってしまった場合は、そのspotも削除する
   @todo.spot.destroy if @todo.spot.todos.nil?
-  redirect_to todos_url
+  redirect_back(fallback_location: todos_url)
  end
 
  def finish
