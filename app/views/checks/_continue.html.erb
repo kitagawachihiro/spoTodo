@@ -2,5 +2,8 @@
     id: "js-check-button-for-todo-#{todo.id}",
     method: :patch,
     remote: true do %>
-  <%= icon 'far', 'square fa-lg' %>
+
+  <div class='balloonoya'>
+    <%= icon 'far', 'square fa-lg' %><span class='balloon'>チェックしたTodoは<br>1週間後に削除されます</span>
+  </div>
 <% end %>
