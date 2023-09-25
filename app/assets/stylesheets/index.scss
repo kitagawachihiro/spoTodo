@@ -46,6 +46,7 @@
 
 /* 編集・削除ボタン */
 
+
 i{
   margin-right:5px;
   color:#D4DEDD;
@@ -60,6 +61,14 @@ text-decoration: none;
   right : 0;
   position: absolute;
 
+}
+
+.edit_btn{
+  float:left;
+}
+
+.delete_btn{
+  float:right;
 }
 
 /* チェックボタンのふきだし */

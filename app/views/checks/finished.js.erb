@@ -1,1 +1,2 @@
 $('#js-check-button-for-todo-<%= @todo.id %>').replaceWith("<%= j(render partial: 'checks/finished', locals: { todo: @todo }) %>");
+$('#edit-btn-<%= @todo.id %>').css('display', 'none');
