@@ -1,6 +1,12 @@
 <div class="edit_btn">
-    <%= link_to edit_todo_path(todo.id), id: "edit-btn-#{todo.id}" do %>
-        <%= icon 'fa', 'pen fa-lg' %>
+    <% if todo.finished == TRUE %>
+        <%= link_to edit_todo_path(todo.id), id: "edit-btn-#{todo.id}", style:'display:none' do %>
+            <%= icon 'fa', 'pen fa-lg' %>
+        <% end %>
+    <% else %>
+        <%= link_to edit_todo_path(todo.id), id: "edit-btn-#{todo.id}" do %>
+            <%= icon 'fa', 'pen fa-lg' %>
+        <% end %>
     <% end %>
 </div>
 <div class="delete_btn">  
