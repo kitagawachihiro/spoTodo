@@ -46,6 +46,7 @@
 
 /* 編集・削除ボタン */
 
+
 i{
   margin-right:5px;
   color:#D4DEDD;
@@ -60,4 +61,43 @@ text-decoration: none;
   right : 0;
   position: absolute;
 
+}
+
+.edit_btn{
+  float:left;
+}
+
+.delete_btn{
+  float:right;
+}
+
+/* チェックボタンのふきだし */
+
+.balloonoya {
+  position: relative;                /* 指定した分だけ相対的に移動 */
+}
+.balloonoya:hover .balloon {
+  display: inline;                /* インライン要素として表示 */
+}
+.balloon {
+  position: absolute;                /* 親要素を基準 */
+  display: none;                        /* 要素を非表示 */
+  padding: 6px;                         /* テキストの前後の余白 */
+  background-color: #F2C67F;       /* 背景色（透明度） */
+  width: 150px;                          /* 吹き出し全体の幅 */
+  top: 100%;                           /* 表示位置 */
+  margin-top: 12px;                    /* 表示位置 */
+  font-size: 80%;                       /* 文字サイズ */
+  color: black;
+  text-align: center;
+  border-radius: 10px;
+}
+.balloon:after{
+  border-bottom: 12px solid #F2C67F; /* 吹き出し口の高さ・色 */
+  border-left: 5px solid transparent;    /* 吹き出し口の幅１／２ */
+  border-right: 10px solid transparent;   /* 吹き出し口の幅１／２ */
+  top: -12px;                             /* 吹き出し口の位置調整 */
+  left: 5px;                              /* 吹き出し口の横位置 */
+  content: "";                       /* コンテンツの挿入 */
+  position: absolute;                /* 親要素を基準 */
 }

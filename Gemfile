@@ -67,6 +67,12 @@ gem 'bootstrap4-kaminari-views'
 #検索機能
 gem 'ransack'
 
+#rakeタスク（Todo自動削除）の定期実行（cron）をrailsで使用するため
+gem 'whenever', require: false
+
+#cron実行時の警告メッセージ「already initialized constant Net::ProtocRetryError」回避のため
+gem 'net-http'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   # gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]

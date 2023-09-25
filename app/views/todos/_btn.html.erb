@@ -1,7 +1,15 @@
-<div class='btn-group'>
-    <%= link_to edit_todo_path(todo.id) do %>
-        <%= icon 'fa', 'pen fa-lg' %>
+<div class="edit_btn">
+    <% if todo.finished == TRUE %>
+        <%= link_to edit_todo_path(todo.id), id: "edit-btn-#{todo.id}", style:'display:none' do %>
+            <%= icon 'fa', 'pen fa-lg' %>
+        <% end %>
+    <% else %>
+        <%= link_to edit_todo_path(todo.id), id: "edit-btn-#{todo.id}" do %>
+            <%= icon 'fa', 'pen fa-lg' %>
+        <% end %>
     <% end %>
+</div>
+<div class="delete_btn">  
     <%= link_to todo_path(todo.id), method: :delete, data: { confirm: 'todoを削除してもよろしいですか？' } do %>
         <%= icon 'fas', 'trash fa-lg' %>
     <% end %>
