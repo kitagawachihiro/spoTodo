@@ -73,6 +73,9 @@ gem 'whenever', require: false
 #cron実行時の警告メッセージ「already initialized constant Net::ProtocRetryError」回避のため
 gem 'net-http'
 
+#metaタグ設定
+gem "meta-tags"
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   # gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
