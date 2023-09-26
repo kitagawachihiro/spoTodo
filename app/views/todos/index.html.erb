@@ -3,7 +3,7 @@
 <%= stylesheet_link_tag 'todo/index', media: 'all', 'data-turbolinks-track': 'reload' %>
 
 <div class="title">
-  <h1><%= t 'todos.index.title' %></h1>
+  <h1><%= title t 'todos.index.title' %></h1>
   <div class='search_form'>
     <%= search_form_for @q, url: todos_path do |f| %>
       <%= f.search_field :name_cont, placeholder:"場所", class:'form' %>
