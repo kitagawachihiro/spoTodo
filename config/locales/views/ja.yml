@@ -20,9 +20,13 @@ ja:
       what: '何をしたい？'
       where: 'どこで？'
       search: '検索'
-      update: '更新'      
+      update: '更新' 
+  oauths:
+    login:
+      title: 'ログイン'    
   explanations:
     top:
+      title: 'spoTodoとは'
       start: 'スタート'
   users:
     edit:
@@ -32,6 +36,7 @@ ja:
       logout: 'ログアウト'
   shared:
     sidebar:
+      top: 'spoTodoとは'
       login: 'ログイン'
       privacy_policy: 'プライバシーポリシー'
       terms_of_service: '利用規約'

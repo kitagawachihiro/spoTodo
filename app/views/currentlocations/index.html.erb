@@ -1,9 +1,12 @@
+<% description 'あなたが登録したTodoのうち、今いる場所で出来るTodo一覧です' %>
+<% keywords '現在地, 現在地取得, 今できるTodo' %>
+
 <%= stylesheet_link_tag 'title', media: 'all', 'data-turbolinks-track': 'reload' %>
 <%= stylesheet_link_tag 'index', media: 'all', 'data-turbolinks-track': 'reload' %>
 <%= stylesheet_link_tag 'currentlocation/index', media: 'all', 'data-turbolinks-track': 'reload' %>
 
 <div class="title">
-  <h1><%= t ('.title') %></h1>
+  <h1><%= title t ('.title') %></h1>
   <div class="pagenate">
     <%= paginate @spots, theme: 'twitter-bootstrap-4' %>
   </div>
