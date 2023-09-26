@@ -36,6 +36,7 @@ ja:
       logout: 'ログアウト'
   shared:
     sidebar:
+      top: 'spoTodoとは'
       login: 'ログイン'
       privacy_policy: 'プライバシーポリシー'
       terms_of_service: '利用規約'
