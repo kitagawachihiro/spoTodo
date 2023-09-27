@@ -1,6 +1,3 @@
-<% description 'spoTodoのログインページ' %>
-<% keywords 'ログイン, spoTodo' %>
-
 <% title t 'oauths.login.title' %>
 
 <%= stylesheet_link_tag 'oauth/login', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -8,7 +5,7 @@
 <div class="container-mid">
     <div class="explain-logo">
         <%= image_tag 'spotodo_logo.png', width:"350px" %>
-        <p>“今度行ったらやりたい”を記録する</p>
+        <p>"いつかやりたい"を記録するサービス</p>
     </div>
     <%= link_to auth_at_provider_path(response_type: 'code', provider: :line), class:"btn" do image_tag 'btn_login_base.png' end %>
     <p>※loginで新規登録も完了します</p>
