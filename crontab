@@ -1,4 +1,1 @@
-# Begin Whenever generated tasks for: /Users/user/workspace/runteq/spoTodo/spoTodo/config/schedule.rb at: 2023-09-24 15:41:27 +0900
-PATH=/Users/user/.rbenv/versions/2.7.4/lib/ruby/gems/2.7.0/bin:/Users/user/.rbenv/versions/2.7.4/bin:/opt/homebrew/Cellar/rbenv/1.2.0/libexec:/opt/homebrew/opt/openssl@3/bin:/opt/homebrew/bin:/Users/user/.pyenv/shims:/Users/user/.nodenv/shims:/Users/user/.nodenv/bin:/Users/user/.rbenv/shims:/Users/user/.rbenv/bin:/opt/homebrew/sbin:/usr/local/bin:/System/Cryptexes/App/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin
-
-0 0 * * * /bin/zsh -l -c 'eval "$(rbenv init -)"; cd /Users/user/workspace/runteq/spoTodo/spoTodo && RAILS_ENV=development bundle exec rake delete:delete --silent >> /Users/user/workspace/runteq/spoTodo/spoTodo/log/cron.log 2>&1'
+0 0 * * * bundle exec rake delete:delete
