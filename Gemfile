@@ -76,6 +76,9 @@ gem 'net-http'
 #metaタグ設定
 gem 'meta-tags'
 
+#検証
+gem 'pg'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   # gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
@@ -103,7 +106,6 @@ end
 
 # 本番環境用
 group :production do
-  gem 'pg'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
