@@ -21,6 +21,12 @@
                     <input type="button" value=<%= t('.search') %> class="search" onclick="getAddress()">
                 </div>
             </div>
+
+            <div class="public">
+                <%= f.label :public, t('.public') %>
+                <%= f.check_box :public, id:'public_check', checked: @todo.public %>
+            </div>
+
             <div>
                 <%= f.hidden_field :address, value: @todo.spot.address, id: "spot_address" %>
             </div>

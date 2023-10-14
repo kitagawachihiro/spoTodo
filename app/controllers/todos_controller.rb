@@ -112,7 +112,7 @@ class TodosController < ApplicationController
  end
 
  def todo_params
-   params.require(:todo).permit(:content, :address, :name, :latitude, :longitude, :current_user_id)
+   params.require(:todo).permit(:content, :address, :name, :latitude, :longitude, :current_user_id, :public)
  end
  
 end

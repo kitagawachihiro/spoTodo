@@ -17,7 +17,7 @@ span input {
       border:1px #BEC7C6 solid;
       border-radius: 10px;
   }
-  .todo,.spot{
+  .todo,.spot,.public{
       padding-top: 10px;
       padding-bottom: 10px;
       width: 34vw;
@@ -45,4 +45,46 @@ span input {
   #todo_content{
       width: 34vw;
       min-width: 450px;
+  }
+  
+  /* 公開設定のチェックボックス */
+  .public{
+    margin-bottom: -10px;
+  }
+
+  input[type="checkbox"] {
+    position: relative;
+    width: 24px;
+    height: 24px;
+    border-radius: 5px;
+    border: 1px solid #BEC7C6;
+    vertical-align: -5px;
+    -webkit-appearance: none;
+       -moz-appearance: none;
+            appearance: none;
+    margin-left: 8px;
+  }
+  
+  input[type="checkbox"]:checked:before {
+    position: absolute;
+    top: 2px;
+    left: 7px;
+    transform: rotate(50deg);
+    width: 8px;
+    height: 14px;
+    border-right: 2px solid white;
+    border-bottom: 2px solid white;
+    content: '';
+  }
+
+  input[type="checkbox"]:checked{
+    background-color: #A9BABC;
+  }
+
+  *:focus {
+    outline: none;
+  }
+
+  input[type="checkbox"]:focus {
+    outline: none;
   }
