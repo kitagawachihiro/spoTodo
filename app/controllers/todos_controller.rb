@@ -21,7 +21,7 @@ class TodosController < ApplicationController
   end
 
   if @spot.save
-    @todo = current_user.todos.new(content: todo_params[:content], spot_id: @spot.id)
+    @todo = current_user.todos.new(content: todo_params[:content], spot_id: @spot.id, public: todo_params[:public] )
     @todo.save
     redirect_to todos_path, success: t('notice.todo.create')
   else
@@ -48,7 +48,7 @@ class TodosController < ApplicationController
       begin
         ActiveRecord::Base.transaction {
           @new_spot.save!
-          @todo.update!(content: todo_params[:content], spot_id: @new_spot.id)
+          @todo.update!(content: todo_params[:content], spot_id: @new_spot.id, public: todo_params[:public])
 
           #紐づくtodoが0になってしまったspotは削除する
           @spot.destroy if @spot.todos.empty?
@@ -60,7 +60,7 @@ class TodosController < ApplicationController
         render :edit
       end
     else
-      if @todo.update!(content: todo_params[:content])
+      if @todo.update!(content: todo_params[:content], public: todo_params[:public])
         redirect_to todos_path, success: t('notice.todo.update')
       else
         flash.now[:danger] = t('notice.todo.not_update')
