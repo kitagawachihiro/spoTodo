@@ -1,6 +1,7 @@
 class Todo < ApplicationRecord
   belongs_to :user
   belongs_to :spot
+  has_one :review
 
   validates :content, presence: true
   validates :finished, inclusion: [true, false]
