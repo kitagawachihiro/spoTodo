@@ -48,7 +48,7 @@ class TodosController < ApplicationController
       begin
         ActiveRecord::Base.transaction {
           @new_spot.save!
-          @todo.update!(content: todo_params[:content], spot_id: @new_spot.id, public: todo_params[:public])
+          @todo.update(content: todo_params[:content], spot_id: @new_spot.id, user_id: current_user.id, public: todo_params[:public])
 
           #紐づくtodoが0になってしまったspotは削除する
           @spot.destroy if @spot.todos.empty?
@@ -60,7 +60,7 @@ class TodosController < ApplicationController
         render :edit
       end
     else
-      if @todo.update!(content: todo_params[:content], public: todo_params[:public])
+      if @todo.update!(content: todo_params[:content], spot_id: @spot.id, user_id: current_user.id, public: todo_params[:public])
         redirect_to todos_path, success: t('notice.todo.update')
       else
         flash.now[:danger] = t('notice.todo.not_update')
@@ -79,21 +79,20 @@ class TodosController < ApplicationController
  end
 
  def finish
-   @todo= Todo.find(params[:id])
-   @todo.update(finished:true)
-
-   #現在のユーザーでお気に入りを作成
-   respond_to do |format|
-       format.html { redirect_to root_path }
-       format.js { render 'checks/finished.js.erb' }
-   end
+  @todo= Todo.find(params[:id])
+  @todo.update(finished:true)
+    #todoをチェック
+    respond_to do |format|
+      format.html { redirect_to root_path }
+      format.js { render 'checks/finished.js.erb' }
+    end
  end
 
  def continue
    @todo= Todo.find(params[:id])
    @todo.update(finished:false)
 
-   #現在のユーザーでお気に入りを作成
+   #todoからチェックを外す
    respond_to do |format|
        format.html { redirect_to root_path }
        format.js { render 'checks/continue.js.erb' }
