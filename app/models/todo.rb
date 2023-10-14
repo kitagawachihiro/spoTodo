@@ -4,6 +4,7 @@ class Todo < ApplicationRecord
   has_one :review
 
   validates :content, presence: true
+  validates :public, presence: true
   validates :finished, inclusion: [true, false]
   validates :user_id, presence: true
   validates :spot_id, presence: true
