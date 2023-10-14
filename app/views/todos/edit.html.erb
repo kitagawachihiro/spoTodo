@@ -23,8 +23,8 @@
             </div>
 
             <div class="public">
-                <%= f.label :public, t('.public') %>
-                <%= f.check_box :public, id:'public_check', checked: @todo.public %>
+                <%= f.label :public, t('.public_check') %>
+                <%= f.check_box :public, id:'public_check', value: @todo.public %>
             </div>
 
             <div>
@@ -40,5 +40,5 @@
     <% end %>
 </div>
 
-<script src="https://maps.googleapis.com/maps/api/js?key=<%= Rails.application.credentials.dig(:googlemap, :api_key) %>&libraries=places&callback=initMap">
+<script src="#https://maps.googleapis.com/maps/api/js?key=<%= Rails.application.credentials.dig(:googlemap, :api_key) %>&libraries=places&callback=initMap">
 </script>

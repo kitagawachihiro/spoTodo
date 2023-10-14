@@ -13,14 +13,14 @@ ja:
       title: 'AddTodo'
       what: '何をしたい？'
       where: 'どこで？'
-      public: '公開する？'
+      public_check: '公開する？'
       search: '検索'
       create: '登録'
     edit:
       title: 'EditTodo'
       what: '何をしたい？'
       where: 'どこで？'
-      public: '公開する？'
+      public_check: '公開する？'
       search: '検索'
       update: '更新' 
   oauths:
