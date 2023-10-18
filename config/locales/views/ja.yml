@@ -67,5 +67,8 @@ ja:
     user:
       update: '距離設定を更新しました'
       not_update: '距離設定が更新できませんでした'
+    review:
+      create: 'レビューを保存しました'
+      not_create: 'レビューが保存できませんでした'
 
       

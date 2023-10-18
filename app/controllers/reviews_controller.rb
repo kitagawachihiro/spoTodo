@@ -6,11 +6,10 @@ class ReviewsController < ApplicationController
 
   def create
     @review = Review.new(rating: params[:rating], comment: params[:comment], todo_id: @todo.id)
-    binding.pry
     if @review.save
-      redirect_to todos_path, success: 'いけたよ'
+      redirect_to todos_path, success: t('notice.review.create')
     else
-      flash.now[:danger] = 'できませんでした'
+      flash.now[:danger] = t('notice.review.not_create')
       render :new
     end
   end
