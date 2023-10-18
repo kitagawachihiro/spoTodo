@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_10_18_145708) do
+ActiveRecord::Schema.define(version: 2023_10_18_152833) do
 
   create_table "authentications", force: :cascade do |t|
     t.integer "user_id", null: false
@@ -37,7 +37,7 @@ ActiveRecord::Schema.define(version: 2023_10_18_145708) do
     t.string "comment"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["todo_id"], name: "index_reviews_on_todo_id"
+    t.index ["todo_id"], name: "index_reviews_on_todo_id", unique: true
   end
 
   create_table "spots", force: :cascade do |t|
