@@ -1,0 +1,37 @@
+<%= stylesheet_link_tag 'title', media: 'all', 'data-turbolinks-track': 'reload' %>
+<%= stylesheet_link_tag 'review/new', media: 'all', 'data-turbolinks-track': 'reload' %>
+
+<div class="title">
+    <h1><%= title t 'reviews.new.title' %></h1>
+</div>
+
+<div class="container-mid">
+    <%= form_with url: reviews_path, local: true do |f| %>
+        <div class="rating">
+            <%= f.label :rating, t('.review'), class: 'form-label' %></br>
+            <div class="col-lg-10 btn-group" data-toggle="buttons">
+                <label class="btn btn-primary active" style="width:30%">
+                    <%= f.radio_button :rating, 0, {checked: true} %> 普通
+                </label>
+                <label class="btn btn-primary" style="width:30%">
+                    <%= f.radio_button :rating, 1, {} %> 満足
+                </label>
+                <label class="btn btn-primary" style="width:30%">
+                    <%= f.radio_button :rating, 2, {} %> 大満足
+                </label>
+            </div>
+
+        <div class="comment">
+            <%= f.label :comment, t('.comment'), class: 'form-label' %></br>
+            <%= f.text_area :comment, placeholder:"やってみてどうでしたか？", class: 'form-control', row:"30" %>
+        </div>
+
+        <div>
+            <%= f.hidden_field :todo_id, value: params[:todo_id] %>
+        </div>
+        <%= f.submit t('.create'), class: 'create' %>
+        
+    <% end %>
+</div>
+
+

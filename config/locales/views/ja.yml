@@ -36,6 +36,12 @@ ja:
       distance: '距離設定'
       update: '更新'
       logout: 'ログアウト'
+  reviews:
+    new:
+      title: 'Todoのレビュー'
+      comment: 'コメント'
+      review: '評価'
+      create: '登録'
   shared:
     sidebar:
       top: 'spoTodoとは'

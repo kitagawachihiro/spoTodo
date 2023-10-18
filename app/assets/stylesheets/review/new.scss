@@ -1,0 +1,60 @@
+/* form コンテナ */
+.container-mid{
+    padding: 100px;
+}
+
+/* 評価ボタン */
+.rating{
+    padding-top: 10px;
+    padding-bottom: 10px;
+    width: 34vw;
+    min-width: 450px;
+    margin: 0 auto;
+}
+
+.btn-primary {
+    background: white; //ボタンの背景色
+    color: #5C6060; //ボタンのテキストの色
+    border:1px solid #BEC7C6;
+}
+
+.btn-primary:hover, .btn-primary:focus, 
+.btn-primary:active, .btn-primary:active:focus, .btn-primary:active:hover, .btn-primary:active.focus,
+.btn-primary.active, .btn-primary.active:focus, .btn-primary.active:hover, .btn-primary.active.focus,
+.open > .dropdown-toggle.btn-primary, 
+.open > .dropdown-toggle.btn-primary:hover,
+.open > .dropdown-toggle.btn-primary:focus, 
+.open > .dropdown-toggle.btn-primary.focus,
+.btn-primary.disabled:hover, .btn-primary[disabled]:hover, fieldset[disabled] .btn-primary:hover,
+.btn-primary.disabled:focus, .btn-primary[disabled]:focus, fieldset[disabled] .btn-primary:focus,
+.btn-primary.disabled.focus, .btn-primary[disabled].focus, fieldset[disabled] .btn-primary.focus {
+    background: #F2C67F; //ボタンの上にポインタを持ってきたり、クリックしたりした時の背景色
+    color: #5C6060; //ボタンの上にポインタを持ってきたり、クリックしたりした時のテキストの色
+    border:1px solid #BEC7C6;
+    box-shadow:none;
+}
+
+/* フォームレイアウト */
+.rating,.comment,.btn-group{
+    padding-top: 10px;
+    padding-bottom: 50px;
+    width: 34vw;
+    min-width: 450px;
+    margin: 0 auto;
+}
+
+.btn-group{
+    height: 100px;
+}
+
+.create{
+    display: block;
+    border-radius: 100vh;
+    margin: 0 auto;
+    height: 60px;
+    width: 200px;
+    background-color: #F2C67F;
+    border:none;
+    color: white;
+    font-size: 16px;
+}
