@@ -1,6 +1,6 @@
 $('#js-check-button-for-todo-<%= @todo.id %>').replaceWith("<%= j(render partial: 'checks/finished', locals: { todo: @todo }) %>");
 $('#edit-btn-<%= @todo.id %>').css('display', 'none');
-let checkSaveFlg = window.confirm('投稿もしますか');  
+let checkSaveFlg = window.confirm('Todoのレビューを登録しますか？');  
 if(checkSaveFlg) {
-    location.href = '/todos/<%= @todo.id %>/edit'
+    location.href = '/reviews/new?todo_id=<%= @todo.id %>'
     }
