@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-
+  
   scope module: :oauths do
     get 'login'
   end
@@ -29,5 +29,8 @@ Rails.application.routes.draw do
 
   #toppage
   root to: 'explanations#top'
+
+  #reviews
+  resources :reviews
 
 end
