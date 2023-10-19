@@ -23,17 +23,19 @@
 
       <ul class="list-group">
         <% spot.todos.each do |todo| %>
-          <li class="list-group-item">
-            <div class="item-check">
-              <%= render 'checks/check', todo: todo  %>
-            </div>
-            <div class="item-content">
-              <%= todo.content %>
-            </div>
-            <div class="item-right">
-              <%= render 'todos/btn', todo: todo  %>
-            </div>
-          </li>
+          <% if current_user.todos.include?(todo)%>
+            <li class="list-group-item">
+              <div class="item-check">
+                <%= render 'checks/check', todo: todo  %>
+              </div>
+              <div class="item-content">
+                <%= todo.content %>
+              </div>
+              <div class="item-right">
+                <%= render 'todos/btn', todo: todo  %>
+              </div>
+            </li>
+          <% end %>
         <% end %>
       </ul>
     </div>
