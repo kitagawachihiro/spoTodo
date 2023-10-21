@@ -32,4 +32,10 @@ Rails.application.routes.draw do
   #toppage
   root to: 'explanations#top'
 
+  #achieved_todos
+  get 'achieved_todos', to: 'achieved_todos#index'
+
+  #everyone_todos
+  get 'everyone_todos', to: 'everyone_todos#index'  
+
 end
