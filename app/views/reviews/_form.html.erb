@@ -4,8 +4,8 @@
         <div class="rating">
             <%= f.label :rating, t('.review'), class: 'form-label' %></br>
             <div class="col-lg-10 btn-group" data-toggle="buttons">
-                <label class="btn btn-primary active" style="width:30%" id="btnlabel0">
-                    <%= f.radio_button :rating, 0,  {checked: true} %> 普通
+                <label class="btn btn-primary" style="width:30%" id="btnlabel0">
+                    <%= f.radio_button :rating, 0, {} %> 普通
                 </label>
                 <label class="btn btn-primary" style="width:30%" id="btnlabel1">
                     <%= f.radio_button :rating, 1, {} %> 満足
@@ -28,3 +28,4 @@
         
     <% end %>
 </div>
+

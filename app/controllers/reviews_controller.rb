@@ -2,7 +2,9 @@ class ReviewsController < ApplicationController
   before_action :current_todo, only:[:new, :create]
   before_action :require_login
 
-  def new; end
+  def new
+    @review = Review.new
+  end
 
   def create
     @review = Review.new(rating: params[:rating], comment: params[:comment], todo_id: @todo.id)
@@ -15,6 +17,8 @@ class ReviewsController < ApplicationController
   end
 
   def edit
+    @review = Review.find_by(todo_id: params[:todo_id])
+
   end
 
   def update
