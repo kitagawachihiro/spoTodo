@@ -2,5 +2,5 @@ $('#js-check-button-for-todo-<%= @todo.id %>').replaceWith("<%= j(render partial
 $('#edit-btn-<%= @todo.id %>').css('display', 'none');
 let checkSaveFlg = window.confirm('Todoのレビューを登録しますか？');  
 if(checkSaveFlg) {
-    location.href = '/reviews/new?todo_id=<%= @todo.id %>'
+    location.href = 'todos/<%= @todo.id %>/review/new'
     }

@@ -1,8 +1,10 @@
 <%= stylesheet_link_tag 'title', media: 'all', 'data-turbolinks-track': 'reload' %>
 <%= stylesheet_link_tag 'review/new', media: 'all', 'data-turbolinks-track': 'reload' %>
 
+<%= javascript_include_tag 'edit' %>
+
 <div class="title">
-    <h1><%= title t 'reviews.new.title' %></h1>
+    <h1><%= title t 'reviews.edit.title' %></h1>
 </div>
 
 <div class="container-mid">
@@ -31,6 +33,7 @@
         <div>
             <%= f.hidden_field :todo_id, value: params[:todo_id] %>
         </div>
+
         <%= f.submit t('.create'), class: 'create' %>
         
     <% end %>
