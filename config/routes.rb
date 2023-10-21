@@ -22,6 +22,8 @@ Rails.application.routes.draw do
     #ルートの追加。memberはidが付与される。collectionは付与されない。
     member { patch 'finish' => 'todos#finish' }
     member { patch 'continue' => 'todos#continue' }
+    #reviews
+    resource :review
   end
 
   #currentlocations

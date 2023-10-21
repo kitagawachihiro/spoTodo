@@ -21,7 +21,7 @@ class TodosController < ApplicationController
   end
 
   if @spot.save
-    @todo = current_user.todos.new(content: todo_params[:content], spot_id: @spot.id)
+    @todo = current_user.todos.new(content: todo_params[:content], spot_id: @spot.id, public: todo_params[:public])
     @todo.save
     redirect_to todos_path, success: t('notice.todo.create')
   else
@@ -48,7 +48,7 @@ class TodosController < ApplicationController
       begin
         ActiveRecord::Base.transaction {
           @new_spot.save!
-          @todo.update!(content: todo_params[:content], spot_id: @new_spot.id)
+          @todo.update(content: todo_params[:content], spot_id: @new_spot.id, user_id: current_user.id, public: todo_params[:public])
 
           #紐づくtodoが0になってしまったspotは削除する
           @spot.destroy if @spot.todos.empty?
@@ -60,7 +60,7 @@ class TodosController < ApplicationController
         render :edit
       end
     else
-      if @todo.update!(content: todo_params[:content])
+      if @todo.update!(content: todo_params[:content], spot_id: @spot.id, user_id: current_user.id, public: todo_params[:public])
         redirect_to todos_path, success: t('notice.todo.update')
       else
         flash.now[:danger] = t('notice.todo.not_update')
@@ -79,21 +79,20 @@ class TodosController < ApplicationController
  end
 
  def finish
-   @todo= Todo.find(params[:id])
-   @todo.update(finished:true)
-
-   #現在のユーザーでお気に入りを作成
-   respond_to do |format|
-       format.html { redirect_to root_path }
-       format.js { render 'checks/finished.js.erb' }
-   end
+  @todo= Todo.find(params[:id])
+  @todo.update(finished:true)
+    #todoをチェック
+  respond_to do |format|
+    format.html { redirect_to root_path }
+    format.js { render 'checks/finished.js.erb' }
+  end
  end
 
  def continue
    @todo= Todo.find(params[:id])
    @todo.update(finished:false)
 
-   #現在のユーザーでお気に入りを作成
+   #todoからチェックを外す
    respond_to do |format|
        format.html { redirect_to root_path }
        format.js { render 'checks/continue.js.erb' }
@@ -112,7 +111,7 @@ class TodosController < ApplicationController
  end
 
  def todo_params
-   params.require(:todo).permit(:content, :address, :name, :latitude, :longitude, :current_user_id)
+   params.require(:todo).permit(:content, :address, :name, :latitude, :longitude, :current_user_id, :public)
  end
  
 end

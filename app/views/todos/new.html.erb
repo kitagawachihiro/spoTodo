@@ -23,6 +23,11 @@
                 </div>
             </div>
 
+            <div class="public">
+                <%= f.label :public, t('.public_check') %>
+                <%= f.check_box :public, id:'public_check', checked: false%>
+            </div>
+
             <div>
                 <%= f.hidden_field :address, id: "spot_address" %>
             </div>

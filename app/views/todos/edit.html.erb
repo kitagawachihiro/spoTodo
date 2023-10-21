@@ -21,6 +21,12 @@
                     <input type="button" value=<%= t('.search') %> class="search" onclick="getAddress()">
                 </div>
             </div>
+
+            <div class="public">
+                <%= f.label :public, t('.public_check') %>
+                <%= f.check_box :public, id:'public_check', value: @todo.public %>
+            </div>
+
             <div>
                 <%= f.hidden_field :address, value: @todo.spot.address, id: "spot_address" %>
             </div>
@@ -34,5 +40,5 @@
     <% end %>
 </div>
 
-<script src="https://maps.googleapis.com/maps/api/js?key=<%= Rails.application.credentials.dig(:googlemap, :api_key) %>&libraries=places&callback=initMap">
+<script src="#https://maps.googleapis.com/maps/api/js?key=<%= Rails.application.credentials.dig(:googlemap, :api_key) %>&libraries=places&callback=initMap">
 </script>

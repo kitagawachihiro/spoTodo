@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_09_18_032333) do
+ActiveRecord::Schema.define(version: 2023_10_18_152833) do
 
   create_table 'authentications', force: :cascade do |t|
     t.integer 'user_id', null: false
@@ -31,6 +31,15 @@ ActiveRecord::Schema.define(version: 2023_09_18_032333) do
     t.index ['user_id'], name: 'index_currentlocations_on_user_id', unique: true
   end
 
+  create_table 'reviews', force: :cascade do |t|
+    t.integer 'todo_id', null: false
+    t.integer 'rating'
+    t.string 'comment'
+    t.datetime 'created_at', precision: 6, null: false
+    t.datetime 'updated_at', precision: 6, null: false
+    t.index ['todo_id'], name: 'index_reviews_on_todo_id', unique: true
+  end
+
   create_table 'spots', force: :cascade do |t|
     t.string 'name', null: false
     t.string 'address', null: false
@@ -47,6 +56,8 @@ ActiveRecord::Schema.define(version: 2023_09_18_032333) do
     t.integer 'spot_id', null: false
     t.datetime 'created_at', null: false
     t.datetime 'updated_at', null: false
+    t.boolean 'public', default: false, null: false
+    t.integer 'addcount', default: 0
     t.index ['spot_id'], name: 'index_todos_on_spot_id'
     t.index ['user_id'], name: 'index_todos_on_user_id'
   end
@@ -58,4 +69,5 @@ ActiveRecord::Schema.define(version: 2023_09_18_032333) do
   end
 
   add_foreign_key 'currentlocations', 'users'
+  add_foreign_key 'reviews', 'todos'
 end

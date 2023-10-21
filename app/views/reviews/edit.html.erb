@@ -1,0 +1,22 @@
+<%= stylesheet_link_tag 'title', media: 'all', 'data-turbolinks-track': 'reload' %>
+<%= stylesheet_link_tag 'review/form', media: 'all', 'data-turbolinks-track': 'reload' %>
+
+<div class="title">
+    <h1><%= title t 'reviews.edit.title' %></h1>
+</div>
+
+<%= render 'reviews/form', review: @review %>
+
+<script>
+$(function(){
+    <% if @review.rating === 0 %>
+      $("#btnlabel0").addClass("active");
+    <% elsif @review.rating == 1 %>
+      $("#btnlabel1").addClass("active");
+      console.log("まんぞく");
+    <% elsif @review.rating == 2 %>
+      $("#btnlabel2").addClass("active");
+    <% end %>
+});
+
+</script>

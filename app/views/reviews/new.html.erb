@@ -1,0 +1,15 @@
+<%= stylesheet_link_tag 'title', media: 'all', 'data-turbolinks-track': 'reload' %>
+<%= stylesheet_link_tag 'review/form', media: 'all', 'data-turbolinks-track': 'reload' %>
+
+<div class="title">
+    <h1><%= title t 'reviews.new.title' %></h1>
+</div>
+
+<%= render 'reviews/form', review: @review %>
+
+<script>
+$(function(){
+   $("#btnlabel0").addClass("active");
+});
+
+</script>

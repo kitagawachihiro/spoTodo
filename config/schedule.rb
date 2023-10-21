@@ -16,6 +16,6 @@ set :output, "#{Rails.root}/log/cron.log"
 job_type :rbenv_rake, 'eval "$(rbenv init -)"; cd :path && :environment_variable=:environment bundle exec rake :task --silent :output'
 
 # 定期実行したい処理を記入
-every 1.day, at: '0:00' do
-  rbenv_rake 'delete:delete'
-end
+# every 1.day, at: '0:00' do
+#  rbenv_rake 'delete:delete'
+# end

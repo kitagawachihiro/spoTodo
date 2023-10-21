@@ -8,5 +8,6 @@
 //= link_directory ../stylesheets/shared .css
 //= link_directory ../stylesheets/todo .css
 //= link_directory ../stylesheets/user .css
+//= link_directory ../stylesheets/review .css
 
 

@@ -5,6 +5,7 @@ ja:
       cullentlocation: '現在地'
       oauth: '認証'
       todo: 'Todo'
+      review: 'レビュー'
     attributes:
       user:
         distance: '距離設定'
@@ -12,3 +13,7 @@ ja:
         address: '住所'
         latitude: '緯度'
         longitude: '経度'
+  helpers:
+    submit:
+      create: 登録
+      update: 更新

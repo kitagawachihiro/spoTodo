@@ -13,12 +13,14 @@ ja:
       title: 'AddTodo'
       what: '何をしたい？'
       where: 'どこで？'
+      public_check: '公開する？'
       search: '検索'
       create: '登録'
     edit:
       title: 'EditTodo'
       what: '何をしたい？'
       where: 'どこで？'
+      public_check: '公開する？'
       search: '検索'
       update: '更新' 
   oauths:
@@ -34,6 +36,16 @@ ja:
       distance: '距離設定'
       update: '更新'
       logout: 'ログアウト'
+  reviews:
+    new:
+      title: 'レビューの作成'
+      submit: '作成'
+    edit:
+      title: 'レビューの編集'
+      submit: '更新'
+    form:
+      comment: 'コメント'
+      review: '評価'
   shared:
     sidebar:
       top: 'spoTodoとは'
@@ -59,5 +71,10 @@ ja:
     user:
       update: '距離設定を更新しました'
       not_update: '距離設定が更新できませんでした'
+    review:
+      create: 'レビューを保存しました'
+      not_create: 'レビューが保存できませんでした'
+
+
 
       
