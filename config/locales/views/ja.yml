@@ -38,10 +38,14 @@ ja:
       logout: 'ログアウト'
   reviews:
     new:
-      title: 'Todoのレビュー'
+      title: 'レビューの作成'
+      submit: '作成'
+    edit:
+      title: 'レビューの編集'
+      submit: '更新'
+    form:
       comment: 'コメント'
       review: '評価'
-      create: '登録'
   shared:
     sidebar:
       top: 'spoTodoとは'
@@ -70,5 +74,7 @@ ja:
     review:
       create: 'レビューを保存しました'
       not_create: 'レビューが保存できませんでした'
+
+
 
       
