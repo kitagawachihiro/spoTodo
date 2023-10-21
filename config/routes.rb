@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  
+
   scope module: :oauths do
     get 'login'
   end

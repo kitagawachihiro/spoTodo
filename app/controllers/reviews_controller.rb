@@ -1,5 +1,5 @@
 class ReviewsController < ApplicationController
-  before_action :current_todo, only:[:new, :create]
+  before_action :current_todo, only: %i[new create]
   before_action :require_login
 
   def new
@@ -18,25 +18,20 @@ class ReviewsController < ApplicationController
 
   def edit
     @review = Review.find_by(todo_id: params[:todo_id])
-
   end
 
-  def update
-  end
+  def update; end
 
-  def destroy
-  end
-
+  def destroy; end
 
   private
 
   def current_todo
     @todo = Todo.find_by(id: params[:todo_id])
     redirect_to todos_path unless current_user.todos.include?(@todo)
- end
+  end
 
   def review_params
     params.require(:review).permit(:rating, :comment, :todo_id)
   end
-
 end

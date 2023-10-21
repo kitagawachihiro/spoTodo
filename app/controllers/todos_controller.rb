@@ -21,7 +21,7 @@ class TodosController < ApplicationController
   end
 
   if @spot.save
-    @todo = current_user.todos.new(content: todo_params[:content], spot_id: @spot.id, public: todo_params[:public] )
+    @todo = current_user.todos.new(content: todo_params[:content], spot_id: @spot.id, public: todo_params[:public])
     @todo.save
     redirect_to todos_path, success: t('notice.todo.create')
   else
@@ -82,10 +82,10 @@ class TodosController < ApplicationController
   @todo= Todo.find(params[:id])
   @todo.update(finished:true)
     #todoをチェック
-    respond_to do |format|
-      format.html { redirect_to root_path }
-      format.js { render 'checks/finished.js.erb' }
-    end
+  respond_to do |format|
+    format.html { redirect_to root_path }
+    format.js { render 'checks/finished.js.erb' }
+  end
  end
 
  def continue
