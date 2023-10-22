@@ -1,2 +1,25 @@
-<h1>AchievedTodos#index</h1>
-<p>Find me in app/views/achieved_todos/index.html.erb</p>
+<%= stylesheet_link_tag 'title', media: 'all', 'data-turbolinks-track': 'reload' %>
+<%= stylesheet_link_tag 'a_index', media: 'all', 'data-turbolinks-track': 'reload' %>
+<%= stylesheet_link_tag 'todo/index', media: 'all', 'data-turbolinks-track': 'reload' %>
+
+<div class="title">
+    <h1>仮タイトル</h1>
+  <%# <h1><%= title t 'todos.index.title' %></h1> 
+</div>
+
+<%#  <%= render 'none' if @todos.empty? %> 
+
+<% @a_todos.each do |todo| %>
+    <div class="card">
+      <div class="card-top">
+        <%= render 'achieved_todos/card-top', todo: todo  %>
+      </div>
+    
+      <div class="card-down">
+        <%= render 'achieved_todos/card-down', todo: todo  %>
+      </div>
+    </div>
+<% end %>
+
+
+

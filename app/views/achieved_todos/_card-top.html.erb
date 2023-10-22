@@ -1,0 +1,7 @@
+<div class="card-top-left">
+    <h5 class="card-title"><%= todo.content %></h5>
+    <h6 class="card-subtitle mb-2 text-body-secondary"><a class="route" href="https://www.google.com/maps/dir/?api=1&origin=&destination=<%= todo.spot.name %>"> <%= image_tag 'map-location-dot-solid.svg', width: "20px;"%>　<%= todo.spot.name %></a></h6>
+</div>
+<div class="card-top-right">
+    <%= render 'todos/btn', todo: todo  %>
+</div>

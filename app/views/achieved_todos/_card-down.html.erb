@@ -1,0 +1,14 @@
+<div class="card-down-left">
+    <% unless todo.review == nil %>
+        <div class="review"><p><%= todo.review.rating %></p></div>
+        <div class="comment"><p><%= todo.review.comment %></p></div>
+    <% else %>
+    <% end %>
+</div>
+<div class="card-down-right">
+    <% unless todo.review == nil %>
+        <%= link_to image_tag("gear-solid.svg"), edit_todo_review_path(todo.id) %>
+    <% else %>
+        <%= link_to image_tag("gear-solid.svg"), new_todo_review_path(todo.id) %>
+    <% end %>
+</div>

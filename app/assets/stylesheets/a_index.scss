@@ -1,0 +1,65 @@
+  /* Add Todoボタン */
+  .btn{
+    margin-bottom:10px;
+    border-radius: 100vh;
+    height: 40px;
+    width: 100px;
+    background-color: #F2C67F;
+    border:none;
+    color: white;
+    font-size: 16px;
+    text-align: center;
+  }
+
+  .btn:hover{
+    background-color: #FCEACE;
+    color: #F2C67F;
+}
+
+/* カード */
+.card {
+    border-radius: 10px;
+    padding: 10px;
+    margin-bottom :20px;
+    margin-right :10px;
+    width: 100%;
+}
+
+/* card top */
+.card-top{
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  border-radius: 10px;
+  background-color: #FCEACE;
+  padding-left: 20px;
+  padding-right: 10px;
+}
+
+/* 削除ボタン */
+.card-top-right{
+  margin: 20px;
+}
+
+i{
+  color:white;
+}
+
+/* ルートアイコン */
+.route{
+  margin-left: 5px;
+}
+
+
+.card-down{
+  display: flex;
+  justify-content: space-between;
+}
+
+.card-down-left{
+  display: flex;
+}
+
+.review{
+  margin-right: 20px;
+}
