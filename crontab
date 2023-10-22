@@ -1,1 +1,1 @@
-0 0 * * * bundle exec rake delete:delete
+# 0 0 * * * bundle exec rake delete:delete
