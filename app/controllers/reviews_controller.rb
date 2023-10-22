@@ -1,5 +1,6 @@
 class ReviewsController < ApplicationController
   before_action :current_todo, only: %i[new create]
+  before_action :current_review, only: %i[edit update destroy]
   before_action :require_login
 
   def new
@@ -22,13 +23,20 @@ class ReviewsController < ApplicationController
 
   def update; end
 
-  def destroy; end
+  def destroy
+    @review.destroy
+    redirect_to todos_path, success: 'レビューを削除しました'
+  end
 
   private
 
   def current_todo
     @todo = Todo.find_by(id: params[:todo_id])
     redirect_to todos_path unless current_user.todos.include?(@todo)
+  end
+
+  def current_review
+    @review = Review.find_by(todo_id: params[:todo_id])
   end
 
   def review_params
