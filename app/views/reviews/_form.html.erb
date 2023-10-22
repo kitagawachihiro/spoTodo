@@ -24,7 +24,10 @@
         <div>
             <%= f.hidden_field :todo_id, value: params[:todo_id] %>
         </div>
-        <%= f.submit t('.submit'), class: 'submit' %>
+
+        <div class="submit_btn">
+            <%= render 'reviews/btn', f:f %>
+        </div>  
         
     <% end %>
 </div>

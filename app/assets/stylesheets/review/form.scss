@@ -58,3 +58,29 @@
     color: white;
     font-size: 16px;
 }
+
+.cancel_btn{
+    display: block;
+    border-radius: 100vh;
+    margin: 0 auto;
+    height: 60px;
+    width: 200px;
+    background-color: #A9BABC;
+    border:none;
+    color: white;
+    font-size: 16px;
+    text-align: center;
+    padding:20px 0;
+}
+
+.cancel_btn:link, .cancel_btn:visited,.cancel_btn:hover, .cancel_btn:active{
+    text-decoration: none;
+    color: white;
+}
+
+.btn_container{
+    margin: 0 auto;
+    width: 90%;
+    display:flex;
+    justify-content: space-between;
+}

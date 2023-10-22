@@ -76,6 +76,7 @@ text-decoration: none;
 
 .balloonoya {
   position: relative;                /* 指定した分だけ相対的に移動 */
+  z-index: 10;
 }
 .balloonoya:hover .balloon {
   display: inline;                /* インライン要素として表示 */
