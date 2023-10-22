@@ -27,7 +27,10 @@
     <div class="col-lg-4">
       <div class="card mb-3">
         <div class="card-body">
-          <h5 class="card-title"><%= spot.name %></h5>
+          <h5 class="card-title">
+            <%= image_tag 'location-dot-solid.svg', width: "15px;" %> <%= spot.name %></a>
+            <a class="route" href="https://www.google.com/maps/dir/?api=1&origin=&destination=<%= spot.name %>"> <%= image_tag 'map-location-dot-solid.svg', width: "20px;" %></a>
+          </h5>
         </div>
 
         <ul class="list-group">
