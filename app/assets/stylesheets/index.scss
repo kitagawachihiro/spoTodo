@@ -101,3 +101,9 @@ text-decoration: none;
   content: "";                       /* コンテンツの挿入 */
   position: absolute;                /* 親要素を基準 */
 }
+
+.route{
+  display: block;
+  margin-top: -16px;
+  text-align: right;
+}
