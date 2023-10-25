@@ -1,9 +1,0 @@
-<div class="btn_container" >
-    <% if %>
-        <%= link_to "キャンセル", todos_path, class: 'cancel_btn' %>
-        <%= f.submit "作成", class: 'submit' %>
-    <% else %>
-        <%= link_to "削除", todos_path, class: 'cancel_btn' %>
-        <%= f.submit "作成", class: 'submit' %>
-    <% end %>
-</div>

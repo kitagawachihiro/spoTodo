@@ -1,14 +1,18 @@
 class ReviewsController < ApplicationController
-  before_action :current_todo, only: %i[new create]
+  before_action :current_todo, only: %i[new create edit update]
   before_action :current_review, only: %i[edit update destroy]
   before_action :require_login
 
   def new
-    @review = Review.new
+    if Review.exists?(todo_id: params[:todo_id])
+      redirect_back_or_to todos_path, danger: "既にレビューが作成されています。"
+    else
+      @review = Review.new
+    end
   end
 
   def create
-    @review = Review.new(rating: params[:rating], comment: params[:comment], todo_id: @todo.id)
+    @review = Review.new(rating: review_params[:rating], comment: review_params[:comment], todo_id: @todo.id)
     if @review.save
       redirect_to todos_path, success: t('notice.review.create')
     else
@@ -17,15 +21,24 @@ class ReviewsController < ApplicationController
     end
   end
 
-  def edit
-    @review = Review.find_by(todo_id: params[:todo_id])
+  def edit;end
+
+  def update
+    if @review.update(rating: review_params[:rating], comment: review_params[:comment])
+      redirect_back_or_to achievedtodos_path, success: 'レビューを更新しました'
+    else
+      flash.now[:danger] = '更新に失敗しました'
+      render 'edit'
+    end
   end
 
-  def update; end
-
   def destroy
-    @review.destroy
-    redirect_to todos_path, success: 'レビューを削除しました'
+    if @review.destroy
+      redirect_back_or_to achievedtodos_path, success: 'レビューを削除しました'
+    else
+      flash.now[:danger] = '削除に失敗しました'
+      render 'edit'
+    end
   end
 
   private
@@ -42,4 +55,5 @@ class ReviewsController < ApplicationController
   def review_params
     params.require(:review).permit(:rating, :comment, :todo_id)
   end
+
 end
