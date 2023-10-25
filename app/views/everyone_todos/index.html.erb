@@ -1,2 +1,24 @@
-<h1>EveryoneTodos#index</h1>
-<p>Find me in app/views/everyone_todos/index.html.erb</p>
+<%= stylesheet_link_tag 'title', media: 'all', 'data-turbolinks-track': 'reload' %>
+<%= stylesheet_link_tag 'a_index', media: 'all', 'data-turbolinks-track': 'reload' %>
+<%= stylesheet_link_tag 'todo/index', media: 'all', 'data-turbolinks-track': 'reload' %>
+
+<div class="title">
+    <h1><%= title t 'everyone_todos.index.title' %></h1> 
+</div>
+
+<%#  <%= render 'none' if @todos.empty? %> 
+
+<% @e_todos.each do |todo| %>
+    <div class="card">
+      <div class="card-top">
+        <%= render 'everyone_todos/card_top', todo: todo  %>
+      </div>
+    
+      <div class="card-down">
+        <%= render 'everyone_todos/card_down', todo: todo  %>
+      </div>
+    </div>
+<% end %>
+
+
+

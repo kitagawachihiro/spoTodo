@@ -1,0 +1,29 @@
+<%if todo.review.rating == 0 %>
+    <div class="rating_element usually">普通</div>
+<% elsif todo.review.rating == 1 %>
+    <div class="rating_element satisfaction">満足</div>
+<% elsif todo.review.rating == 2 %>
+    <div class="rating_element very_satisfied">大満足</div>
+<% end %>
+
+<style>
+.rating_element{
+    width: 70px;
+    text-align: center;
+    padding-left: 10px;
+    padding-right: 10px;
+    color: white;
+}
+
+.usually{
+    background-color: #A9BABC;
+}
+
+.satisfaction{
+    background-color: #F2C67F;
+}
+
+.very_satisfied{
+    background-color: orange;
+}
+</style>
