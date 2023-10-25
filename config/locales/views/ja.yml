@@ -46,6 +46,12 @@ ja:
     form:
       comment: 'コメント'
       review: '評価'
+  achieved_todos:
+    index:
+      title: 'あなたが実行できたTodo'
+  everyone_todos:
+    index:
+      title: 'みんなが実行できたTodo'
   shared:
     sidebar:
       top: 'spoTodoとは'
