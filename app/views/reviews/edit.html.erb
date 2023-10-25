@@ -16,7 +16,7 @@
     <%= form_with model:[@todo, @review], local: true do |f| %>
 
         <div class="rating">
-            <%= f.label :rating, t('.review'), class: 'form-label' %></br>
+            <%= f.label :rating, t('reviews.form.review'), class: 'form-label' %></br>
             <div class="col-lg-10 btn-group" data-toggle="buttons">
                 <label class="btn btn-primary" style="width:30%" id="btnlabel0">
                     <%= f.radio_button :rating, 0, {} %> 普通
@@ -31,7 +31,7 @@
             
 
         <div class="comment">
-            <%= f.label :comment, t('.comment'), class: 'form-label' %></br>
+            <%= f.label :comment, t('reviews.form.comment'), class: 'form-label' %></br>
             <%= f.text_area :comment, placeholder:"やってみてどうでしたか？", class: 'form-control', row:"30", value: @review.comment %>
         </div>
 
