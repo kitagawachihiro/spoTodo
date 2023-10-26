@@ -5,7 +5,7 @@ class ReviewsController < ApplicationController
 
   def new
     if Review.exists?(todo_id: params[:todo_id])
-      redirect_back_or_to todos_path, danger: t('notice.review.already')
+      redirect_back fallback_location: todos_path, danger: t('notice.review.already')
     else
       @review = Review.new
     end
@@ -14,7 +14,8 @@ class ReviewsController < ApplicationController
   def create
     @review = Review.new(rating: review_params[:rating], comment: review_params[:comment], todo_id: @todo.id)
     if @review.save
-      redirect_back_or_to todos_path, success: t('notice.review.create')
+      @todo.update(public: review_params[:public])
+      redirect_to achievedtodos_path, success: t('notice.review.create')
     else
       flash.now[:danger] = t('notice.review.not_create')
       render :new
@@ -25,7 +26,8 @@ class ReviewsController < ApplicationController
 
   def update
     if @review.update(rating: review_params[:rating], comment: review_params[:comment])
-      redirect_back_or_to achievedtodos_path, success: t('notice.review.update')
+      @todo.update(public: review_params[:public])
+      redirect_to achievedtodos_path, success: t('notice.review.update')
     else
       flash.now[:danger] = t('notice.review.not_update')
       render 'edit'
@@ -34,7 +36,7 @@ class ReviewsController < ApplicationController
 
   def destroy
     if @review.destroy
-      redirect_back_or_to achievedtodos_path, success: t('notice.review.delete')
+      redirect_to achievedtodos_path, success: t('notice.review.delete')
     else
       flash.now[:danger] = t('notice.review.not_delete')
       render 'edit'
@@ -53,7 +55,7 @@ class ReviewsController < ApplicationController
   end
 
   def review_params
-    params.require(:review).permit(:rating, :comment, :todo_id)
+    params.require(:review).permit(:rating, :comment, :todo_id, :public)
   end
 
 end
