@@ -15,34 +15,35 @@
 <%= render 'none' if @spots.empty? %>
 
 <% @spots.each do |spot| %>
-  <div class="col-lg-4">
-    <div class="card mb-3">
-      <div class="card-body">
-        <h5 class="card-title">
-          <%= image_tag 'location-dot-solid.svg', width: "15px;" %>　<%= spot.name %></a>
-          <a class="route" href="https://www.google.com/maps/dir/?api=1&origin=&destination=<%= spot.name %>"> <%= image_tag 'map-location-dot-solid.svg', width: "20px;" %></a>
-        </h5>
-      </div>
-
-      <ul class="list-group">
-        <% spot.todos.each do |todo| %>
-          <% if current_user.todos.include?(todo) && ( (todo.finished == true && todo.updated_at > Date.today) || todo.finished == false )%>
+  <% spot.todos.each do |todo| %>
+    <% if current_user.todos.include?(todo) && ( (todo.finished == true && todo.updated_at > Date.today) || todo.finished == false )%>
+      <div class="col-lg-4">
+        <div class="card mb-3">
+          <div class="card-body">
+            <h5 class="card-title">
+              <%= image_tag 'location-dot-solid.svg', width: "15px;" %>　<%= spot.name %></a>
+              <a class="route" href="https://www.google.com/maps/dir/?api=1&origin=&destination=<%= spot.name %>"> <%= image_tag 'map-location-dot-solid.svg', width: "20px;" %></a>
+            </h5>
+          </div>
+        
+          <ul class="list-group">  
+            
             <li class="list-group-item">
-              <div class="item-check">
-                <%= render 'checks/check', todo: todo  %>
-              </div>
-              <div class="item-content">
-                <%= todo.content %>
-              </div>
-              <div class="item-right">
-                <%= render 'todos/btn', todo: todo  %>
-              </div>
+                <div class="item-check">
+                  <%= render 'checks/check', todo: todo  %>
+                </div>
+                <div class="item-content">
+                  <%= todo.content %>
+                </div>
+                <div class="item-right">
+                  <%= render 'todos/btn', todo: todo  %>
+                </div>
             </li>
-          <% end %>
-        <% end %>
-      </ul>
-    </div>
-  </div>
+          </ul>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
 <% end %>
 
 <div class="plus_icon">
@@ -52,5 +53,5 @@
 </div>
 
 <div class="pagenate">
-<%= paginate @spots, theme: 'twitter-bootstrap-4' %>
+  <%= paginate @spots, theme: 'twitter-bootstrap-4' %>
 </div>
