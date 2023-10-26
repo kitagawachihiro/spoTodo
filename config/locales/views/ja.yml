@@ -8,7 +8,7 @@ ja:
       check: '前回いた地点でのTodoを見る'
   todos:
     index:
-      title: 'All'
+      title: 'My Todo'
     new:
       title: 'AddTodo'
       what: '何をしたい？'
@@ -51,7 +51,7 @@ ja:
       title: 'あなたが実行できたTodo'
   everyone_todos:
     index:
-      title: 'みんなが実行できたTodo'
+      title: 'みんなのTodo'
   shared:
     sidebar:
       top: 'spoTodoとは'
