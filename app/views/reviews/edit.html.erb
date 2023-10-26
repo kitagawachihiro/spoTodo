@@ -15,6 +15,11 @@
 
     <%= form_with model:[@todo, @review], local: true do |f| %>
 
+        <div class="public">
+            <%= f.label :public, t('todos.edit.public_check') %>
+            <%= f.check_box :public, id:'public_check', value: @todo.public %>
+        </div>
+
         <div class="rating">
             <%= f.label :rating, t('reviews.form.review'), class: 'form-label' %></br>
             <div class="col-lg-10 btn-group" data-toggle="buttons">
