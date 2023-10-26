@@ -35,7 +35,7 @@
 
         <ul class="list-group">
           <% spot.todos.each do |todo| %>
-            <% if current_user.todos.include?(todo)%>
+            <% if current_user.todos.include?(todo) && ( (todo.finished == true && todo.updated_at > Date.today) || todo.finished == false )%>
               <li class="list-group-item">
                 <div class="item-check">
                   <%= render 'checks/check', todo: todo  %>
