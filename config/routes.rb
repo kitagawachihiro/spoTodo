@@ -36,6 +36,7 @@ Rails.application.routes.draw do
   get 'achievedtodos', to: 'achieved_todos#index'
 
   #everyone_todos
-  get 'everyonetodos', to: 'everyone_todos#index'  
+  get 'everyonetodos', to: 'everyone_todos#index'
+  post 'add_todo', to: 'everyone_todos#add_todo'    
 
 end
