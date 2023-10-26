@@ -4,7 +4,7 @@ class TodosController < ApplicationController
 
  def index
   @q = current_user.spots.ransack(params[:q])
-  @spots = @q.result.includes(:todos).where('(todos.finished = ? AND todos.updated_at > ?) OR todos.finished = ?', true, Date.today, false).select(:id, :name).order(id: :desc).distinct.page(params[:page])
+  @spots = @q.result.includes(:todos).select(:id, :name).order(id: :desc).distinct.page(params[:page])
  end
 
  def new
