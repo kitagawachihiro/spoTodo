@@ -11,6 +11,21 @@
     bottom: 0;
   }
 
+  .my_todo, .checked_todo{
+    position: absolute;
+    bottom: 40px;
+    right: 20px;
+    text-align: center;
+    padding: 8px 20px 8px 20px;
+    border-radius: 100vh;
+    margin-left:50px;
+  }
+
+  .my_todo:hover, .checked_todo:hover{
+    opacity: 0.5;
+  }
+
+
 .search_form{
   position: absolute; 
   right: 80px;
