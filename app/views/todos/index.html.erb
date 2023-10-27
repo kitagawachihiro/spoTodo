@@ -4,6 +4,13 @@
 
 <div class="title">
   <h1><%= title t 'todos.index.title' %></h1>
+
+  <div class="checked_todo">
+    <%= link_to achievedtodos_path do %>
+      <%= image_tag 'user-check-solid.svg',width: '18px', height: '18px' %> 実行できたTodoとレビュー
+    <% end %>
+  </div>
+
   <div class='search_form'>
     <%= search_form_for @q, url: todos_path do |f| %>
       <%= f.search_field :name_cont, placeholder:"場所", class:'form' %>
@@ -11,6 +18,7 @@
     <% end %>
   </div>
 </div>
+
 
 <%= render 'none' if @spots.empty? %>
 

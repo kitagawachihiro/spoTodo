@@ -48,7 +48,7 @@ ja:
       review: '評価'
   achieved_todos:
     index:
-      title: 'あなたが実行できたTodo'
+      title: '実行できたTodo'
   everyone_todos:
     index:
       title: 'みんなのTodo'
