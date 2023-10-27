@@ -3,24 +3,29 @@
 <%= stylesheet_link_tag 'todo/index', media: 'all', 'data-turbolinks-track': 'reload' %>
 
 <div class="title">
-    <h1><%= title t 'everyone_todos.index.title' %></h1> 
+    <h1><%= title t 'everyone_todos.index.title' %></h1>
+    <div class='search_form'>
+      <%= search_form_for @q, url: everyonetodos_path do |f| %>
+        <%= f.search_field :name_cont, placeholder:"場所", class:'form' %>
+        <%= f.submit class:'search_btn' %>
+      <% end %>
+    </div>
 </div>
 
 <%#  <%= render 'none' if @todos.empty? %> 
 
-<% @e_todos.each do |todo| %>
-    <% if current_user.todos.exclude?(todo) %>
-      <div class="card">
-        <div class="card-top">
-          <%= render 'everyone_todos/card_top', todo: todo  %>
-        </div>
-      
-        <div class="card-down">
-          <%= render 'everyone_todos/card_down', todo: todo  %>
-        </div>
-      </div>
-    <% end %>
+<% @e_todo.each do |todo| %>
+  <div class="card">
+    <div class="card-top">
+      <%= render 'everyone_todos/card_top', todo: todo  %>
+    </div>
+  
+    <div class="card-down">
+      <%= render 'everyone_todos/card_down', todo: todo  %>
+    </div>
+  </div>
 <% end %>
 
-
-
+<div class="pagenate">
+  <%= paginate @e_todo, theme: 'twitter-bootstrap-4' %>
+</div>
