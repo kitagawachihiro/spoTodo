@@ -2,13 +2,13 @@
 
 .title{
     position: relative;
-    height: 100px;
+    height: 150px;
   }
 
   h1,.btn{
     position: absolute; 
     display: inline-block; 
-    bottom: 0;
+    bottom: 50px;
   }
 
   .my_todo, .checked_todo{
