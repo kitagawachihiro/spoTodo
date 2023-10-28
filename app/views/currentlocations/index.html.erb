@@ -20,8 +20,8 @@
     <%= render 'none' %>
   <% else %>
     <% @spots.each do |spot| %>
-         <%= render 'todo_card', spot: spot%>
-        <% end %>
+      <%= render 'todo_card', spot: spot if spot.todos.any? { |t| !t.finished } %>
+    <% end %>
   <% end %>
 
 </div>

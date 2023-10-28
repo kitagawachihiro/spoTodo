@@ -23,7 +23,7 @@
 <%= render 'none' if @spots.empty? %>
 
 <% @spots.each do |spot| %>
-      <%= render 'todo_card', spot: spot%>
+    <%= render 'todo_card', spot: spot if spot.todos.any? { |t| !t.finished } %>
 <% end %>
 
 <div class="plus_icon">
