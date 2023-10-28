@@ -23,11 +23,7 @@
 <%= render 'none' if @spots.empty? %>
 
 <% @spots.each do |spot| %>
-  <% spot.todos.each do |todo| %>
-    <% if current_user.todos.include?(todo) && ( (todo.finished == true && todo.updated_at > Date.today) || todo.finished == false )%>
-      <%= render 'shared/todo_card' , todo: todo, spot: spot%>
-    <% end %>
-  <% end %>
+      <%= render 'todo_card', spot: spot%>
 <% end %>
 
 <div class="plus_icon">
