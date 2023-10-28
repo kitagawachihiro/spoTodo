@@ -4,10 +4,6 @@
 
 <div class="title">
   <h1><%= title t ('.title') %></h1>
-
-  <div class="pagenate">
-    <%= paginate @spots, theme: 'twitter-bootstrap-4' %>
-  </div>
   
   <div class='search_form'>
     <%= search_form_for @q, url: currentlocations_path do |f| %>
@@ -26,7 +22,7 @@
     <% @spots.each do |spot| %>
       <% spot.todos.each do |todo| %>
         <% if current_user.todos.include?(todo) && ( (todo.finished == true && todo.updated_at > Date.today) || todo.finished == false )%>
-        <%= render 'shared/todo_card' , todo: todo, spot: spot%>
+          <%= render 'shared/todo_card' , todo: todo, spot: spot%>
         <% end %>
       <% end %>
     <% end %>
@@ -35,7 +31,7 @@
 </div>
 
 <div class="container recommend_title_comment">
-  <p>みんなのTodoから近くでできるおすすめのTodoをピックアップしました！やってみませんか？</p>
+  <p>みんなのTodoからおすすめのTodoをピックアップしました！やってみませんか？</p>
 </div>
 
 <div class="container">
@@ -50,4 +46,8 @@
       </div>
     </div>
   <% end %>
+</div>
+
+<div class="pagenate">
+  <%= paginate @spots, theme: 'twitter-bootstrap-4' %>
 </div>

@@ -10,7 +10,7 @@ class EveryoneTodosController < ApplicationController
       end
     end
 
-    @e_todo = Kaminari.paginate_array(@e_todo).page(params[:page])
+    @e_todo = Kaminari.paginate_array(@e_todo).page(params[:page]).per(10)
   end
 
   def add_todo
