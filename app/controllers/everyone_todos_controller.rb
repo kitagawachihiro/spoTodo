@@ -19,6 +19,7 @@ class EveryoneTodosController < ApplicationController
     copy_todo = Todo.new(content: origin_todo.content, spot_id: origin_todo.spot.id, user_id: params[:user_id])
 
     if copy_todo.save
+      origin_todo.increment!(:addcount)
       redirect_to everyonetodos_path, success: 'あなたのTodoに追加しました。ALLで確認できます。'
     else
       redirect_to everyonetodos_path, danger: 'あなたのTodoへ追加できませんでした。'
