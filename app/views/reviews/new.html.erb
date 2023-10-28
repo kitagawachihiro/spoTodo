@@ -17,7 +17,7 @@
 
         <div class="public">
             <%= f.label :public, t('todos.new.public_check')  %>
-            <%= f.check_box :public, id:'public_check', value: @todo.public %>
+            <%= f.check_box :public, {checked:@todo.public}, id:'public_check' %>
         </div>
 
         <div class="rating">
