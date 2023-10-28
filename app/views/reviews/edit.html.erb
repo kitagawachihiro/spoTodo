@@ -5,7 +5,55 @@
     <h1><%= title t 'reviews.edit.title' %></h1>
 </div>
 
-<%= render 'reviews/form', review: @review %>
+<div class="container-mid">
+
+    <div class="todo_content">
+        <p><label>Todo</label></p>
+        <p><%= @todo.content %></p>
+        <p><%= image_tag 'location-dot-solid.svg', id:'location_img',width: "12px;" %> <%= @todo.spot.name %></p>
+    </div>
+
+    <%= form_with model:[@todo, @review], local: true do |f| %>
+
+        <div class="public">
+            <%= f.label :public, t('todos.edit.public_check') %>
+            <%= f.check_box :public, {checked:@todo.public}, id:'public_check' %>
+        </div>
+
+        <div class="rating">
+            <%= f.label :rating, t('reviews.form.review'), class: 'form-label' %></br>
+            <div class="col-lg-10 btn-group" data-toggle="buttons">
+                <label class="btn btn-primary" style="width:30%" id="btnlabel0">
+                    <%= f.radio_button :rating, 0, {} %> 普通
+                </label>
+                <label class="btn btn-primary" style="width:30%" id="btnlabel1">
+                    <%= f.radio_button :rating, 1, {} %> 満足
+                </label>
+                <label class="btn btn-primary" style="width:30%" id="btnlabel2">
+                    <%= f.radio_button :rating, 2, {} %> 大満足
+                </label>
+            </div>
+            
+
+        <div class="comment">
+            <%= f.label :comment, t('reviews.form.comment'), class: 'form-label' %></br>
+            <%= f.text_area :comment, placeholder:"やってみてどうでしたか？", class: 'form-control', row:"30", value: @review.comment %>
+        </div>
+
+        <div>
+            <%= f.hidden_field :todo_id, value: params[:todo_id] %>
+        </div>
+
+        <div class="submit_btn">
+            <div class="btn_container" >
+                <%= link_to "削除", todo_review_path(@review.todo_id), method: :delete, class: 'cancel_btn' %>
+                <%= f.submit "更新", class: 'submit' %>
+            </div>
+        </div>
+        
+    <% end %>
+</div>
+
 
 <script>
 $(function(){
@@ -13,7 +61,6 @@ $(function(){
       $("#btnlabel0").addClass("active");
     <% elsif @review.rating == 1 %>
       $("#btnlabel1").addClass("active");
-      console.log("まんぞく");
     <% elsif @review.rating == 2 %>
       $("#btnlabel2").addClass("active");
     <% end %>

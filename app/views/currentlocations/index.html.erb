@@ -1,12 +1,9 @@
 <%= stylesheet_link_tag 'title', media: 'all', 'data-turbolinks-track': 'reload' %>
 <%= stylesheet_link_tag 'index', media: 'all', 'data-turbolinks-track': 'reload' %>
-<%= stylesheet_link_tag 'currentlocation/index', media: 'all', 'data-turbolinks-track': 'reload' %>
+<%= stylesheet_link_tag 'currentlocation/recommend_index', media: 'all', 'data-turbolinks-track': 'reload' %>
 
 <div class="title">
   <h1><%= title t ('.title') %></h1>
-  <div class="pagenate">
-    <%= paginate @spots, theme: 'twitter-bootstrap-4' %>
-  </div>
   
   <div class='search_form'>
     <%= search_form_for @q, url: currentlocations_path do |f| %>
@@ -17,38 +14,36 @@
 
 </div>
 
-<% if @spots.empty? %>
-  <%= render 'none' %>
-<% else %>
+<div class="container">
 
+  <% if @spots.empty? %>
+    <%= render 'none' %>
+  <% else %>
+    <% @spots.each do |spot| %>
+         <%= render 'todo_card', spot: spot%>
+        <% end %>
+  <% end %>
 
+</div>
 
-  <% @spots.each do |spot| %>
-    <div class="col-lg-4">
-      <div class="card mb-3">
-        <div class="card-body">
-          <h5 class="card-title"><%= spot.name %></h5>
-        </div>
+<div class="container recommend_container">
+  <div class="container recommend_title_comment">
+    <p>みんなのTodoからおすすめのTodoをピックアップしました！<br>やってみませんか？</p>
+  </div>
 
-        <ul class="list-group">
-          <% spot.todos.each do |todo| %>
-            <% if current_user.todos.include?(todo)%>
-              <li class="list-group-item">
-                <div class="item-check">
-                  <%= render 'checks/check', todo: todo  %>
-                </div>
-                <div class="item-content">
-                  <%= todo.content %>
-                </div>
-                <div class="item-right">
-                  <%= render 'todos/btn', todo: todo  %>
-                </div>
-              </li>
-            <% end %>
-          <% end %>
-        </ul>
+  <% @recommend.each do |todo| %>
+    <div class="recommend_card">
+      <div class="recommend_card-top">
+        <%= render 'card_top', todo: todo  %>
+      </div>
+    
+      <div class="recommend_card-down">
+        <%= render 'card_down', todo: todo  %>
       </div>
     </div>
   <% end %>
+</div>
 
-<% end %>
+<div class="pagenate">
+  <%= paginate @spots, theme: 'twitter-bootstrap-4' %>
+</div>

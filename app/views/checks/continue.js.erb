@@ -1,2 +1,23 @@
 $('#js-check-button-for-todo-<%= @todo.id %>').replaceWith("<%= j(render partial: 'checks/continue', locals: { todo: @todo }) %>");
 $('#edit-btn-<%= @todo.id %>').css('display', 'block');
+let checkDeleteFlg = window.confirm('レビューを作成していた場合、レビューは削除されます。チェックを外しますか？');  
+let ID = <%= @todo.id %>;
+
+if(checkDeleteFlg){
+    $.ajax({
+    url: '/todos/'+ ID +'/review/',
+    type: 'POST',
+    data: {'todo_id': ID,
+    '_method': 'DELETE'} ,
+    error: function (data) {
+      alert("レビューは作成されていませんでした。");
+    },
+    });
+}else{
+    $.ajax({
+    url: '/todos/'+ ID +'/finish/',
+    type: 'POST',
+    data: {'id': ID,
+    '_method': 'PATCH'} 
+    })
+};

@@ -1,0 +1,68 @@
+
+/* recommend title comment*/
+.recommend_title_comment{
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+/* recommend containert*/
+.recommend_container{
+  background-color: #F2F5F5;
+  padding-top: 50px;
+  border-radius: 50px;
+  margin-bottom: 50px;
+}
+
+/* カード */
+.recommend_card {
+    border-radius: 10px;
+    padding: 10px;
+    margin-bottom :50px;
+    margin-right :10px;
+    width: 100%;
+}
+
+/* card top */
+.recommend_card-top{
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  border-radius: 10px;
+  background-color: #D4DEDD;
+  padding: 10px 10px 10px 20px;
+}
+
+/* review */
+.recommend_review{
+  margin-right: 20px;
+}
+
+/* 削除ボタン */
+.recommend_card-top-right{
+  margin: 20px;
+}
+
+/* ルートアイコン */
+.recommend_route{
+  margin-left: 5px;
+}
+
+/* card down */
+.recommend_card-down{
+  padding-top: 10px;
+  margin: 0 auto;
+  width: 98%;
+}
+
+.recommend_card-down-left{
+  display: flex;
+}
+
+.recommend_card-down-right{
+  float: right;
+}
+
+.recommend_card-down-right a{
+  font-size: small;
+  color: #A9BABC;
+}

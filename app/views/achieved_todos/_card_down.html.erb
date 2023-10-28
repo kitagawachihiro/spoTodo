@@ -1,0 +1,13 @@
+<div class="card-down-left">
+    <% unless todo.review == nil %>
+        <div class="review"><%= render 'shared/review', todo: todo %></div>
+        <div class="comment"><p><%= todo.review.comment %></p></div>
+    <% end %>
+</div>
+<div class="card-down-right">
+    <% unless todo.review == nil %>
+        <%= link_to "レビューを編集する", edit_todo_review_path(todo.id) %>
+    <% else %>
+        <%= link_to "レビューを作成する", new_todo_review_path(todo.id) %>
+    <% end %>
+</div>

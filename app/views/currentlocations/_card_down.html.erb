@@ -1,0 +1,6 @@
+<div class="recommend_card-down-left">
+    <% unless todo.review == nil %>
+        <div class="recommend_review"><%= render 'shared/review', todo: todo %></div>
+        <div class="recommend_comment"><p><%= todo.review.comment %></p></div>
+    <% end %>
+</div>

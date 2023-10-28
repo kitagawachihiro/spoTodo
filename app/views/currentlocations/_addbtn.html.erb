@@ -1,0 +1,22 @@
+<div class="addtodo_btn">  
+    <%= link_to 'やりたい', currentlocation_add_todo_path(todo_id: todo.id, user_id: current_user.id), method: :post, data: { confirm: 'あなたのTodoに追加しますか？' }  %>
+</div>
+
+<style>
+.addtodo_btn{
+    padding: 5px 0px 5px 0px;
+    width: 100px;
+    background-color: #FFFFFF;
+    text-align: center;
+    border-radius: 100vh;
+}
+
+.addtodo_btn:hover{
+    opacity: 0.5;
+}
+
+.addtodo_btn a{
+    text-decoration:none; 
+}
+
+</style>

@@ -3,10 +3,10 @@
     padding: 100px;
 }
 
-/* 評価ボタン */
-.rating{
+/* フォームレイアウト */
+.rating,.comment,.btn-group,.todo_content, .public{
     padding-top: 10px;
-    padding-bottom: 10px;
+    padding-bottom: 50px;
     width: 34vw;
     min-width: 450px;
     margin: 0 auto;
@@ -34,15 +34,6 @@
     box-shadow:none;
 }
 
-/* フォームレイアウト */
-.rating,.comment,.btn-group{
-    padding-top: 10px;
-    padding-bottom: 50px;
-    width: 34vw;
-    min-width: 450px;
-    margin: 0 auto;
-}
-
 .btn-group{
     height: 100px;
 }
@@ -58,3 +49,77 @@
     color: white;
     font-size: 16px;
 }
+
+.cancel_btn{
+    display: block;
+    border-radius: 100vh;
+    margin: 0 auto;
+    height: 60px;
+    width: 200px;
+    background-color: #A9BABC;
+    border:none;
+    color: white;
+    font-size: 16px;
+    text-align: center;
+    padding:20px 0;
+}
+
+.cancel_btn:link, .cancel_btn:visited,.cancel_btn:hover, .cancel_btn:active{
+    text-decoration: none;
+    color: white;
+}
+
+.btn_container{
+    margin: 0 auto;
+    width: 90%;
+    display:flex;
+    justify-content: space-between;
+}
+
+
+/*位置情報マーク*/
+#location_img{
+    filter: invert(38%) sepia(6%) saturate(223%) hue-rotate(131deg) brightness(94%) contrast(90%);
+}
+
+  /* 公開設定のチェックボックス */
+  .public{
+    margin-bottom: -10px;
+  }
+
+  input[type="checkbox"] {
+    position: relative;
+    width: 24px;
+    height: 24px;
+    border-radius: 5px;
+    border: 1px solid #BEC7C6;
+    vertical-align: -5px;
+    -webkit-appearance: none;
+       -moz-appearance: none;
+            appearance: none;
+    margin-left: 8px;
+  }
+  
+  input[type="checkbox"]:checked:before {
+    position: absolute;
+    top: 2px;
+    left: 7px;
+    transform: rotate(50deg);
+    width: 8px;
+    height: 14px;
+    border-right: 2px solid white;
+    border-bottom: 2px solid white;
+    content: '';
+  }
+
+  input[type="checkbox"]:checked{
+    background-color: #A9BABC;
+  }
+
+  *:focus {
+    outline: none;
+  }
+
+  input[type="checkbox"]:focus {
+    outline: none;
+  }
