@@ -1,6 +1,6 @@
 <%= stylesheet_link_tag 'title', media: 'all', 'data-turbolinks-track': 'reload' %>
 <%= stylesheet_link_tag 'index', media: 'all', 'data-turbolinks-track': 'reload' %>
-<%= stylesheet_link_tag 'currentlocation/index', media: 'all', 'data-turbolinks-track': 'reload' %>
+<%= stylesheet_link_tag 'currentlocation/recommend_index', media: 'all', 'data-turbolinks-track': 'reload' %>
 
 <div class="title">
   <h1><%= title t ('.title') %></h1>
@@ -18,17 +18,36 @@
 
 </div>
 
-<% if @spots.empty? %>
-  <%= render 'none' %>
-<% else %>
-  <% @spots.each do |spot| %>
-    <% spot.todos.each do |todo| %>
-      <% if current_user.todos.include?(todo) && ( (todo.finished == true && todo.updated_at > Date.today) || todo.finished == false )%>
-      <%= render 'shared/todo_card' , todo: todo, spot: spot%>
+<div class="container">
+
+  <% if @spots.empty? %>
+    <%= render 'none' %>
+  <% else %>
+    <% @spots.each do |spot| %>
+      <% spot.todos.each do |todo| %>
+        <% if current_user.todos.include?(todo) && ( (todo.finished == true && todo.updated_at > Date.today) || todo.finished == false )%>
+        <%= render 'shared/todo_card' , todo: todo, spot: spot%>
+        <% end %>
       <% end %>
     <% end %>
   <% end %>
-<% end %>
 
+</div>
 
-#今いる場所でおすすめのTodoを紹介します
+<div class="container recommend_title_comment">
+  <p>みんなのTodoから近くでできるおすすめのTodoをピックアップしました！やってみませんか？</p>
+</div>
+
+<div class="container">
+  <% @recommend.each do |todo| %>
+    <div class="recommend_card">
+      <div class="recommend_card-top">
+        <%= render 'card_top', todo: todo  %>
+      </div>
+    
+      <div class="recommend_card-down">
+        <%= render 'card_down', todo: todo  %>
+      </div>
+    </div>
+  <% end %>
+</div>
