@@ -19,12 +19,15 @@
   </div>
 </div>
 
-
-<%= render 'none' if @spots.empty? %>
-
-<% @spots.each do |spot| %>
-    <%= render 'todo_card', spot: spot if spot.todos.any? { |t| !t.finished } %>
-<% end %>
+<% if @spots.empty? %>
+    <%= render 'none' %>
+  <% else %>
+    <% @spots.each do |spot| %>
+      <% if spot.todos.any? { |t| !t.finished && t.user_id == current_user.id } %>
+        <%= render 'todo_card', spot: spot %>
+      <% end %>
+    <% end %>
+  <% end %>
 
 <div class="plus_icon">
   <%= link_to new_todo_path do %>

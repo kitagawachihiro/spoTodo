@@ -17,13 +17,15 @@
 <div class="container">
 
   <% if @spots.empty? %>
-    <%= render 'none' %>
-  <% else %>
-    <% @spots.each do |spot| %>
-      <%= render 'todo_card', spot: spot if spot.todos.any? { |t| !t.finished } %>
+      <%= render 'none' %>
+    <% else %>
+        <% @spots.each do |spot| %>
+          <% if spot.todos.any? { |t| !t.finished && t.user_id == current_user.id } %>
+            <%= render 'todo_card', spot: spot %>
+          <% end %>
+        <% end %>
     <% end %>
-  <% end %>
-
+  
 </div>
 
 <div class="container recommend_container">
