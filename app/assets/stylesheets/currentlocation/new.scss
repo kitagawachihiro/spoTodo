@@ -1,13 +1,20 @@
-/* form コンテナ */
+/* ボタン、contentを含む入れ物 */
 .container-mid{
     text-align: center;
-    padding: 100px;
+    padding: 50px 100px 50px 100px;
 }
 
+/* 説明文のクラス */
+.content{
+    margin-bottom: 50px;
+}
+
+/* 説明文 */
 p{
     display: block;
 }
 
+/* ボタン */
 .get-current-position-btn, .check-list-btn{
     display: block;
     border-radius: 100vh;
@@ -21,21 +28,52 @@ p{
     font-size: 16px;
 }
 
-.check-list-btn{
+/* check-list-btnボタンのみの背景色設定*/
+ .check-list-btn{
     background-color: #A9BABC;
 }
 
+/* ボタン要素、ホバー時 */
 button:hover {
   opacity: 0.5;
   color: gray;
 }
 
+/* QRコード */
 .qr{
     width: 350px;
-    background-color: #06C755;
+    background-color: #F2F5F5;
     margin: 0 auto;
     margin-top:100px;
     padding-top: 20px;
     padding-bottom: 20px;
     border-radius: 30px;
 }
+
+
+/* レスポンシブ */
+@media (max-width: 960px) {
+    .get-current-position-btn, .check-list-btn{
+        
+        width: 30vw;
+        min-width: 260px;
+        
+    }
+
+    .qr{
+        width: 30vw;
+        min-width: 260px;
+    }
+
+    .container-mid{
+        padding: 5vw;;
+    }
+    
+    .content{
+        text-align: left;
+    }
+
+    .friend{
+        margin-bottom:10px;
+    }
+  }

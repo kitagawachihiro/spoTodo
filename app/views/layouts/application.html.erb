@@ -29,7 +29,7 @@
         </div>
 
         <!-- 10列 コンテンツ表示 -->
-        <div class="col-lg-10 col-lg-offset-2 col-lg-offset-1">
+        <div class="col-lg-10 col-lg-offset-2 main_contents">
           <%= render partial: 'shared/flash_message' %>
           <div class="container">
             <%= yield %>
@@ -41,3 +41,41 @@
   </body>
   
 </html>
+
+<script>
+// リロード時
+$(function() {
+  // ウィンドウサイズ768px以下の場合、クラスを削除
+  if (window.matchMedia( '(max-width: 960px)' ).matches) {
+  $(function(){
+    $('main_contents').removeClass('col-lg-10');
+    $('.main_contents').addClass('col-lg-11');
+    $('main_contents').removeClass('col-lg-offset-2');
+    $('main_contents').addClass('col-lg-offset-1');
+  });
+    } else {
+      $('main_contents').removeClass('col-lg-11');
+      $('.main_contents').addClass('col-lg-10');
+      $('main_contents').removeClass('col-lg-offset-1');
+      $('main_contents').addClass('col-lg-offset-2');
+  };
+});
+
+// リサイズ時
+$(window).resize(function(){
+  let x = $(window).width();
+  let y = 960;
+  if (x <= y) {
+    $('main_contents').removeClass('col-lg-10');
+    $('.main_contents').addClass('col-lg-11');
+    $('main_contents').removeClass('col-lg-offset-2');
+    $('main_contents').addClass('col-lg-offset-1');
+  }
+  else {
+    $('main_contents').removeClass('col-lg-11');
+    $('.main_contents').addClass('col-lg-10');
+    $('main_contents').removeClass('col-lg-offset-1');
+    $('main_contents').addClass('col-lg-offset-2');
+  }
+});
+</script>
