@@ -1,21 +1,3 @@
-  /* Add Todoボタン */
-  .btn{
-    margin-bottom:10px;
-    border-radius: 100vh;
-    height: 40px;
-    width: 100px;
-    background-color: #F2C67F;
-    border:none;
-    color: white;
-    font-size: 16px;
-    text-align: center;
-  }
-
-  .btn:hover{
-    background-color: #FCEACE;
-    color: #F2C67F;
-}
-
 /* カード */
 .card {
     border-radius: 10px;
@@ -40,9 +22,26 @@
   margin-right: 20px;
 }
 
-/* 削除ボタン */
+/* やりたいボタン */
 .card-top-right{
   margin: 20px;
+}
+
+/* やりたいボタン 詳細レイアウト */
+.addtodo_btn{
+  padding: 5px 0px 5px 0px;
+  width: 100px;
+  background-color: #FFFFFF;
+  text-align: center;
+  border-radius: 100vh;
+}
+
+.addtodo_btn:hover{
+  opacity: 0.5;
+}
+
+.addtodo_btn a{
+  text-decoration:none; 
 }
 
 i{
@@ -72,4 +71,27 @@ i{
 .card-down-right a{
   font-size: small;
   color: #A9BABC;
+}
+
+/* レスポンシブ */
+@media (max-width: 960px) {
+
+  /* card top */
+  .card-top{
+    flex-flow: column;
+  }
+  
+  /* やりたいボタン */
+  .card-top-right{
+    margin: 0 auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+
+   /* やりたいボタン 詳細レイアウト */
+   .addtodo_btn{
+    padding: 10px 0px 10px 0px;
+    width: 50vw;
+    border-radius: 100vh;
+  }
 }

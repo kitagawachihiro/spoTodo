@@ -1,79 +1,68 @@
-  /* Add Todoボタン */
-  .btn{
-    margin-bottom:10px;
-    border-radius: 100vh;
-    height: 40px;
-    width: 100px;
-    background-color: #F2C67F;
-    border:none;
-    color: white;
-    font-size: 16px;
-    text-align: center;
-  }
-
-  .btn:hover{
-    background-color: #FCEACE;
-    color: #F2C67F;
-}
-
-/* カード */
+ /* Todo 場所ごとのカード */
 .card {
-    border-radius: 10px;
-    padding: 10px;
-    margin-bottom :20px;
-    margin-right :10px;
+  border-radius: 10px;
+  padding: 10px;
+  margin-bottom :20px;
+  margin-right :10px;
 }
 
-/* 場所名 */
-  .card-title{
-    border-radius: 10px;
-    background-color :#D4DEDD;
-    padding: 16px;
-    line-height: 20px;
-  }
-
-/* todoの中身 */
-
-  .list-group-item{
-    border: none;
-    display:flex;
-    position: relative;
+/* 場所名全体 */
+.card-title{
+  border-radius: 10px;
+  background-color :#D4DEDD;
+  padding: 16px;
+  line-height: 20px;
 }
 
+/* 場所までのルートボタン */
+.route{
+  display: block;
+  text-align: right;
+}
+
+/* todoリスト全体 */
+.list-group{
+  list-style: none;
+}
+
+/* todoリスト１行分 */
+.list-group-item{
+  border: none; /*listアイテムのボーダーデザインの削除*/
+  display: flex;
+  justify-content: space-between;
+}
+
+/* チェックボックスとTodo */
+.item-left{
+  display: flex;
+  justify-content: right;
+}
+
+/* todo中身 文 */
 .item-content{
-  width:70%;
   word-break: break-all;
 }
 
-/* 編集・削除ボタン */
+/* 編集・削除ボタン 全体 */
+.item-right{
+  width:50px;
 
+  display:flex;
+  justify-content: space-between;
+}
 
+/* 編集・削除ボタン 画像 */
 i{
   margin-right:5px;
   color:#D4DEDD;
 }
 
+/* 編集・削除ボタン ホバー時 */
 a:hover {
 text-decoration: none;
 }
 
-.item-right{
-  width:60px;
-  right : 0;
-  position: absolute;
-
-}
-
-.edit_btn{
-  float:left;
-}
-
-.delete_btn{
-  float:right;
-}
-
-/* チェックボタンのふきだし */
-
+/* チェックボタン チェック時ののふきだし */
 .balloonoya {
   position: relative;                /* 指定した分だけ相対的に移動 */
   z-index: 10;
@@ -104,8 +93,42 @@ text-decoration: none;
   position: absolute;                /* 親要素を基準 */
 }
 
-.route{
-  display: block;
-  margin-top: -20px;
-  text-align: right;
+
+/* レスポンシブ */
+@media (max-width: 960px) {
+
+  /* Todo 場所ごとのカード */
+  .card {
+    min-width:150px;
+  }
+
+  /* 場所名*/
+  .spot_name{
+    min-width: 100px;
+  }
+
+/* todoリスト全体 */
+.list-group-item{
+  flex-flow: column;
+}
+
+/* チェックボックスとTodo */
+.item-left{
+  max-width:100%;
+  width:100%;
+  justify-content: left;
+}
+
+/* 編集・削除ボタン */
+.item-right{
+  max-width:100%;
+  width:100%;
+  justify-content: right;
+}
+
+.item-right i{
+  margin-left:10px;
+}
+
+
 }

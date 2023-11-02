@@ -2,18 +2,18 @@
 
 .title{
     position: relative;
-    height: 150px;
+    height: 180px;
   }
 
   h1,.btn{
     position: absolute; 
     display: inline-block; 
-    bottom: 50px;
+    bottom: 70px;
   }
 
   .my_todo, .checked_todo{
     position: absolute;
-    bottom: 40px;
+    bottom: 30px;
     right: 20px;
     text-align: center;
     padding: 8px 20px 8px 20px;

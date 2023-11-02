@@ -10,6 +10,7 @@
   background-color: #F2F5F5;
   padding-top: 50px;
   border-radius: 50px;
+  margin-top: 50px;
   margin-bottom: 50px;
 }
 
@@ -32,14 +33,26 @@
   padding: 10px 10px 10px 20px;
 }
 
-/* review */
-.recommend_review{
-  margin-right: 20px;
-}
-
-/* 削除ボタン */
+/* やりたいボタン */
 .recommend_card-top-right{
   margin: 20px;
+}
+
+/* やりたいボタン 詳細レイアウト */
+.addtodo_btn{
+  padding: 5px 0px 5px 0px;
+  width: 100px;
+  background-color: #FFFFFF;
+  text-align: center;
+  border-radius: 100vh;
+}
+
+.addtodo_btn:hover{
+  opacity: 0.5;
+}
+
+.addtodo_btn a{
+  text-decoration:none; 
 }
 
 /* ルートアイコン */
@@ -58,6 +71,11 @@
   display: flex;
 }
 
+/* review */
+.recommend_review{
+  margin-right: 20px;
+}
+
 .recommend_card-down-right{
   float: right;
 }
@@ -65,4 +83,28 @@
 .recommend_card-down-right a{
   font-size: small;
   color: #A9BABC;
+}
+
+/* レスポンシブ */
+@media (max-width: 960px) {
+
+  /* card top */
+  .recommend_card-top{
+    flex-flow: column;
+  }
+
+  /* やりたいボタン */
+  .recommend_card-top-right{
+    margin: 0 auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+
+ /* やりたいボタン 詳細レイアウト */
+  .addtodo_btn{
+  padding: 10px 0px 10px 0px;
+  width: 50vw;
+  border-radius: 100vh;
+  }
+
 }
