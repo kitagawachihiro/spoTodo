@@ -7,3 +7,15 @@
   margin-top: 30px;
   margin-bottom: 30px;
 }
+
+
+/* レスポンシブ */
+@media (max-width: 960px) {
+
+/* spotのform 固有 */
+#map{
+  width: 90vw;
+  min-width: 300px;
+}
+
+}
