@@ -1,7 +1,6 @@
 .container-mid{
     padding-top:100px;
     text-align:center;
-    padding-bottom:100px;
 }
 
 .explain-logo p {
@@ -17,18 +16,20 @@
 
 .btn{
   display: block;
-  border-radius: 100vh;
   margin: 0 auto;
-  height: 60px;
-  width: 200px;
-  background-color: #F2C67F;
-  border:none;
-  color: white;
-  font-size: 16px;
-  text-decoration: none;
-  padding-top:18px;
   margin-top: 50px;
   margin-bottom: 100px;
+  clear: both;
+}
+
+.btn a{
+    border-radius: 100vh;
+    background-color: #F2C67F;
+    border:none;
+    color: white;
+    font-size: 16px;
+    text-decoration: none;
+    padding: 30px 80px 30px 80px;
 }
 
 .btn:hover{
@@ -52,6 +53,12 @@ h3{
     color: #A9BABC;
 }
 
+
+.step4{
+    float: left;
+
+}
+
 .responsive{
     display: none;
 }
@@ -72,6 +79,10 @@ h3{
         line-height: 3em;
     }
 
+    h3{
+        line-height: 2em;
+    }
+
     .exp-content{
         font-size: 14px;
     }
@@ -85,5 +96,9 @@ h3{
 
     .responsive{
         display: block;
+    }
+
+    .step4{
+        margin-bottom: 30px;
     }
 }
