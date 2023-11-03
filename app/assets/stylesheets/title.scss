@@ -1,15 +1,14 @@
 /* タイトル部分（共通）*/
-
 .title{
     position: relative;
     height: 180px;
   }
 
-  h1,.btn{
+.title h1{
     position: absolute; 
     display: inline-block; 
     bottom: 70px;
-  }
+ }
 
   .my_todo, .checked_todo{
     position: absolute;
