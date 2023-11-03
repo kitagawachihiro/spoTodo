@@ -15,6 +15,7 @@
 </div>
 
 <div class="container">
+  <div class="card_container">
   <% if @spots.empty? %>
       <%= render 'none' %>
     <% else %>
@@ -25,10 +26,11 @@
         <% end %>
     <% end %>
 </div>
+</div>
 
 <div class="container recommend_container">
   <div class="container recommend_title_comment">
-    <p>みんなのTodoからおすすめのTodoをピックアップしました！<br>やってみませんか？</p>
+    <p>みんなのTodoから<br class="responsive">おすすめをピックアップしました！<br>やってみませんか？</p>
   </div>
 
   <% @recommend.each do |todo| %>

@@ -113,7 +113,7 @@ input[type="checkbox"]:focus {
 @media (max-width: 960px) {
 
   .todo,.spot,.public,.map_submit{
-    width: 90vw;
+    width: 85vw;
     min-width: 300px;
 }
 
@@ -123,12 +123,12 @@ input[type="checkbox"]:focus {
 
 /* todoのform 固有 */
 #todo_content{
-  width: 90vw;
+  width: 85vw;
   min-width: 300px;
 }
 /* spotのform 固有 */
 #spot_name{
-  width: 90vw;
+  width: 85vw;
   min-width: 300px;
 }
 

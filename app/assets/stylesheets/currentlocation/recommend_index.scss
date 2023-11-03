@@ -85,6 +85,10 @@
   color: #A9BABC;
 }
 
+.responsive{
+  display: none;
+}
+
 /* レスポンシブ */
 @media (max-width: 960px) {
 
@@ -105,6 +109,10 @@
   padding: 10px 0px 10px 0px;
   width: 50vw;
   border-radius: 100vh;
+  }
+
+  .responsive{
+    display: block;
   }
 
 }
