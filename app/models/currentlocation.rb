@@ -5,5 +5,4 @@ class Currentlocation < ApplicationRecord
   validates :address, presence: true, length: { maximum: 100 }
   validates :latitude, presence: true
   validates :longitude, presence: true
-
 end

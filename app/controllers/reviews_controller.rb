@@ -22,7 +22,7 @@ class ReviewsController < ApplicationController
     end
   end
 
-  def edit;end
+  def edit; end
 
   def update
     if @review.update(rating: review_params[:rating], comment: review_params[:comment])
@@ -57,5 +57,4 @@ class ReviewsController < ApplicationController
   def review_params
     params.require(:review).permit(:rating, :comment, :todo_id, :public)
   end
-
 end

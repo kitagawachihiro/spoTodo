@@ -28,7 +28,7 @@ Rails.application.routes.draw do
 
   #currentlocations
   resources :currentlocations, only: [:index, :new, :create]
-  post 'currentlocation_add_todo', to: 'currentlocations#add_todo' 
+  post 'currentlocation_add_todo', to: 'currentlocations#add_todo'
 
   #toppage
   root to: 'explanations#top'
@@ -38,6 +38,6 @@ Rails.application.routes.draw do
 
   #everyone_todos
   get 'everyonetodos', to: 'everyone_todos#index'
-  post 'add_todo', to: 'everyone_todos#add_todo'    
+  post 'add_todo', to: 'everyone_todos#add_todo'
 
 end
