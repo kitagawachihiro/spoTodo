@@ -18,3 +18,14 @@
 .btn{
     margin-top: 50px;
 }
+
+@media screen and (max-width: 960px){
+    .container-mid{
+        padding-top:150px;
+    }
+
+    .explain-logo img{
+        width: 300px;
+    }
+
+}

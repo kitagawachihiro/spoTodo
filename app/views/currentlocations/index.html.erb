@@ -15,20 +15,22 @@
 </div>
 
 <div class="container">
-
+  <div class="card_container">
   <% if @spots.empty? %>
-    <%= render 'none' %>
-  <% else %>
-    <% @spots.each do |spot| %>
-         <%= render 'todo_card', spot: spot%>
+      <%= render 'none' %>
+    <% else %>
+        <% @spots.each do |spot| %>
+          <% if spot.todos.any? { |t| !t.finished && t.user_id == current_user.id } %>
+            <%= render 'todo_card', spot: spot %>
+          <% end %>
         <% end %>
-  <% end %>
-
+    <% end %>
+</div>
 </div>
 
 <div class="container recommend_container">
   <div class="container recommend_title_comment">
-    <p>みんなのTodoからおすすめのTodoをピックアップしました！<br>やってみませんか？</p>
+    <p>みんなのTodoから<br class="responsive">おすすめをピックアップしました！<br>やってみませんか？</p>
   </div>
 
   <% @recommend.each do |todo| %>

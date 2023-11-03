@@ -1,19 +1,18 @@
 /* タイトル部分（共通）*/
-
 .title{
     position: relative;
-    height: 150px;
+    height: 180px;
   }
 
-  h1,.btn{
+.title h1{
     position: absolute; 
     display: inline-block; 
-    bottom: 50px;
-  }
+    bottom: 70px;
+ }
 
   .my_todo, .checked_todo{
     position: absolute;
-    bottom: 40px;
+    bottom: 36px;
     right: 20px;
     text-align: center;
     padding: 8px 20px 8px 20px;
@@ -27,7 +26,7 @@
 
 
 .search_form{
-  position: absolute; 
+  position: absolute;
   right: 80px;
   bottom: 0;
 }
@@ -48,9 +47,9 @@
   height:30px;
   padding: 0.2em;
   border:1px #BEC7C6 solid;
+  background-color:#F2F5F5;
   border-radius: 5px;
 }
-
 
 /* ページネーション */
 .pagenate{

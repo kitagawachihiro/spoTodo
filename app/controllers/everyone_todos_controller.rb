@@ -3,7 +3,7 @@ class EveryoneTodosController < ApplicationController
     @q = Spot.ransack(params[:q])
     @spots = @q.result(distinct: true)
     @e_todo = []
-    
+
     @spots.each do |spot|
       spot.todos.each do |todo|
         @e_todo << todo if current_user.todos.exclude?(todo) && todo.public == TRUE
@@ -20,10 +20,10 @@ class EveryoneTodosController < ApplicationController
     if copy_todo.save
       begin
         origin_todo.increment!(:addcount)
-      rescue => e
+      rescue StandardError => e
         Rails.logger.debug e.message
       end
-      
+
       redirect_to everyonetodos_path, success: 'あなたのTodoに追加しました。ALLで確認できます。'
     else
       redirect_to everyonetodos_path, danger: 'あなたのTodoへ追加できませんでした。'

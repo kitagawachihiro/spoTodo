@@ -1,15 +1,40 @@
-.submit-btn{
-    display: block;
-    border-radius: 100vh;
-    margin: 0 auto;
-    height: 60px;
-    width: 200px;
-    background-color: #F2C67F;
-    border:none;
-    color: white;
-    font-size: 16px;
+/* 距離設定 */
+.container-top{
+  width: 34vw;
+  min-width: 450px;
+  margin: 0 auto;
 }
 
+/* 距離選択　プルダウンリスト　*/
+.form-control{
+  height: 50px;
+  width: 150px;
+  margin-bottom:50px;
+}
+
+/* 距離設定　更新ボタン */
+.submit-btn{
+  display: block;
+  border-radius: 100vh;
+  margin: 0 auto;
+  height: 60px;
+  width: 200px;
+  background-color: #F2C67F;
+  border:none;
+  color: white;
+  font-size: 16px;
+}
+
+/* ログアウト */
+.container-bottom{
+  width: 34vw;
+  min-width: 450px;
+  margin: 0 auto;
+  margin-top:50px;
+  margin-bottom:100px;
+}
+
+/* ログアウト　ボタン */
 .logout-btn{
   display: block;
   border-radius: 100vh;
@@ -30,20 +55,10 @@
   opacity: 0.5;
 }
 
-.container-mid{
-  height: 500px;
-  padding-top:50px;
-}
-
-.container-sm{
-  width: 500px;
-  margin: 0 auto;
-  margin-bottom: 100px;
-
-}
-
-.form-control{
-  height: 50px;
-  width: 150px;
-  margin-bottom:50px;
+/* レスポンシブ */
+@media (max-width: 960px) {
+  .container-top,.container-bottom{
+    width: 90vw;
+    min-width: 300px;
+  }
 }

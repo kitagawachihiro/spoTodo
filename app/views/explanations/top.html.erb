@@ -1,36 +1,38 @@
-<% title t 'explanations.top.title' %>
-
 <%= stylesheet_link_tag 'explanation/top', media: 'all', 'data-turbolinks-track': 'reload' %>
 
+<% title t 'explanations.top.title' %>
+
 <div class="container-mid">
-<div class="explain-logo">
-    <%= image_tag 'spotodo_logo.png', width:"350px" %>
-    <p>“いつかやりたい"を記録するサービス</p>
-</div>
-
-<div class="explain">
-    <p>今度この場所にいったら<br>
-    「行きたいな」「食べたいな」「見たいな」<br>
-    spoTodoはそんな "いつかやりたい" ✖️ 場所 を記録するサービスです<br>
-   現在地を送信すると登録したTodoから<br>
-   今いる場所でできるTodoをお知らせします</p>
-
-    <%= link_to login_path, class:"btn" do t ('.start')  end %>
-</div>
-
-<div class="explain">
-
-    <div class="exp-container">
-        <div class="exp-content">
-            <h3>STEP1</h3>
-            <h3>Todoを登録する</h3>
-            <p>”今度行ったらやりたい”内容と場所を登録する</p>
-        </div>
-
-        <div class="exp-image">
-            <%= image_tag 'undraw_to_do_list_re_9nt7.svg', width: "500px;" %>
-        </div>
+    <div class="explain-logo">
+        <%= image_tag 'spotodo_logo.png', width:"350px" %>
+        <p>“いつかやりたい"を記録するサービス</p>
     </div>
+
+    <div class="explain">
+        <p>今度この場所にいったら<br>
+        「行きたいな」「食べたいな」<br class="responsive">「見たいな」<br>
+        spoTodoはそんな<br class="responsive"> "いつかやりたい" ✖️ 場所 を<br class="responsive">記録するサービスです<br>
+        現在地を送信すると登録したTodoから<br>
+        今できるTodoをお知らせします</p>
+    </div>
+</div>
+    
+    <div class="btn">
+        <%= link_to login_path do t ('.start')  end %>
+    </div>
+
+    <div class="explain">
+        <div class="exp-container">
+            <div class="exp-content">
+                <h3>STEP1</h3>
+                <h3>Todoを登録する</h3>
+                <p>”今度行ったらやりたい”内容と場所を登録する</p>
+            </div>
+
+            <div class="exp-image">
+                <%= image_tag 'undraw_to_do_list_re_9nt7.svg', width: "500px;" %>
+            </div>
+        </div>
 
     <div class="exp-container">
         <div class="exp-image">
@@ -38,7 +40,7 @@
         </div>
         <div class="exp-content">
             <h3>STEP2</h3>
-            <h3>外出先で時間ができたら 現在地を送信！</h3>
+            <h3>外出先で時間ができたら<br class="responsive">現在地を送信！</h3>
             <p>送信はLINE or ブラウザから</p>
             <%= image_tag 'qr.png', width: "150px;" %>
         </div>
@@ -47,7 +49,7 @@
     <div class="exp-container">
         <div class="exp-content">
             <h3>STEP3</h3>
-            <h3>近くでできるTodoリストが届く</h3>
+            <h3>近くでできる<br class="responsive">Todoリストが届く</h3>
             <p>近くでできるTodoをリストでお送りします</p>
         </div>
 
@@ -56,16 +58,20 @@
         </div>
     </div>
 
-    <div class="exp-container">
-        <div class="exp-image">
+    <div class="exp-container step4">
+        <div class="exp-image step4">
             <%= image_tag 'undraw_happy_news_re_tsbd.svg', width: "400px;" %>
         </div>
-        <div class="exp-content">
+        <div class="exp-content step4">
             <h3>STEP4</h3>
-            <h3>Todoを実行しよう　　　　　　　　　　　</h3>
-            <p>やりたかったことをやろう！　　　　　　　　　　　</p>
+            <h3>Todoを実行しよう</h3>
+            <p>やりたかったことをやろう！</p>
         </div>
+    </div>
+
+    <div class="btn">
+        <%= link_to login_path do t ('.start')  end %>
     </div>
 </div>
 
-<%= link_to login_path, class:"btn" do t ('.start')  end %>
+

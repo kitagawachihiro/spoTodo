@@ -1,10 +1,5 @@
-/* form コンテナ */
-.container-mid{
-    padding: 100px;
-}
-
 /* フォームレイアウト */
-.rating,.comment,.btn-group,.todo_content, .public{
+.todo_content,.public,.rating,.comment,.btn-group,.btn_container{
     padding-top: 10px;
     padding-bottom: 50px;
     width: 34vw;
@@ -12,6 +7,65 @@
     margin: 0 auto;
 }
 
+/* Todo 位置情報マーク*/
+#location_img{
+  filter: invert(38%) sepia(6%) saturate(223%) hue-rotate(131deg) brightness(94%) contrast(90%);
+}
+
+/* 公開設定のチェックボックス */
+.public{
+  padding-top:0px;
+  margin-bottom: -10px;
+}
+
+input[type="checkbox"] {
+  position: relative;
+  width: 24px;
+  height: 24px;
+  border-radius: 5px;
+  border: 1px solid #BEC7C6;
+  vertical-align: -5px;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  margin-left: 8px;
+}
+
+input[type="checkbox"]:checked:before {
+  position: absolute;
+  top: 2px;
+  left: 7px;
+  transform: rotate(50deg);
+  width: 8px;
+  height: 14px;
+  border-right: 2px solid white;
+  border-bottom: 2px solid white;
+  content: '';
+}
+
+input[type="checkbox"]:checked{
+  background-color: #A9BABC;
+}
+
+*:focus {
+  outline: none;
+}
+
+input[type="checkbox"]:focus {
+  outline: none;
+}
+
+/* rating枠 */
+.rating{
+  padding-bottom: 10px;
+}
+
+/* ratingボタン　全体 */
+.btn-group{
+  height: 100px;
+}
+
+/* ratingボタン　個々 */
 .btn-primary {
     background: white; //ボタンの背景色
     color: #5C6060; //ボタンのテキストの色
@@ -34,11 +88,34 @@
     box-shadow:none;
 }
 
-.btn-group{
-    height: 100px;
+/* 作成・編集ボタン */
+.btn_container{
+  display:flex;
+  justify-content: space-between;
 }
 
-.submit{
+/* キャンセル・削除ボタン */
+.cancel_btn{
+  display: block;
+  border-radius: 100vh;
+  margin: 0 auto;
+  height: 60px;
+  width: 200px;
+  background-color: #A9BABC;
+  border:none;
+  color: white;
+  font-size: 16px;
+  text-align: center;
+  padding:20px 0;
+}
+
+.cancel_btn:link, .cancel_btn:visited,.cancel_btn:hover, .cancel_btn:active{
+  text-decoration: none;
+  color: white;
+}
+
+/* 作成・編集ボタン */
+.submit_btn{
     display: block;
     border-radius: 100vh;
     margin: 0 auto;
@@ -50,76 +127,28 @@
     font-size: 16px;
 }
 
-.cancel_btn{
-    display: block;
-    border-radius: 100vh;
-    margin: 0 auto;
-    height: 60px;
-    width: 200px;
-    background-color: #A9BABC;
-    border:none;
-    color: white;
-    font-size: 16px;
-    text-align: center;
-    padding:20px 0;
-}
+/* レスポンシブ */
+@media (max-width: 960px) {
 
-.cancel_btn:link, .cancel_btn:visited,.cancel_btn:hover, .cancel_btn:active{
-    text-decoration: none;
-    color: white;
-}
-
-.btn_container{
-    margin: 0 auto;
-    width: 90%;
-    display:flex;
-    justify-content: space-between;
-}
-
-
-/*位置情報マーク*/
-#location_img{
-    filter: invert(38%) sepia(6%) saturate(223%) hue-rotate(131deg) brightness(94%) contrast(90%);
-}
-
-  /* 公開設定のチェックボックス */
-  .public{
-    margin-bottom: -10px;
+  /* フォームレイアウト */
+  .todo_content,.public,.rating,.comment,.btn-group,.btn_container{
+    width: 90vw;
+    min-width: 300px;
   }
 
-  input[type="checkbox"] {
-    position: relative;
-    width: 24px;
-    height: 24px;
-    border-radius: 5px;
-    border: 1px solid #BEC7C6;
-    vertical-align: -5px;
-    -webkit-appearance: none;
-       -moz-appearance: none;
-            appearance: none;
-    margin-left: 8px;
+  /* 作成・編集ボタン */
+  .btn_container{
+    flex-flow: column;
   }
+
+  /* コメント記入欄 */
+  .form-control{
+    width: 80vw;
+  }
+
+  .submit_btn,.cancel_btn{
+    width: 50vw;
+    margin-bottom: 30px;
+  }
+}
   
-  input[type="checkbox"]:checked:before {
-    position: absolute;
-    top: 2px;
-    left: 7px;
-    transform: rotate(50deg);
-    width: 8px;
-    height: 14px;
-    border-right: 2px solid white;
-    border-bottom: 2px solid white;
-    content: '';
-  }
-
-  input[type="checkbox"]:checked{
-    background-color: #A9BABC;
-  }
-
-  *:focus {
-    outline: none;
-  }
-
-  input[type="checkbox"]:focus {
-    outline: none;
-  }

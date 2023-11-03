@@ -19,21 +19,23 @@
   </div>
 </div>
 
-<% if @a_todos.empty? %>
-  <%= render 'none' %>
-<% else %>
-  <% @a_todos.each do |todo| %>
-      <div class="card">
-        <div class="card-top">
-          <%= render 'achieved_todos/card_top', todo: todo %>
+<div class="card_container">
+  <% if @a_todos.empty? %>
+    <%= render 'none' %>
+  <% else %>
+    <% @a_todos.each do |todo| %>
+        <div class="card">
+          <div class="card-top">
+            <%= render 'achieved_todos/card_top', todo: todo %>
+          </div>
+        
+          <div class="card-down">
+            <%= render 'achieved_todos/card_down', todo: todo  %>
+          </div>
         </div>
-      
-        <div class="card-down">
-          <%= render 'achieved_todos/card_down', todo: todo  %>
-        </div>
-      </div>
+    <% end %>
   <% end %>
-<% end %>
+</div>
 
 
 
