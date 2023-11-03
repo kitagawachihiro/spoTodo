@@ -52,11 +52,38 @@ h3{
     color: #A9BABC;
 }
 
-@media screen and (max-width: 1200px){
+.responsive{
+    display: none;
+}
+
+@media screen and (max-width: 960px){
     .exp-container{
         display:block;
         padding-left: 0;
         padding-right: 0;
+        margin-bottom: 150px;
     }
 
+    .explain-logo img,.exp-image img{
+        width:300px;
+    }
+
+    .explain{
+        line-height: 3em;
+    }
+
+    .exp-content{
+        font-size: 14px;
+    }
+
+    .btn{
+        padding-top:28px;
+        height: 80px;
+        width: 250px;
+        font-size: 18px;
+    }
+
+    .responsive{
+        display: block;
+    }
 }
