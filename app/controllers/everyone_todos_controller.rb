@@ -1,4 +1,6 @@
 class EveryoneTodosController < ApplicationController
+  before_action :require_login
+
   def index
     @q = Spot.ransack(params[:q])
     @spots = @q.result(distinct: true)

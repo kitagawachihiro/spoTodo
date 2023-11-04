@@ -1,4 +1,6 @@
 class AchievedTodosController < ApplicationController
+  before_action :require_login
+
   def index
     # @a_todos = current_user.todos.where(finished: TRUE).includes(:spot)
 

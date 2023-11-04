@@ -52,6 +52,13 @@ ja:
   everyone_todos:
     index:
       title: 'みんなのTodo'
+  documents:
+    privacy_policy:
+      title: 'プライバシーポリシー'  
+    terms_of_service:
+      title: '利用規約'
+    ask:
+      title: '問い合わせ'  
   shared:
     sidebar:
       top: 'spoTodoとは'
