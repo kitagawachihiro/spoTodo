@@ -3,8 +3,7 @@ Rails.application.routes.draw do
   #documents
   get 'privacy_policy', to: 'documents#privacy_policy'
   get 'terms_of_service', to: 'documents#terms_of_service'
-  get 'inquiry', to: 'documents#inquiry'
-
+  
   scope module: :oauths do
     get 'login'
   end

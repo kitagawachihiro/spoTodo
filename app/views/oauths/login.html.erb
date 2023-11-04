@@ -7,6 +7,6 @@
         <%= image_tag 'spotodo_logo.png', width:"350px" %>
         <p>"いつかやりたい"を記録するサービス</p>
     </div>
-    <%= link_to auth_at_provider_path(response_type: 'code', provider: :line), class:"btn" do image_tag 'btn_login_base.png' end %>
+    <%= link_to auth_at_provider_path(response_type: 'code', provider: :line), class:"btn", data: { confirm: '当サービスの利用規約に同意しますか？' } do image_tag 'btn_login_base.png' end %>
     <p>※loginで新規登録も完了します</p>
 </div>
