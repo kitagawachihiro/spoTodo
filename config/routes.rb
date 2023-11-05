@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
 
   namespace :admin do
+    get 'user_sessions/new'
+  end
+  namespace :admin do
     get 'dashboards/index'
   end
   #documents
