@@ -92,6 +92,18 @@ ja:
       delete: 'レビューを削除しました'
       not_delete: 'レビューを削除できませんでした'
       already: '既にレビューが作成されています'
+admin:
+  user_sessions:
+    new:
+      title: 'ログイン'
+    create:
+      success: 'ログインしました'
+      fall: 'ログインに失敗しました'
+    destroy:
+      success:  'ログアウトしました'
+  dashboards:
+    index:
+      title: 'ダッシュボード'
 
 
 
