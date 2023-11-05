@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
 
+  namespace :admin do
+    get 'dashboards/index'
+  end
   #documents
   get 'privacy_policy', to: 'documents#privacy_policy'
   get 'terms_of_service', to: 'documents#terms_of_service'
