@@ -1,0 +1,36 @@
+<tr>
+  <td>
+    <%= todo.id %>
+  </td>
+  <td>
+    <%= todo.content %>
+  </td>
+  <td>
+    <%= todo.finished %>
+  </td>
+  <td>
+    <%= todo.user_id %>
+  </td>
+  <td>
+    <%= todo.spot_id %>
+  </td>
+  <td>
+    <%= todo.spot.name %>
+  </td>
+  <td>
+    <%= todo.public %>
+  </td>
+  <td>
+    <%= todo.addcount %>
+  </td>
+  <td>
+    <%= l todo.created_at, formats: :long %>
+  </td>
+  <td>
+    <%= l todo.updated_at, formats: :long %>
+    </td>
+  <td>
+    <%= link_to t('defaults.edit'), edit_admin_todo_path(todo), class: 'btn btn-success' %>
+    <%= link_to t('defaults.delete'), admin_todo_path(todo), method: :delete, data: { confirm: t('defaults.message.delete_confirm') }, class: 'btn btn-danger' %>
+  </td>
+</tr>

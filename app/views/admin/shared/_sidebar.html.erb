@@ -11,18 +11,18 @@
     <nav class="mt-2">
       <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
         <li class="nav-item">
-          <%= link_to '#', class: "nav-link" do %>
-            <i class="nav-icon far fa-file"></i>
+        <%= link_to admin_todos_path, class: "nav-link" do %>
+            <i class="nav-icon far fa-user"></i>
             <p>
-              掲示板一覧
+              Todo一覧
             </p>
           <% end %>
 
         <li class="nav-item">
-          <%= link_to '#', class: "nav-link" do %>
+          <%= link_to admin_users_path, class: "nav-link" do %>
             <i class="nav-icon far fa-user"></i>
             <p>
-              ユーザ一一覧
+              ユーザー一覧
             </p>
           <% end %>
         </li>

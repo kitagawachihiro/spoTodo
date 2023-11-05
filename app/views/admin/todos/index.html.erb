@@ -1,0 +1,32 @@
+<div class="container mb-5 pt-2">
+  <h1>Todo一覧</h1>
+  <div class="row">
+    <div class="col-md-12">
+      <table class="table table-striped">
+        <thead>
+        <tr>
+          <th scope="col">id</th>
+          <th scope="col">content</th>
+          <th scope="col">finished</th>
+          <th scope="col">user_id</th>
+          <th scope="col">spot_id</th>
+          <th scope="col">場所名</th>
+          <th scope="col">public</th>
+          <th scope="col">addcount</th>
+          <th scope="col">created_at</th>
+          <th scope="col">updated_at</th>
+        </tr>
+        </thead>
+        <tbody>
+        <%= render @todos %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <!-- ページネーション -->
+      <%= paginate @todos %>
+    </div>
+  </div>
+</div>
