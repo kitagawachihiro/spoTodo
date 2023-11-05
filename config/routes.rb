@@ -1,11 +1,13 @@
 Rails.application.routes.draw do
 
+  #admin
   namespace :admin do
-    get 'user_sessions/new'
+    root to: 'dashboards#index'
+    get 'login', to: 'user_sessions#new'
+    post 'login', to: 'user_sessions#create'
+    delete 'logout', to: 'user_sessions#destroy'
   end
-  namespace :admin do
-    get 'dashboards/index'
-  end
+
   #documents
   get 'privacy_policy', to: 'documents#privacy_policy'
   get 'terms_of_service', to: 'documents#terms_of_service'
