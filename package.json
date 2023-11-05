@@ -2,6 +2,7 @@
   "name": "spoTodo",
   "private": true,
   "dependencies": {
+    "admin-lte": "^3.1"
   },
   "packageManager": "yarn@1.22.19"
 }
