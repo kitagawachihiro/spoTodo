@@ -3,7 +3,7 @@ class Admin::TodosController < Admin::BaseController
   
     def index
       @search = Todo.ransack(params[:q])
-      @todos = @search.result(distinct: true).includes(:user).order(created_at: :desc).page(params[:page])
+      @todos = @search.result(distinct: true).includes(:spot).order(created_at: :desc).page(params[:page])
     end
   
     
@@ -19,9 +19,13 @@ class Admin::TodosController < Admin::BaseController
     end
   
     def destroy
-      @todo.destroy!
-      redirect_to admin_todos_path, success: 'Todoを削除しました'
-    end
+      @todo.destroy
+      flash[:success] = t('notice.todo.destroy')
+    
+    #もし紐づくtodoがなくなってしまった場合は、そのspotも削除する
+      @todo.spot.destroy if @todo.spot.todos.empty?
+      redirect_back(fallback_location: todos_url)
+     end
   
     private
   

@@ -1,5 +1,5 @@
 class Spot < ApplicationRecord
-    has_many :todos
+    has_many :todos, dependent: :destroy
 
     #geocodeを使用するカラム
     #このアプリではlatitude, longitudeを使用して、addressを取得している
