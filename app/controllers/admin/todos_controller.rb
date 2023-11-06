@@ -11,16 +11,16 @@ class Admin::TodosController < Admin::BaseController
   
     def update
       if @todo.update(todo_params)
-        redirect_to admin_todos_path(@todo), success: t('defaults.message.updated', item: Todo.model_name.human)
+        redirect_to admin_todos_path(@todo), success: 'Todoを更新しました'
       else
-        flash.now[:danger] = t('defaults.message.not_updated', item: Todo.model_name.human)
+        flash.now[:danger] = 'Todoを更新できませんでした'
         render :edit
       end
     end
   
     def destroy
       @todo.destroy!
-      redirect_to admin_todos_path, success: t('defaults.message.deleted', item: Todo.model_name.human)
+      redirect_to admin_todos_path, success: 'Todoを削除しました'
     end
   
     private

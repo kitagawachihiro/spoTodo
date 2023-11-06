@@ -8,4 +8,11 @@ class Todo < ApplicationRecord
   validates :user_id, presence: true
   validates :spot_id, presence: true
   
+  def self.ransackable_attributes(auth_object = nil)
+    ["addcount", "content", "created_at", "finished", "id", "public", "spot_id", "updated_at", "user_id"]
+  end
+
+  def self.ransackable_associations(auth_object = nil)
+    ["review", "spot", "user"]
+  end
 end
