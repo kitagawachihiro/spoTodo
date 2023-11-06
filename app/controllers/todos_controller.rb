@@ -74,7 +74,7 @@ class TodosController < ApplicationController
   flash[:success] = t('notice.todo.destroy')
 
 #もし紐づくtodoがなくなってしまった場合は、そのspotも削除する
-  @todo.spot.destroy if @todo.spot.todos.nil?
+  @todo.spot.destroy if @todo.spot.todos.empty?
   redirect_back(fallback_location: todos_url)
  end
 

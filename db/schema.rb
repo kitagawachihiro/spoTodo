@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_10_18_152833) do
+ActiveRecord::Schema.define(version: 2023_11_05_143359) do
 
   create_table 'authentications', force: :cascade do |t|
     t.integer 'user_id', null: false

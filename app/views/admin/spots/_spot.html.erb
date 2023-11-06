@@ -1,0 +1,29 @@
+<tr>
+  <td>
+    <%= spot.id %>
+  </td>
+  <td>
+    <%= spot.name %>
+  </td>
+  <td>
+    <%= spot.address %>
+  </td>
+  <td>
+    <%= spot.latitude %>
+  </td>
+  <td>
+    <%= spot.longitude %>
+  </td>
+  <td>
+    <%= l spot.created_at, formats: :long %>
+  </td>
+  <td>
+    <%= l spot.updated_at, formats: :long %>
+  </td>
+  <td>
+    <%= spot.todos.count %>
+  </td>
+  <td>
+    <%= link_to t('defaults.delete'), admin_spot_path(spot), method: :delete, data: { confirm: '削除しますか？' }, class: 'btn btn-danger' %>
+  </td>
+</tr>

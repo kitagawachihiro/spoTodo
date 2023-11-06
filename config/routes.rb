@@ -1,9 +1,18 @@
 Rails.application.routes.draw do
 
+  #admin
+  namespace :admin do
+    root to: 'dashboards#index'
+    resources :users, only: %i[index destroy]
+    resources :todos, only: %i[index edit update destroy]
+    resources :spots, only: %i[index destroy]
+    resources :reviews, only: %i[index destroy]
+  end
+
   #documents
   get 'privacy_policy', to: 'documents#privacy_policy'
   get 'terms_of_service', to: 'documents#terms_of_service'
-  
+
   scope module: :oauths do
     get 'login'
   end

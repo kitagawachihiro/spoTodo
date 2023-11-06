@@ -1,0 +1,12 @@
+<%= search_form_for @search, url: admin_todos_path do |f| %>
+  <div class="row">
+    <div class="form-inline align-items-center mx-auto">
+      <div class="col-auto">
+        <%= f.search_field :content_cont, class: 'form-control', placeholder: 'contentのみ' %>
+      </div>
+      <div class="col-auto">
+        <%= f.submit class: 'btn btn-primary' %>
+      </div>
+    </div>
+  </div>
+<% end %>
