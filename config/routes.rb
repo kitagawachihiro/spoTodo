@@ -5,7 +5,8 @@ Rails.application.routes.draw do
     root to: 'dashboards#index'
     resources :users, only: %i[index destroy]
     resources :todos, only: %i[index edit update destroy]
-    resources :spots, only: %i[index edit update destroy]
+    resources :spots, only: %i[index destroy]
+    resources :reviews, only: %i[index destroy]
   end
 
 

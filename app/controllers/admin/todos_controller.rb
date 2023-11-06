@@ -24,7 +24,7 @@ class Admin::TodosController < Admin::BaseController
     
     #もし紐づくtodoがなくなってしまった場合は、そのspotも削除する
       @todo.spot.destroy if @todo.spot.todos.empty?
-      redirect_back(fallback_location: todos_url)
+      redirect_to admin_todos_path, success: 'Todoを削除しました'
      end
   
     private
