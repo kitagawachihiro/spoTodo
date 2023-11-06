@@ -9,11 +9,10 @@ Rails.application.routes.draw do
     resources :reviews, only: %i[index destroy]
   end
 
-
   #documents
   get 'privacy_policy', to: 'documents#privacy_policy'
   get 'terms_of_service', to: 'documents#terms_of_service'
-  
+
   scope module: :oauths do
     get 'login'
   end

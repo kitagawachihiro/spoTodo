@@ -1,13 +1,11 @@
 class Admin::BaseController < ApplicationController
-    before_action :check_admin
-    layout 'admin/layouts/application'
-  
-  
-    private
+  before_action :check_admin
+  layout 'admin/layouts/application'
 
-    def check_admin
-      user = User.find(1)
-      redirect_to root_path, danger: 'アクセスできません' unless current_user.id == user.id
-    end
+  private
 
+  def check_admin
+    user = User.find(1)
+    redirect_to root_path, danger: 'アクセスできません' unless current_user.id == user.id
+  end
 end
