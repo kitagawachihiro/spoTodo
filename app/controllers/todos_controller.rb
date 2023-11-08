@@ -1,6 +1,8 @@
 class TodosController < ApplicationController
  before_action :current_todo, only:[:edit, :update, :finish, :continue, :destroy]
  before_action :require_login
+ before_action :set_current_user, only:[:create]
+
 
  def index
   @q = current_user.spots.ransack(params[:q])
@@ -11,14 +13,9 @@ class TodosController < ApplicationController
    @todo = Todo.new
  end
  
- def create  
-  current_user = User.find(todo_params[:current_user_id])
-
-  if Spot.find_by(address: todo_params[:address]).present?
-    @spot = Spot.find_by(address: todo_params[:address])
-  else
-    @spot = Spot.new(name: todo_params[:name], address: todo_params[:address], latitude: todo_params[:latitude], longitude: todo_params[:longitude])
-  end
+ def create
+  
+  Spot.create_spot(todo_params)
 
   if @spot.save
     @todo = current_user.todos.new(content: todo_params[:content], spot_id: @spot.id, public: todo_params[:public])
@@ -111,7 +108,11 @@ class TodosController < ApplicationController
  end
 
  def todo_params
-   params.require(:todo).permit(:content, :address, :name, :latitude, :longitude, :current_user_id, :public)
+  params.require(:todo).permit(:content, :address, :name, :latitude, :longitude, :current_user_id, :public)
+end
+
+ def set_current_user
+  current_user = User.find(todo_params[:current_user_id])
  end
  
 end
