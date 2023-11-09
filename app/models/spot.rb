@@ -23,4 +23,13 @@ class Spot < ApplicationRecord
             @spot = self.new(name: todo_params[:name], address: todo_params[:address], latitude: todo_params[:latitude], longitude: todo_params[:longitude])
           end
     end
+
+    #編集後のスポットのセットを行う
+    def self.setting_new_spot(todo_params)
+        if self.find_by(address: todo_params[:address]).present?
+            self.find_by(address: todo_params[:address])
+        else
+            self.new(name: todo_params[:name], address: todo_params[:address], latitude: todo_params[:latitude], longitude: todo_params[:longitude])
+        end
+    end
 end

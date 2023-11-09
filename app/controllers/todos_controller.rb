@@ -1,7 +1,7 @@
 class TodosController < ApplicationController
  before_action :current_todo, only:[:edit, :update, :finish, :continue, :destroy]
  before_action :require_login
- before_action :set_current_user, only:[:create]
+ before_action :set_current_user, only:[:create, :update]
 
 
  def index
@@ -32,13 +32,8 @@ class TodosController < ApplicationController
  def edit;end
 
  def update
-    current_user = User.find(todo_params[:current_user_id])
 
-    if current_user.spots.find_by(address: todo_params[:address]).present?
-        @new_spot = current_user.spots.find_by(address: todo_params[:address])
-    else
-        @new_spot = Spot.new(name: todo_params[:name], address: todo_params[:address], latitude: todo_params[:latitude], longitude: todo_params[:longitude])
-    end
+    @new_spot =Spot.setting_new_spot(todo_params)
 
     #もし@spot.addressと@new_spotが違ったら新しいspotを生成する。
     if @spot != @new_spot
@@ -46,10 +41,7 @@ class TodosController < ApplicationController
         ActiveRecord::Base.transaction {
           @new_spot.save!
           @todo.update(content: todo_params[:content], spot_id: @new_spot.id, user_id: current_user.id, public: todo_params[:public])
-
-          #紐づくtodoが0になってしまったspotは削除する
-          @spot.destroy if @spot.todos.empty?
-          
+          destroy_empty_spot
           redirect_to todos_path, success: t('notice.todo.update')
         }
       rescue Exception => e
@@ -57,7 +49,7 @@ class TodosController < ApplicationController
         render :edit
       end
     else
-      if @todo.update!(content: todo_params[:content], spot_id: @spot.id, user_id: current_user.id, public: todo_params[:public])
+      if @todo.update!(content: todo_params[:content], spot_id: @new_spot.id, user_id: current_user.id, public: todo_params[:public])
         redirect_to todos_path, success: t('notice.todo.update')
       else
         flash.now[:danger] = t('notice.todo.not_update')
@@ -114,5 +106,11 @@ end
  def set_current_user
   current_user = User.find(todo_params[:current_user_id])
  end
+
+  #紐づくtodoが0になってしまったspotは削除する
+  def destroy_empty_spot
+    @spot.destroy if @spot.todos.empty?
+    binding.pry
+  end
  
 end
