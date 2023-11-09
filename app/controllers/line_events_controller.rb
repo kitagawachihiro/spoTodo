@@ -5,7 +5,7 @@ class LineEventsController < ApplicationController
   # line_events_controller.rb
   require 'line/bot' # gem 'line-bot-api' 
 
-  #clientを定義
+  # clientを定義
   def client
     @client ||= Line::Bot::Client.new { |config|
       config.channel_id = Rails.application.credentials.dig(:line, :message_channel_id)
@@ -13,22 +13,31 @@ class LineEventsController < ApplicationController
       config.channel_token = Rails.application.credentials.dig(:line, :message_channel_token)
     }
   end
-  
-  #イベント受信
+
+  # イベント受信
   def recieve
     body = request.body.read
-  
-    #署名の検証
+
+    # 署名の検証
     signature = request.env['HTTP_X_LINE_SIGNATURE']
     unless client.validate_signature(body, signature)
       error 400 do 'Bad Request' end
     end
-  
+
     events = client.parse_events_from(body)
-  
-  #イベントが誰から送られてきたかuseridを確認
+
+    # イベントが誰から送られてきたかuseridを確認
     events.each do |event|
-      userId = event['source']['userId']  #userId取得
+      handle_event(event)
+    end
+
+    'OK'
+  end
+
+  private
+
+  def handle_event(event)
+    userId = event['source']['userId']  #userId取得
   
       #ユーザーがAuthenticationsテーブルに登録済みの人であるか確認し、ユーザーを取得する
       now_user = User.joins(:authentication).find_by(authentications: { uid: userId })
@@ -157,9 +166,4 @@ class LineEventsController < ApplicationController
         end
       end
     end
-  
-    'OK'
-  end
-  
-  
   end
