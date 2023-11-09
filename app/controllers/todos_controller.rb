@@ -3,7 +3,6 @@ class TodosController < ApplicationController
  before_action :require_login
  before_action :set_current_user, only:[:create, :update]
 
-
  def index
   @q = current_user.spots.ransack(params[:q])
   @spots = @q.result(distinct: true).includes(:todos).select(:id, :name).order(id: :desc).page(params[:page]).per(20)
@@ -108,9 +107,8 @@ end
  end
 
   #紐づくtodoが0になってしまったspotは削除する
-  def destroy_empty_spot
-    @spot.destroy if @spot.todos.empty?
-    binding.pry
-  end
+ def destroy_empty_spot
+   @spot.destroy if @spot.todos.empty?
+ end
  
 end
