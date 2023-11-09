@@ -14,7 +14,7 @@ class TodosController < ApplicationController
  
  def create
   
-  Spot.create_spot(todo_params)
+  @spot = Spot.create_spot(todo_params)
 
   if @spot.save
     @todo = current_user.todos.new(content: todo_params[:content], spot_id: @spot.id, public: todo_params[:public])
@@ -32,7 +32,7 @@ class TodosController < ApplicationController
 
  def update
 
-    @new_spot =Spot.setting_new_spot(todo_params)
+    @new_spot = Spot.setting_new_spot(todo_params)
 
     #もし@spot.addressと@new_spotが違ったら新しいspotを生成する。
     if @spot != @new_spot
