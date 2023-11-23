@@ -1,7 +1,7 @@
 class TodosController < ApplicationController
  before_action :current_todo, only:[:edit, :update, :finish, :continue, :destroy]
  before_action :require_login
- before_action :set_current_user, only:[:create, :update]
+ #before_action :set_current_user, only:[:create, :update]
 
  def index
   @q = current_user.spots.ransack(params[:q])
@@ -9,19 +9,17 @@ class TodosController < ApplicationController
  end
 
  def new
-   @todo = Todo.new
+   @todo_spot = TodoSpot.new
  end
  
  def create
   
-  @spot = Spot.create_spot(todo_params)
+  @todo_spot = TodoSpot.new(todo_spot_params)
 
-  if @spot.save
-    @todo = current_user.todos.new(content: todo_params[:content], spot_id: @spot.id, public: todo_params[:public])
-    @todo.save
+  if @todo_spot.valid?
+    @todo_spot.save
     redirect_to todos_path, success: t('notice.todo.create')
   else
-    @todo = Todo.new(content:todo_params[:content])
     flash.now[:danger] = t('notice.todo.not_create')
     render :new
   end
@@ -98,13 +96,10 @@ class TodosController < ApplicationController
     end
  end
 
- def todo_params
-  params.require(:todo).permit(:content, :address, :name, :latitude, :longitude, :current_user_id, :public)
-end
-
- def set_current_user
-  current_user = User.find(todo_params[:current_user_id])
+ def todo_spot_params
+  params.require(:todo_spot).permit(:content, :user_id, :public, :name, :address, :latitude, :longitude)
  end
+
 
   #紐づくtodoが0になってしまったspotは削除する
  def destroy_empty_spot

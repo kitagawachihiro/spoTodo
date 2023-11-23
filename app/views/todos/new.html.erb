@@ -5,7 +5,7 @@
     <h1><%= title t 'todos.new.title' %></h1>
 </div>
 
-    <%= form_with model: @todo, local: true do |f| %>
+    <%= form_with(model: @todo_spot, url: todos_path, local: true) do |f| %>
             <div class="todo">
                 <%= f.label :content, t('.what') %></br>
                 <div class="todo_form">
@@ -34,7 +34,7 @@
             <div>
                 <%= f.hidden_field :latitude, id:"spot_lat" %>
                 <%= f.hidden_field :longitude, id:"spot_lon"%>
-                <%= f.hidden_field :current_user_id, value: current_user.id %>
+                <%= f.hidden_field :user_id, value: current_user.id %>
             </div>
 
             <div class="map_submit">
