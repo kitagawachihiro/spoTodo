@@ -8,11 +8,11 @@ class TodosController < ApplicationController
  end
 
  def new
-   @todo_spot = TodoSpot.new(current_user,Todo.new)
+   @todo_spot = TodoSpot.new(current_user, Todo.new)
  end
  
  def create
-  @todo_spot = TodoSpot.new(current_user, todo_spot_params,Todo.new)
+  @todo_spot = TodoSpot.new(current_user, todo_spot_params, Todo.new)
 
   if @todo_spot.valid?
     @todo_spot.save
@@ -82,9 +82,7 @@ class TodosController < ApplicationController
  
  def destroy_empty_spot
    #もし紐づくtodoがなくなってしまった場合は、そのspotも削除する
-   binding.pry
    @spot.destroy if @spot.todos.empty?
    redirect_back(fallback_location: todos_url)
  end
-
 end

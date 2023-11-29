@@ -34,7 +34,7 @@ class LineEventsController < ApplicationController
     'OK'
   end
 
-  private
+    private
 
   def handle_event(event)
     userId = event['source']['userId']  #userId取得
@@ -165,5 +165,5 @@ class LineEventsController < ApplicationController
   
         end
       end
-    end
+  end
   end
