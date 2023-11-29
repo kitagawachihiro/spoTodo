@@ -14,8 +14,7 @@ class TodosController < ApplicationController
  def create
   @todo_spot = TodoSpot.new(current_user, todo_spot_params, Todo.new)
 
-  if @todo_spot.valid?
-    @todo_spot.save
+  if @todo_spot.save(todo_spot_params)
     redirect_to todos_path, success: t('notice.todo.create')
   else
     flash.now[:danger] = t('notice.todo.not_create')
@@ -84,5 +83,6 @@ class TodosController < ApplicationController
    #もし紐づくtodoがなくなってしまった場合は、そのspotも削除する
    @spot.destroy if @spot.todos.empty?
    redirect_back(fallback_location: todos_url)
+   true
  end
 end
