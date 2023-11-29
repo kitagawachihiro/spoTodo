@@ -1,7 +1,6 @@
 class TodosController < ApplicationController
  before_action :current_todo, only:[:edit, :update, :finish, :continue, :destroy]
  before_action :require_login
- before_action :set_current_user, only:[:create, :update]
 
  def index
   @q = current_user.spots.ransack(params[:q])
@@ -9,61 +8,40 @@ class TodosController < ApplicationController
  end
 
  def new
-   @todo = Todo.new
+   @todo_spot = TodoSpot.new(current_user, Todo.new)
  end
  
  def create
-  
-  @spot = Spot.create_spot(todo_params)
+  @todo_spot = TodoSpot.new(current_user, todo_spot_params, Todo.new)
 
-  if @spot.save
-    @todo = current_user.todos.new(content: todo_params[:content], spot_id: @spot.id, public: todo_params[:public])
-    @todo.save
+  if @todo_spot.valid?
+    @todo_spot.save
     redirect_to todos_path, success: t('notice.todo.create')
   else
-    @todo = Todo.new(content:todo_params[:content])
     flash.now[:danger] = t('notice.todo.not_create')
     render :new
   end
 
  end
 
- def edit;end
+ def edit
+  @todo_spot = TodoSpot.new(current_user, @todo)
+ end
 
  def update
-
-    @new_spot = Spot.setting_new_spot(todo_params)
-
-    #もし@spot.addressと@new_spotが違ったら新しいspotを生成する。
-    if @spot != @new_spot
-      begin
-        ActiveRecord::Base.transaction {
-          @new_spot.save!
-          @todo.update(content: todo_params[:content], spot_id: @new_spot.id, user_id: current_user.id, public: todo_params[:public])
-          destroy_empty_spot
-          redirect_to todos_path, success: t('notice.todo.update')
-        }
-      rescue Exception => e
-        flash.now[:danger] = t('notice.todo.not_update')
-        render :edit
-      end
-    else
-      if @todo.update!(content: todo_params[:content], spot_id: @new_spot.id, user_id: current_user.id, public: todo_params[:public])
-        redirect_to todos_path, success: t('notice.todo.update')
-      else
-        flash.now[:danger] = t('notice.todo.not_update')
-        render :edit
-      end
-    end
+  @todo_spot = TodoSpot.new(current_user, todo_spot_params, @todo)
+  if @todo_spot.update(todo_spot_params)
+    redirect_to todos_path, success: t('notice.todo.update')
+  else
+    flash.now[:danger] = t('notice.todo.not_update')
+    render :edit
   end
+ end
 
  def destroy
   @todo.destroy
   flash[:success] = t('notice.todo.destroy')
-
-#もし紐づくtodoがなくなってしまった場合は、そのspotも削除する
-  @todo.spot.destroy if @todo.spot.todos.empty?
-  redirect_back(fallback_location: todos_url)
+  destroy_empty_spot
  end
 
  def finish
@@ -98,17 +76,13 @@ class TodosController < ApplicationController
     end
  end
 
- def todo_params
-  params.require(:todo).permit(:content, :address, :name, :latitude, :longitude, :current_user_id, :public)
-end
-
- def set_current_user
-  current_user = User.find(todo_params[:current_user_id])
- end
-
-  #紐づくtodoが0になってしまったspotは削除する
- def destroy_empty_spot
-   @spot.destroy if @spot.todos.empty?
+ def todo_spot_params
+  params.require(:todo_spot).permit(:content, :user_id, :public, :name, :address, :latitude, :longitude)
  end
  
+ def destroy_empty_spot
+   #もし紐づくtodoがなくなってしまった場合は、そのspotも削除する
+   @spot.destroy if @spot.todos.empty?
+   redirect_back(fallback_location: todos_url)
+ end
 end

@@ -31,5 +31,7 @@ ja:
       date_short: "%m月%d日"
       datetime: "%Y.%m.%d %H時%M分"
       only_time: "%H:%M"
-
+  errors:
+    messages:
+      record_invalid: "バリデーションに失敗しました: %{errors}"
   

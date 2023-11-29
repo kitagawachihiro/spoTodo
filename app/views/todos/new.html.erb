@@ -5,43 +5,43 @@
     <h1><%= title t 'todos.new.title' %></h1>
 </div>
 
-    <%= form_with model: @todo, local: true do |f| %>
-            <div class="todo">
-                <%= f.label :content, t('.what') %></br>
-                <div class="todo_form">
-                    <span><%= f.text_field :content, placeholder:"TVで見た幻のプリンを食べる", id:"todo_content" %></span>
-                </div>
+<%= form_with(model: @todo_spot, url: todos_path, local: true) do |f| %>
+        <div class="todo">
+            <%= f.label :content, t('.what') %></br>
+            <div class="todo_form">
+                <span><%= f.text_field :content, placeholder:"TVで見た幻のプリンを食べる", id:"todo_content" %></span>
             </div>
+        </div>
 
-            <div class="spot">
-                <%= f.label :name, t('.where') %></br>
-                <p style="color:orange">※場所を入力後、必ず「検索」ボタンを押してmapで確認してください。</p>
-                <div class="spot_form">
-                    <span><%= f.text_field :name, placeholder:"○×カフェ", id:"spot_name" %></span>
-                    <div class="search_margin"><input type="button" value=<%= t('.search') %> class="search" onclick="getAddress()"></div>
-                </div>
+        <div class="spot">
+            <%= f.label :name, t('.where') %></br>
+            <p style="color:orange">※場所を入力後、必ず「検索」ボタンを押してmapで確認してください。</p>
+            <div class="spot_form">
+                <span><%= f.text_field :name, placeholder:"○×カフェ", id:"spot_name" %></span>
+                <div class="search_margin"><input type="button" value=<%= t('.search') %> class="search" onclick="getAddress()"></div>
             </div>
+        </div>
 
-            <div class="public">
-                <%= f.label :public, t('.public_check') %>
-                <%= f.check_box :public, id:'public_check', checked: false%>
-            </div>
+        <div class="public">
+            <%= f.label :public, t('.public_check') %>
+            <%= f.check_box :public, id:'public_check', checked: false%>
+        </div>
 
-            <div>
-                <%= f.hidden_field :address, id: "spot_address" %>
-            </div>
+        <div>
+            <%= f.hidden_field :address, id: "spot_address" %>
+        </div>
 
-            <div>
-                <%= f.hidden_field :latitude, id:"spot_lat" %>
-                <%= f.hidden_field :longitude, id:"spot_lon"%>
-                <%= f.hidden_field :current_user_id, value: current_user.id %>
-            </div>
+        <div>
+            <%= f.hidden_field :latitude, id:"spot_lat" %>
+            <%= f.hidden_field :longitude, id:"spot_lon"%>
+            <%= f.hidden_field :user_id, value: current_user.id %>
+        </div>
 
-            <div class="map_submit">
-                <%= render 'todos/map' %>
-                <%= f.submit t('.create'), class:"create" %>
-            </div>
-    <% end %>
+        <div class="map_submit">
+            <%= render 'todos/map' %>
+            <%= f.submit t('.create'), class:"create" %>
+        </div>
+<% end %>
 
 
 <script src="https://maps.googleapis.com/maps/api/js?key=<%= Rails.application.credentials.dig(:googlemap, :api_key) %>&libraries=places&callback=initMap">
