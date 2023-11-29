@@ -27,39 +27,41 @@ class TodoSpot
                         address: @todo.spot.address, latitude: @todo.spot.latitude, longitude: @todo.spot.longitude)
     else
       # @todoをセット
-      @todo.assign_attributes({ user_id: user.id, content: params[:content] })
+      @todo.assign_attributes(user_id: user.id, content: params[:content])
     end
   end
 
-  def save
-    spot = Spot.find_by(address: address)
-    spot = Spot.new(name: name, address: address, latitude: latitude, longitude: longitude) if spot.nil?
+  def save(params)
+    spot = Spot.find_by(address: params[:address])
+    spot = Spot.new(name: params[:name], address: params[:address], latitude: params[:latitude], longitude: params[:longitude]) if spot.nil?
 
     return unless spot.save
 
-    @todo.public = public
+    @todo.public = params[:public]
     @todo.spot_id = spot.id
     @todo.save
   end
 
   def update(params)
     spot = Spot.find_by(address: params[:address])
-
     if spot.nil?
       # spotが新しい場所に変わっていた場合
       new_spot = Spot.new(name: params[:name], address: params[:address], latitude: params[:latitude], longitude: params[:longitude])
       new_spot.save!
       @todo.update(content: params[:content], spot_id: new_spot.id, public: params[:public])
     else
-      # spotは変わらず、contentだけ変わっていた場合
+      # spotは変わらずもしくはspot登録があった場合
       @todo.update(content: params[:content], spot_id: spot.id, public: params[:public])
     end
     destroy_empty_spot
   end
 
+  private
+
   # 紐づくtodoが0になってしまったspotは削除する
   def destroy_empty_spot
     old_spot = Spot.find_by(address: address)
     old_spot.destroy if old_spot.todos.empty?
+    return true
   end
 end
