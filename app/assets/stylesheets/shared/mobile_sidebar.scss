@@ -1,4 +1,4 @@
-@media screen and (max-width: 960px){
+@media screen and (max-width: 1200px){
   .col-lg-2 {display:none}
   .col-lg-1 {display:block}
  /* ハンバーガーのマーク */
@@ -55,7 +55,7 @@
    opacity: 0;
    visibility: hidden;
    transition: opacity 0.5s, visibility 0.5s;
-   background-color: #BEC7C6;
+   background-color: #718B92;
    z-index: 20;
    font-size: 20px;
  }

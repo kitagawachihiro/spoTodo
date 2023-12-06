@@ -82,7 +82,7 @@ input[type="checkbox"]:focus {
 .btn-primary.disabled:hover, .btn-primary[disabled]:hover, fieldset[disabled] .btn-primary:hover,
 .btn-primary.disabled:focus, .btn-primary[disabled]:focus, fieldset[disabled] .btn-primary:focus,
 .btn-primary.disabled.focus, .btn-primary[disabled].focus, fieldset[disabled] .btn-primary.focus {
-    background: #F2C67F; //ボタンの上にポインタを持ってきたり、クリックしたりした時の背景色
+    background: #F1B553; //ボタンの上にポインタを持ってきたり、クリックしたりした時の背景色
     color: #5C6060; //ボタンの上にポインタを持ってきたり、クリックしたりした時のテキストの色
     border:1px solid #BEC7C6;
     box-shadow:none;
@@ -121,7 +121,7 @@ input[type="checkbox"]:focus {
     margin: 0 auto;
     height: 60px;
     width: 200px;
-    background-color: #F2C67F;
+    background-color: #F1B553;
     border:none;
     color: white;
     font-size: 16px;
