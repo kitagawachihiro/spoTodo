@@ -1,6 +1,5 @@
 <%= stylesheet_link_tag 'title', media: 'all', 'data-turbolinks-track': 'reload' %>
 <%= stylesheet_link_tag 'index', media: 'all', 'data-turbolinks-track': 'reload' %>
-<%= stylesheet_link_tag 'todo/index', media: 'all', 'data-turbolinks-track': 'reload' %>
 
 <div class="title">
   <h1><%= title t 'todos.index.title' %></h1>
@@ -29,12 +28,6 @@
         <% end %>
       <% end %>
     <% end %>
-</div>
-
-<div class="plus_icon">
-  <%= link_to new_todo_path do %>
-    <%= image_tag 'circle-plus-solid.svg',width: '50px', height: '50px' %>
-  <% end %>
 </div>
 
 <div class="pagenate">
