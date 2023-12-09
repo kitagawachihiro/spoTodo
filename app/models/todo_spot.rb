@@ -62,6 +62,6 @@ class TodoSpot
   def destroy_empty_spot
     old_spot = Spot.find_by(address: address)
     old_spot.destroy if old_spot.todos.empty?
-    return true
+    true
   end
 end
