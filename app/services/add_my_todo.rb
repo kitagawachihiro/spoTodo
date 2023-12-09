@@ -1,6 +1,5 @@
 class AddMyTodo
     include Service
-    include Rails.application.routes.url_helpers
 
     def initialize(params)
         @origin_todo = Todo.find(params[:todo_id])
