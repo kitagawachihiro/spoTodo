@@ -12,13 +12,30 @@ class TodosController < ApplicationController
  end
  
  def create
-  @todo_spot = TodoSpot.new(current_user, todo_spot_params, Todo.new)
+  if params[:original_location] == nil
+    @todo_spot = TodoSpot.new(current_user, todo_spot_params, Todo.new)
 
-  if @todo_spot.save(todo_spot_params)
-    redirect_to todos_path, success: t('notice.todo.create')
+    if @todo_spot.save(todo_spot_params)
+      redirect_to todos_path, success: t('notice.todo.create')
+    else
+      flash.now[:danger] = t('notice.todo.not_create')
+      render :new
+    end
   else
-    flash.now[:danger] = t('notice.todo.not_create')
-    render :new
+    result = AddMyTodo.call(params)
+      if result[:success]
+        if params[:original_location] = "current_location"
+          redirect_to currentlocations_path, success: result[:success]
+        else
+          redirect_to everyonetodos_path, success: result[:success]
+        end 
+      else
+        if params[:original_location] = "current_location"
+          redirect_to currentlocations_path, danger: result[:danger]
+        else
+          redirect_to everyonetodos_path, success: result[:success]
+        end
+      end
   end
 
  end
