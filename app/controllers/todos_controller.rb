@@ -12,7 +12,7 @@ class TodosController < ApplicationController
  end
  
  def create
-  if params[:original_location] == nil
+  if params[:original_location].nil?
     @todo_spot = TodoSpot.new(current_user, todo_spot_params, Todo.new)
 
     if @todo_spot.save(todo_spot_params)
@@ -23,19 +23,19 @@ class TodosController < ApplicationController
     end
   else
     result = AddMyTodo.call(params)
-      if result[:success]
-        if params[:original_location] = "current_location"
-          redirect_to currentlocations_path, success: result[:success]
-        else
-          redirect_to everyonetodos_path, success: result[:success]
-        end 
+    if result[:success]
+      if params[:original_location] = 'current_location'
+        redirect_to currentlocations_path, success: result[:success]
       else
-        if params[:original_location] = "current_location"
-          redirect_to currentlocations_path, danger: result[:danger]
-        else
-          redirect_to everyonetodos_path, success: result[:success]
-        end
+        redirect_to everyonetodos_path, success: result[:success]
+      end 
+    else
+      if params[:original_location] = 'current_location'
+        redirect_to currentlocations_path, danger: result[:danger]
+      else
+        redirect_to everyonetodos_path, success: result[:success]
       end
+    end
   end
 
  end

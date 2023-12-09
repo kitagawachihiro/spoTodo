@@ -14,5 +14,4 @@ class EveryoneTodosController < ApplicationController
 
     @e_todo = Kaminari.paginate_array(@e_todo).page(params[:page]).per(10)
   end
-  
 end

@@ -38,5 +38,4 @@ class CurrentlocationsController < ApplicationController
       end
       redirect_to action: 'index'
     end  
-
   end
