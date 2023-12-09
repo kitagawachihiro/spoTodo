@@ -23,5 +23,8 @@ module SpoTodo
 
     # DBを読み書きする際に、DBに記録されている時間をどのタイムゾーンで読み込むかの設定
     config.active_record.default_timezone = :local
+
+    # moduleを自動で読み込む設定
+    config.autoload_paths += %W[#{config.root}/lib]
   end
 end
