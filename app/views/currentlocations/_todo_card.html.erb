@@ -9,7 +9,7 @@
         
         <ul class="list-group">  
             <% spot.todos.each do |todo| %>
-                <% if current_user.todos.include?(todo) && ( (todo.finished == true && todo.updated_at > Date.today) || todo.finished == false )%>    
+                <% if current_user.todos.include?(todo) && ( (todo.finished == true && todo.updated_at > Date.yesterday ) || todo.finished == false )%>    
                     <li>
                         <div class="list-group-item">
                             <div class="item-left">

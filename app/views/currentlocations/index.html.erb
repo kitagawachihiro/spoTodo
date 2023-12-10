@@ -20,7 +20,7 @@
       <%= render 'none' %>
     <% else %>
         <% @spots.each do |spot| %>
-          <% if spot.todos.any? { |t| !t.finished && t.user_id == current_user.id } %>
+          <% if spot.todos.any? { |t| !t.finished && t.user_id == current_user.id || t.finished == true && t.updated_at > Date.yesterday && t.user_id == current_user.id } %>
             <%= render 'todo_card', spot: spot %>
           <% end %>
         <% end %>

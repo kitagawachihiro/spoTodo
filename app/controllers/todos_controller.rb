@@ -33,7 +33,7 @@ class TodosController < ApplicationController
       if params[:original_location] = 'current_location'
         redirect_to currentlocations_path, danger: result[:danger]
       else
-        redirect_to everyonetodos_path, success: result[:success]
+        redirect_to everyonetodos_path, danger: result[:danger]
       end
     end
   end
@@ -45,12 +45,28 @@ class TodosController < ApplicationController
  end
 
  def update
-  @todo_spot = TodoSpot.new(current_user, todo_spot_params, @todo)
-  if @todo_spot.update(todo_spot_params)
-    redirect_to todos_path, success: t('notice.todo.update')
-  else
-    flash.now[:danger] = t('notice.todo.not_update')
-    render :edit
+  if params[:update_branch].nil?
+    @todo_spot = TodoSpot.new(current_user, todo_spot_params, @todo)
+    if @todo_spot.update(todo_spot_params)
+      redirect_to todos_path, success: t('notice.todo.update')
+    else
+      flash.now[:danger] = t('notice.todo.not_update')
+      render :edit
+    end
+  elsif params[:update_branch] == 'finish'
+    @todo.update(finished:true)
+    #todoをチェック
+    respond_to do |format|
+      format.html { redirect_to root_path }
+      format.js { render 'checks/finished.js.erb' }
+    end
+  elsif params[:update_branch] == 'continue'
+    @todo.update(finished:false)
+    #todoからチェックを外す
+    respond_to do |format|
+        format.html { redirect_to root_path }
+        format.js { render 'checks/continue.js.erb' }
+    end
   end
  end
 
@@ -60,31 +76,10 @@ class TodosController < ApplicationController
   destroy_empty_spot
  end
 
- def finish
-  @todo= Todo.find(params[:id])
-  @todo.update(finished:true)
-    #todoをチェック
-  respond_to do |format|
-    format.html { redirect_to root_path }
-    format.js { render 'checks/finished.js.erb' }
-  end
- end
-
- def continue
-   @todo= Todo.find(params[:id])
-   @todo.update(finished:false)
-
-   #todoからチェックを外す
-   respond_to do |format|
-       format.html { redirect_to root_path }
-       format.js { render 'checks/continue.js.erb' }
-   end
- end
-
  private
 
  def current_todo
-    @todo = Todo.find_by(id: params[:id])
+    @todo = Todo.find(params[:id])
     if current_user.todos.include?(@todo)
       @spot = @todo.spot
     else
