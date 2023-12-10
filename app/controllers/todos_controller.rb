@@ -33,7 +33,7 @@ class TodosController < ApplicationController
       if params[:original_location] = 'current_location'
         redirect_to currentlocations_path, danger: result[:danger]
       else
-        redirect_to everyonetodos_path, success: result[:success]
+        redirect_to everyonetodos_path, danger: result[:danger]
       end
     end
   end
@@ -52,6 +52,31 @@ class TodosController < ApplicationController
     flash.now[:danger] = t('notice.todo.not_update')
     render :edit
   end
+
+
+  def finish
+    @todo= Todo.find(params[:id])
+    @todo.update(finished:true)
+      #todoをチェック
+    respond_to do |format|
+      format.html { redirect_to root_path }
+      format.js { render 'checks/finished.js.erb' }
+    end
+   end
+  
+   def continue
+     @todo= Todo.find(params[:id])
+     @todo.update(finished:false)
+  
+     #todoからチェックを外す
+     respond_to do |format|
+         format.html { redirect_to root_path }
+         format.js { render 'checks/continue.js.erb' }
+     end
+   end
+
+
+
  end
 
  def destroy
@@ -60,26 +85,7 @@ class TodosController < ApplicationController
   destroy_empty_spot
  end
 
- def finish
-  @todo= Todo.find(params[:id])
-  @todo.update(finished:true)
-    #todoをチェック
-  respond_to do |format|
-    format.html { redirect_to root_path }
-    format.js { render 'checks/finished.js.erb' }
-  end
- end
-
- def continue
-   @todo= Todo.find(params[:id])
-   @todo.update(finished:false)
-
-   #todoからチェックを外す
-   respond_to do |format|
-       format.html { redirect_to root_path }
-       format.js { render 'checks/continue.js.erb' }
-   end
- end
+ 
 
  private
 
