@@ -1,4 +1,4 @@
-<%= link_to continue_todo_path(todo.id),
+<%= link_to todo_path(id:todo.id, update_branch: "continue"),
     id: "js-check-button-for-todo-#{todo.id}",
     method: :patch,
     remote: true do %>
