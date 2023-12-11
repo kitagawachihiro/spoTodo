@@ -5,7 +5,7 @@
   <h1><%= title t 'todos.index.title' %></h1>
 
   <div class="checked_todo">
-    <%= link_to achievedtodos_path do %>
+    <%= link_to todos_path(index_type: "achieved") do %>
       <%= image_tag 'user-check-solid.svg',width: '18px', height: '18px' %> 実行できたTodoとレビュー
     <% end %>
   </div>
