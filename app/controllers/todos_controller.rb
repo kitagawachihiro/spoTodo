@@ -3,8 +3,41 @@ class TodosController < ApplicationController
  before_action :require_login
 
  def index
-  @q = current_user.spots.ransack(params[:q])
-  @spots = @q.result(distinct: true).includes(:todos).select(:id, :name).order(id: :desc).page(params[:page]).per(20)
+
+  if params[:index_type].nil?
+    @q = current_user.spots.ransack(params[:q])
+    @spots = @q.result(distinct: true).includes(:todos).select(:id, :name).order(id: :desc).page(params[:page]).per(20)
+
+  elsif params[:index_type] == 'achieved'
+    @q = Spot.ransack(params[:q])
+    @spots = @q.result(distinct: true)
+    @a_todos = []
+
+    @spots.each do |spot|
+      spot.todos.each do |todo|
+        @a_todos << todo if current_user.todos.include?(todo) && todo.finished == TRUE
+      end
+    end
+
+    @a_todos = Kaminari.paginate_array(@a_todos).page(params[:page])
+
+    render 'achieved_todos/index'
+
+  elsif params[:index_type] == 'everyone'
+    @q = Spot.ransack(params[:q])
+    @spots = @q.result(distinct: true)
+    @e_todo = []
+
+    @spots.each do |spot|
+      spot.todos.each do |todo|
+        @e_todo << todo if current_user.todos.exclude?(todo) && todo.public == TRUE
+      end
+    end
+
+    @e_todo = Kaminari.paginate_array(@e_todo).page(params[:page]).per(10)
+
+    render 'everyone_todos/index'
+  end
  end
 
  def new
