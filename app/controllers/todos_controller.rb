@@ -9,10 +9,6 @@ class TodosController < ApplicationController
     @spots = @q.result(distinct: true).includes(:todos).select(:id, :name).order(id: :desc).page(params[:page]).per(20)
 
   elsif params[:index_type] == 'achieved'
-    @q = Spot.ransack(@q)
-    @spots = @q.result(distinct: true)
-    @todos = []
-
     @spots.each do |spot|
       spot.todos.each do |todo|
         @todos << todo if current_user.todos.include?(todo) && todo.finished == TRUE
@@ -23,11 +19,7 @@ class TodosController < ApplicationController
 
     render 'achieved_todos/index'
 
-  elsif params[:index_type] == 'everyone' || params[:q][:index_type] == 'everyone'
-    @q = Spot.ransack(@q)
-    @spots = @q.result(distinct: true)
-    @todos = []
-
+  elsif params[:index_type] == 'everyone'
     @spots.each do |spot|
       spot.todos.each do |todo|
         @todos << todo if current_user.todos.exclude?(todo) && todo.public == TRUE
@@ -133,5 +125,11 @@ class TodosController < ApplicationController
 
  def set_search
   @q = { address_or_name_cont: params[:q] }
+
+  if !params[:index_type].nil?
+    @q = Spot.ransack(@q)
+    @spots = @q.result(distinct: true)
+    @todos = []
+  end
  end
 end
