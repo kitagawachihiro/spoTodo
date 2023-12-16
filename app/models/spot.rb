@@ -15,8 +15,8 @@ class Spot < ApplicationRecord
         ['name', 'address']
     end
 
-    def self.ransackable_associations(auth_object = nil)
-        ["todos"]
+    def self.ransackable_associations(_auth_object = nil)
+        ['todos']
     end
 
     #spotがない場合、spotを作成する

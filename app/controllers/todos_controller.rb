@@ -126,10 +126,11 @@ class TodosController < ApplicationController
  def set_search
   @q = { address_or_name_cont: params[:q] }
 
-  if !params[:index_type].nil?
-    @q = Spot.ransack(@q)
-    @spots = @q.result(distinct: true)
-    @todos = []
-  end
+  return if params[:index_type].nil?
+
+  @q = Spot.ransack(@q)
+  @spots = @q.result(distinct: true)
+  @todos = []
+  
  end
 end
