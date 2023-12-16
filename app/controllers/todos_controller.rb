@@ -132,6 +132,6 @@ class TodosController < ApplicationController
  end
 
  def set_search
-  @q = { name_cont: params[:q] }
+  @q = { address_or_name_cont: params[:q] }
  end
 end

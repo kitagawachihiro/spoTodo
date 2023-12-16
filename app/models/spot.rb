@@ -12,7 +12,11 @@ class Spot < ApplicationRecord
     validates :longitude, presence: true
 
     def self.ransackable_attributes(_auth_object = nil)
-        ['name']
+        ['name', 'address']
+    end
+
+    def self.ransackable_associations(auth_object = nil)
+        ["todos"]
     end
 
     #spotがない場合、spotを作成する
