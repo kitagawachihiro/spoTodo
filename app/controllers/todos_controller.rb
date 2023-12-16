@@ -15,7 +15,7 @@ class TodosController < ApplicationController
       end
     end
 
-    @todos = Kaminari.paginate_array(@todos).page(params[:page])
+    @todos = Kaminari.paginate_array(@todos).page(params[:page]).per(5)
 
     render 'achieved_todos/index'
 
@@ -52,13 +52,13 @@ class TodosController < ApplicationController
       if params[:original_location] = 'current_location'
         redirect_to currentlocations_path, success: result[:success]
       else
-        redirect_to everyonetodos_path, success: result[:success]
+        redirect_to todos_path(index_type: 'everyone'), success: result[:success]
       end 
     else
       if params[:original_location] = 'current_location'
         redirect_to currentlocations_path, danger: result[:danger]
       else
-        redirect_to everyonetodos_path, danger: result[:danger]
+        redirect_to todos_path(index_type: 'everyone'), danger: result[:danger]
       end
     end
   end
