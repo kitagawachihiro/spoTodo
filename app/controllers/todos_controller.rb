@@ -1,40 +1,40 @@
 class TodosController < ApplicationController
  before_action :current_todo, only:[:edit, :update, :finish, :continue, :destroy]
  before_action :require_login
+ before_action :set_search
 
  def index
-
   if params[:index_type].nil?
-    @q = current_user.spots.ransack(params[:q])
+    @q = current_user.spots.ransack(@q)
     @spots = @q.result(distinct: true).includes(:todos).select(:id, :name).order(id: :desc).page(params[:page]).per(20)
 
   elsif params[:index_type] == 'achieved'
-    @q = Spot.ransack(params[:q])
+    @q = Spot.ransack(@q)
     @spots = @q.result(distinct: true)
-    @a_todos = []
+    @todos = []
 
     @spots.each do |spot|
       spot.todos.each do |todo|
-        @a_todos << todo if current_user.todos.include?(todo) && todo.finished == TRUE
+        @todos << todo if current_user.todos.include?(todo) && todo.finished == TRUE
       end
     end
 
-    @a_todos = Kaminari.paginate_array(@a_todos).page(params[:page])
+    @todos = Kaminari.paginate_array(@todos).page(params[:page])
 
     render 'achieved_todos/index'
 
-  elsif params[:index_type] == 'everyone'
-    @q = Spot.ransack(params[:q])
+  elsif params[:index_type] == 'everyone' || params[:q][:index_type] == 'everyone'
+    @q = Spot.ransack(@q)
     @spots = @q.result(distinct: true)
-    @e_todo = []
+    @todos = []
 
     @spots.each do |spot|
       spot.todos.each do |todo|
-        @e_todo << todo if current_user.todos.exclude?(todo) && todo.public == TRUE
+        @todos << todo if current_user.todos.exclude?(todo) && todo.public == TRUE
       end
     end
 
-    @e_todo = Kaminari.paginate_array(@e_todo).page(params[:page]).per(10)
+    @todos = Kaminari.paginate_array(@todos).page(params[:page]).per(10)
 
     render 'everyone_todos/index'
   end
@@ -129,5 +129,9 @@ class TodosController < ApplicationController
    @spot.destroy if @spot.todos.empty?
    redirect_back(fallback_location: todos_url)
    true
+ end
+
+ def set_search
+  @q = { name_cont: params[:q] }
  end
 end
