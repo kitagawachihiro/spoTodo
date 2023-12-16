@@ -12,9 +12,9 @@
 
   <div class='search_form'>
     <%= form_with url: todos_path, method: :get, local: true do |f| %>
-      <%= f.text_field :q, placeholder: "場所", value: " " %>
+      <%= f.text_field :q, placeholder: "場所", value: " ", class: 'form' %>
       <%= f.hidden_field :index_type, value: 'achieved' %>
-      <%= f.submit class:'search_btn' %>
+      <%= f.submit '検索', class:'search_btn' %>
     <% end %>
   </div>
 </div>
