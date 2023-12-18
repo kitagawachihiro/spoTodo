@@ -11,8 +11,16 @@ class Spot < ApplicationRecord
     validates :latitude, presence: true
     validates :longitude, presence: true
 
+    scope :near_spot, lambda { |current_user, params|
+ near([current_user.currentlocation.latitude, current_user.currentlocation.longitude], current_user.distance).page(params[:page]).per(10)
+                      }
+
     def self.ransackable_attributes(_auth_object = nil)
-        ['name']
+        ['name', 'address']
+    end
+
+    def self.ransackable_associations(_auth_object = nil)
+        ['todos']
     end
 
     #spotがない場合、spotを作成する

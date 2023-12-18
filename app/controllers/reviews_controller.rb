@@ -15,7 +15,7 @@ class ReviewsController < ApplicationController
     @review = Review.new(rating: review_params[:rating], comment: review_params[:comment], todo_id: @todo.id)
     if @review.save
       @todo.update(public: review_params[:public])
-      redirect_to achievedtodos_path, success: t('notice.review.create')
+      redirect_to todos_path(index_type: 'achieved'), success: t('notice.review.create')
     else
       flash.now[:danger] = t('notice.review.not_create')
       render :new
@@ -27,7 +27,7 @@ class ReviewsController < ApplicationController
   def update
     if @review.update(rating: review_params[:rating], comment: review_params[:comment])
       @todo.update(public: review_params[:public])
-      redirect_to achievedtodos_path, success: t('notice.review.update')
+      redirect_to todos_path(index_type: 'achieved'), success: t('notice.review.update')
     else
       flash.now[:danger] = t('notice.review.not_update')
       render 'edit'
@@ -36,7 +36,7 @@ class ReviewsController < ApplicationController
 
   def destroy
     if @review.destroy
-      redirect_to achievedtodos_path, success: t('notice.review.delete')
+      redirect_to todos_path(index_type: 'achieved'), success: t('notice.review.delete')
     else
       flash.now[:danger] = t('notice.review.not_delete')
       render 'edit'

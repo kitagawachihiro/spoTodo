@@ -8,16 +8,8 @@ class CurrentlocationsController < ApplicationController
       else
         @q = current_user.spots.ransack(params[:q])
         spots = @q.result.includes(:todos).select(:id, :name).order(id: 'DESC').distinct
-        @spots = spots.near([current_user.currentlocation.latitude, current_user.currentlocation.longitude], 
-                            current_user.distance).page(params[:page]).per(10)
-
-        @recommend = Todo.joins(:spot)
-                         .where(public: true)
-                         .where.not(user_id: current_user.id)
-                         .select("todos.*, POW(spots.latitude - #{current_user.currentlocation.latitude}, 2) + POW(spots.longitude - #{current_user.currentlocation.longitude}, 2) AS distance")
-                         .order('distance ASC, addcount DESC')
-                         .limit(5)
-                         
+        @spots = spots.near_spot(current_user, params)
+        @recommend = Todo.recommend(current_user)   
       end
     end
   

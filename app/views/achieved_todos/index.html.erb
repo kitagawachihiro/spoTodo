@@ -11,18 +11,19 @@
   </div>
 
   <div class='search_form'>
-    <%= search_form_for @q, url: achievedtodos_path do |f| %>
-      <%= f.search_field :name_cont, placeholder:"場所", class:'form' %>
-      <%= f.submit class:'search_btn' %>
+    <%= form_with url: todos_path, method: :get, local: true do |f| %>
+      <%= f.text_field :q, placeholder: "場所", value: " ", class: 'form' %>
+      <%= f.hidden_field :index_type, value: 'achieved' %>
+      <%= f.submit '検索', class:'search_btn' %>
     <% end %>
   </div>
 </div>
 
 <div class="card_container">
-  <% if @a_todos.empty? %>
+  <% if @todos.empty? %>
     <%= render 'none' %>
   <% else %>
-    <% @a_todos.each do |todo| %>
+    <% @todos.each do |todo| %>
         <div class="card">
           <div class="card-top">
             <%= render 'achieved_todos/card_top', todo: todo %>
@@ -34,6 +35,10 @@
         </div>
     <% end %>
   <% end %>
+</div>
+
+<div class="pagenate">
+  <%= paginate @todos, theme: 'twitter-bootstrap-4' %>
 </div>
 
 

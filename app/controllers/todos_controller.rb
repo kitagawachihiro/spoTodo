@@ -1,10 +1,35 @@
 class TodosController < ApplicationController
  before_action :current_todo, only:[:edit, :update, :finish, :continue, :destroy]
  before_action :require_login
+ before_action :set_search
 
  def index
-  @q = current_user.spots.ransack(params[:q])
-  @spots = @q.result(distinct: true).includes(:todos).select(:id, :name).order(id: :desc).page(params[:page]).per(20)
+  if params[:index_type].nil?
+    @q = current_user.spots.ransack(@q)
+    @spots = @q.result(distinct: true).includes(:todos).select(:id, :name).order(id: :desc).page(params[:page]).per(20)
+
+  elsif params[:index_type] == 'achieved'
+    @spots.each do |spot|
+      spot.todos.each do |todo|
+        @todos << todo if current_user.todos.include?(todo) && todo.finished == TRUE
+      end
+    end
+
+    @todos = Kaminari.paginate_array(@todos).page(params[:page]).per(5)
+
+    render 'achieved_todos/index'
+
+  elsif params[:index_type] == 'everyone'
+    @spots.each do |spot|
+      spot.todos.each do |todo|
+        @todos << todo if current_user.todos.exclude?(todo) && todo.public == TRUE
+      end
+    end
+
+    @todos = Kaminari.paginate_array(@todos).page(params[:page]).per(10)
+
+    render 'everyone_todos/index'
+  end
  end
 
  def new
@@ -24,16 +49,16 @@ class TodosController < ApplicationController
   else
     result = AddMyTodo.call(params)
     if result[:success]
-      if params[:original_location] = 'current_location'
+      if (params[:original_location] = 'current_location')
         redirect_to currentlocations_path, success: result[:success]
       else
-        redirect_to everyonetodos_path, success: result[:success]
+        redirect_to todos_path(index_type: 'everyone'), success: result[:success]
       end 
     else
-      if params[:original_location] = 'current_location'
+      if (params[:original_location] = 'current_location')
         redirect_to currentlocations_path, danger: result[:danger]
       else
-        redirect_to everyonetodos_path, danger: result[:danger]
+        redirect_to todos_path(index_type: 'everyone'), danger: result[:danger]
       end
     end
   end
@@ -96,5 +121,16 @@ class TodosController < ApplicationController
    @spot.destroy if @spot.todos.empty?
    redirect_back(fallback_location: todos_url)
    true
+ end
+
+ def set_search
+  @q = { address_or_name_cont: params[:q] }
+
+  return if params[:index_type].nil?
+
+  @q = Spot.ransack(@q)
+  @spots = @q.result(distinct: true)
+  @todos = []
+  
  end
 end
