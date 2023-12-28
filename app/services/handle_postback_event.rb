@@ -21,7 +21,7 @@ class HandlePostbackEvent
 
     review_button = {
       "type": 'flex',
-      "altText": 'this is a flex message',
+      "altText": 'できた！レビューは書きますか？',
       "contents": {
         "type": 'bubble',
         "body": {
