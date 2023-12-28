@@ -11,10 +11,11 @@ class TodosController < ApplicationController
   elsif params[:index_type] == 'achieved'
     @spots.each do |spot|
       spot.todos.each do |todo|
-        @todos << todo if current_user.todos.include?(todo) && todo.finished == TRUE
+        @todos << todo if current_user.todos.include?(todo) && todo.finished == true
       end
     end
 
+    @todos = @todos.sort_by { |todo| todo.updated_at }.reverse
     @todos = Kaminari.paginate_array(@todos).page(params[:page]).per(5)
 
     render 'achieved_todos/index'
@@ -22,10 +23,11 @@ class TodosController < ApplicationController
   elsif params[:index_type] == 'everyone'
     @spots.each do |spot|
       spot.todos.each do |todo|
-        @todos << todo if current_user.todos.exclude?(todo) && todo.public == TRUE
+        @todos << todo if current_user.todos.exclude?(todo) && todo.public == true
       end
     end
 
+    @todos = @todos.sort_by { |todo| todo.updated_at }.reverse
     @todos = Kaminari.paginate_array(@todos).page(params[:page]).per(10)
 
     render 'everyone_todos/index'

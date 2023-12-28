@@ -31,7 +31,7 @@ Rails.application.routes.draw do
   post :line_events, to: 'line_events#recieve'
 
   # todos
-  resources :todos do
+  resources :todos, only: %i[index new create edit update destroy] do
     #ルートの追加。memberはidが付与される。collectionは付与されない。
     member { patch 'finish' => 'todos#finish' }
     member { patch 'continue' => 'todos#continue' }

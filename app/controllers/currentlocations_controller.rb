@@ -8,7 +8,7 @@ class CurrentlocationsController < ApplicationController
       else
         @q = current_user.spots.ransack(params[:q])
         spots = @q.result.includes(:todos).select(:id, :name).order(id: 'DESC').distinct
-        @spots = spots.near_spot(current_user, params)
+        @spots = spots.near_spot(current_user).page(params[:page]).per(10)
         @recommend = Todo.recommend(current_user)   
       end
     end

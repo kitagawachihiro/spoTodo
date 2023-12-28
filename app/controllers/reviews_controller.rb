@@ -1,7 +1,7 @@
 class ReviewsController < ApplicationController
+  before_action :require_login
   before_action :current_todo, only: %i[new create edit update]
   before_action :current_review, only: %i[edit update destroy]
-  before_action :require_login
 
   def new
     if Review.exists?(todo_id: params[:todo_id])
