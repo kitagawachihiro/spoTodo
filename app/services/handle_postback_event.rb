@@ -44,7 +44,7 @@ class HandlePostbackEvent
               "action": {
                 "type": 'uri',
                 "label": 'レビューを書く',
-                "uri": "#{Settings.app.url}/todos/#{todo.id}/review/new"
+                "uri": "#{Settings.app[:url]}/todos/#{todo.id}/review/new"
               },
               "style": 'primary',
               "margin": 'xl',
