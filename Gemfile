@@ -101,7 +101,8 @@ group :test do
   gem 'capybara'
   gem 'selenium-webdriver'
   # Easy installation and use of chromedriver to run system tests with Chrome
-  gem 'chromedriver-helper'
+  #gem 'chromedriver-helper' #2019年3月31日に廃止し、以降webdrivers推奨になっている
+  gem 'webdrivers'
 end
 
 # 本番環境用
