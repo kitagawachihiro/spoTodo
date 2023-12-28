@@ -15,6 +15,7 @@ class TodosController < ApplicationController
       end
     end
 
+    @todos = @todos.sort_by { |todo| todo.updated_at }.reverse
     @todos = Kaminari.paginate_array(@todos).page(params[:page]).per(5)
 
     render 'achieved_todos/index'
@@ -26,6 +27,7 @@ class TodosController < ApplicationController
       end
     end
 
+    @todos = @todos.sort_by { |todo| todo.updated_at }.reverse
     @todos = Kaminari.paginate_array(@todos).page(params[:page]).per(10)
 
     render 'everyone_todos/index'
