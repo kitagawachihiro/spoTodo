@@ -54,7 +54,7 @@ class HandleLocationEvent
 
       # each_with_index = 各要素とその要素のインデックスを取りながら繰り返し処理を行う
       @spots.each do |spot|
-        everyone_todos = spot.todos.select { |t| t.public == TRUE && t.user_id != @now_user.id }
+        everyone_todos = spot.todos.select { |t| t.public == true && t.user_id != @now_user.id }
         next if everyone_todos.empty?
 
         # 配列の最初の要素には地点名を入れる

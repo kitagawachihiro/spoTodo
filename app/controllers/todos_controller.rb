@@ -11,7 +11,7 @@ class TodosController < ApplicationController
   elsif params[:index_type] == 'achieved'
     @spots.each do |spot|
       spot.todos.each do |todo|
-        @todos << todo if current_user.todos.include?(todo) && todo.finished == TRUE
+        @todos << todo if current_user.todos.include?(todo) && todo.finished == true
       end
     end
 
@@ -22,7 +22,7 @@ class TodosController < ApplicationController
   elsif params[:index_type] == 'everyone'
     @spots.each do |spot|
       spot.todos.each do |todo|
-        @todos << todo if current_user.todos.exclude?(todo) && todo.public == TRUE
+        @todos << todo if current_user.todos.exclude?(todo) && todo.public == true
       end
     end
 

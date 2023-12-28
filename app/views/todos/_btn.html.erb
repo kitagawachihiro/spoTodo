@@ -1,5 +1,5 @@
 <div class="edit_btn">
-    <% if todo.finished == TRUE %>
+    <% if todo.finished == true %>
         <%= link_to edit_todo_path(todo.id), id: "edit-btn-#{todo.id}", style:'display:none' do %>
             <%= icon 'fa', 'pen fa-lg' %>
         <% end %>
