@@ -22,7 +22,6 @@ class LineEventsController < ApplicationController
 
     # イベントが誰から送られてきたかuseridを確認
     events.each do |event|
-
       userId = event['source']['userId']  # userId取得
 
       # ユーザーがAuthenticationsテーブルに登録済みの人であるか確認し、ユーザーを取得する
