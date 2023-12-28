@@ -22,9 +22,30 @@ class LineEventsController < ApplicationController
 
     # イベントが誰から送られてきたかuseridを確認
     events.each do |event|
-      HandleLineEvent.call(event, client)
+
+      userId = event['source']['userId']  # userId取得
+
+      # ユーザーがAuthenticationsテーブルに登録済みの人であるか確認し、ユーザーを取得する
+      now_user = User.joins(:authentication).find_by(authentications: { uid: userId })
+
+      # イベントがメッセージの場合
+      case event
+      when Line::Bot::Event::Message # Messageの場合
+
+        # さらに位置情報だった場合
+        case event.type
+        when Line::Bot::Event::MessageType::Location
+          HandleLocationEvent.call(event, now_user, userId, client)
+        end
+      
+
+      when Line::Bot::Event::Postback
+        HandlePostbackEvent.call(event, now_user, userId, client)       
+      end
     end
 
+    # レスポンス
+    head :no_content
     'OK'
   end
  
