@@ -43,6 +43,6 @@ Rails.application.routes.draw do
   root to: 'explanations#top'
 
   #httpリクエスト
-  post 'http_post', to: 'todos#http_post'
+  post 'http_post', to: 'http_posts#http_post'
 
 end

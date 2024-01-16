@@ -75,6 +75,7 @@ class TodosController < ApplicationController
  end
 
  def update
+  
   if params[:update_branch].nil?
     @todo_spot = TodoSpot.new(current_user, todo_spot_params, @todo)
     if @todo_spot.update(todo_spot_params)
@@ -105,47 +106,6 @@ class TodosController < ApplicationController
   flash[:success] = t('notice.todo.destroy')
   destroy_empty_spot
  end
-
- def http_post
-
-    url = URI.parse('https://places.googleapis.com/v1/places:searchText')
-
-    data = {
-      textQuery: params[:textQuery],
-      maxResultCount: 3,
-      languageCode: 'ja'
-    }
-
-    headers = {
-      'Content-Type' => 'application/json',
-      'X-Goog-Api-Key' => Rails.application.credentials.googlemap[:api_key],  
-      'X-Goog-FieldMask' => 'places.displayName,places.formattedAddress,places.id,places.location'
-    }
-
-    # http通信のスタート
-    http = Net::HTTP.start(url.host, url.port, use_ssl: url.scheme == 'https')
-
-    # POSTリクエスト
-    request = Net::HTTP::Post.new(url.path, headers)
-    request.body = data.to_json
-  
-    response = http.request(request)
-  
-    # http通信のフィニッシュ
-    http.finish
-
-    # レスポンス
-    #head :no_content
-    result_data = JSON.parse(response.body)
-    api_key = Rails.application.credentials.googlemap[:api_key]
-
-    if response.code.to_i == 200
-      render json: { success: true, data: result_data, apikey: api_key}
-    else
-      render json: { success: false, error: 'Request failed' }
-    end
-
-  end
 
  private
 
