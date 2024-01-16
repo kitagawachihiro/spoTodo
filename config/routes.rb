@@ -32,9 +32,6 @@ Rails.application.routes.draw do
 
   # todos
   resources :todos, only: %i[index new create edit update destroy] do
-    #ルートの追加。memberはidが付与される。collectionは付与されない。
-    member { patch 'finish' => 'todos#finish' }
-    member { patch 'continue' => 'todos#continue' }
     #reviews
     resource :review
   end
@@ -44,5 +41,8 @@ Rails.application.routes.draw do
 
   #toppage
   root to: 'explanations#top'
+
+  #httpリクエスト
+  post 'http_post', to: 'todos#http_post'
 
 end
