@@ -21,6 +21,15 @@ class TodoSpot
     # 変数が nil または false である場合にTodo.newをする
     @todo = todo
 
+    #spot_groupの値によって、name、address、latitude、longitudeのパラメーター名が変わる
+    if (0..2).include?(params[:spot_group].to_i)
+      index = params[:spot_group].to_i
+      @name = params[:"name_#{index}"]
+      @address = params[:"address_#{index}"]
+      @latitude = params[:"latitude_#{index}"]
+      @longitude = params[:"longitude_#{index}"]
+    end
+
     if @todo.id.present?
       # todospotをセット
       assign_attributes(content: @todo.content, user_id: @todo.user_id, public: @todo.public, name: @todo.spot.name,
@@ -32,8 +41,8 @@ class TodoSpot
   end
 
   def save(params)
-    spot = Spot.find_by(address: params[:address])
-    spot = Spot.new(name: params[:name], address: params[:address], latitude: params[:latitude], longitude: params[:longitude]) if spot.nil?
+    spot = Spot.find_by(address: @address)
+    spot = Spot.new(name: @name, address: @address, latitude: @latitude, longitude: @longitude) if spot.nil?
 
     return unless spot.save
 
@@ -43,10 +52,10 @@ class TodoSpot
   end
 
   def update(params)
-    spot = Spot.find_by(address: params[:address])
+    spot = Spot.find_by(address: @address)
     if spot.nil?
       # spotが新しい場所に変わっていた場合
-      new_spot = Spot.new(name: params[:name], address: params[:address], latitude: params[:latitude], longitude: params[:longitude])
+      new_spot = Spot.new(name: @name, address: @address, latitude: @latitude, longitude: @longitude)
       new_spot.save!
       @todo.update(content: params[:content], spot_id: new_spot.id, public: params[:public])
     else
