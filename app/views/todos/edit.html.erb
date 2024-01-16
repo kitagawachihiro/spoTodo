@@ -20,7 +20,7 @@
             <p style="color:orange">※場所を入力後、必ず「検索」ボタンを押して結果から選択してください。</p>
             <div class="spot_form">
                 <span><%= f.text_field :name, value: @spot.name, placeholder:"○×カフェ", id:"spot_name" %></span>
-                <div class="search_margin"><input type="button" value=<%= t('.search') %> class="search" onclick="getAddress()">
+                <div class="search_margin"><input type="button" value=<%= t('.search') %> class="search" onclick="getPlace()"></div>
             </div>
         </div>
 
@@ -78,7 +78,7 @@
 
         <div class="public">
             <%= f.label :public, t('.public_check') %>
-            <%= f.check_box :public, id:'public_check', checked: false%>
+            <%= f.check_box :public, id:'public_check', value: @todo.public %>
         </div>
 
         <div>
