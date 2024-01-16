@@ -21,15 +21,6 @@ class TodoSpot
     # 変数が nil または false である場合にTodo.newをする
     @todo = todo
 
-    #spot_groupの値によって、name、address、latitude、longitudeのパラメーター名が変わる
-    if (0..2).include?(params[:spot_group].to_i)
-      index = params[:spot_group].to_i
-      @name = params[:"name_#{index}"]
-      @address = params[:"address_#{index}"]
-      @latitude = params[:"latitude_#{index}"]
-      @longitude = params[:"longitude_#{index}"]
-    end
-
     if @todo.id.present?
       # todospotをセット
       assign_attributes(content: @todo.content, user_id: @todo.user_id, public: @todo.public, name: @todo.spot.name,
@@ -38,9 +29,14 @@ class TodoSpot
       # @todoをセット
       @todo.assign_attributes(user_id: user.id, content: params[:content])
     end
+
+    @old_spot = @todo.spot
   end
 
   def save(params)
+
+    setting_spot(params)
+
     spot = Spot.find_by(address: @address)
     spot = Spot.new(name: @name, address: @address, latitude: @latitude, longitude: @longitude) if spot.nil?
 
@@ -52,7 +48,11 @@ class TodoSpot
   end
 
   def update(params)
+
+    setting_spot(params)
+
     spot = Spot.find_by(address: @address)
+
     if spot.nil?
       # spotが新しい場所に変わっていた場合
       new_spot = Spot.new(name: @name, address: @address, latitude: @latitude, longitude: @longitude)
@@ -62,14 +62,25 @@ class TodoSpot
       # spotは変わらずもしくはspot登録があった場合
       @todo.update(content: params[:content], spot_id: spot.id, public: params[:public])
     end
-    destroy_empty_spot
+
+    destroy_empty_spot(@old_spot)
   end
 
   private
 
+  def setting_spot(params)
+    #spot_groupの値によって、name、address、latitude、longitudeのパラメーター名が変わる
+    if (0..2).include?(params[:spot_group].to_i)
+      index = params[:spot_group].to_i
+      @name = params[:"name_#{index}"]
+      @address = params[:"address_#{index}"]
+      @latitude = params[:"latitude_#{index}"]
+      @longitude = params[:"longitude_#{index}"]
+    end
+  end
+
   # 紐づくtodoが0になってしまったspotは削除する
-  def destroy_empty_spot
-    old_spot = Spot.find_by(address: address)
+  def destroy_empty_spot(old_spot)
     old_spot.destroy if old_spot.todos.empty?
     true
   end
