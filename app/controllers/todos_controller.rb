@@ -3,6 +3,9 @@ class TodosController < ApplicationController
  before_action :require_login
  before_action :set_search
 
+ require 'net/http'
+ require 'json'
+
  def index
   if params[:index_type].nil?
     @q = current_user.spots.ransack(@q)
@@ -103,6 +106,47 @@ class TodosController < ApplicationController
   destroy_empty_spot
  end
 
+ def http_post
+
+    url = URI.parse('https://places.googleapis.com/v1/places:searchText')
+
+    data = {
+      textQuery: params[:textQuery],
+      maxResultCount: 3,
+      languageCode: 'ja'
+    }
+
+    headers = {
+      'Content-Type' => 'application/json',
+      'X-Goog-Api-Key' => Rails.application.credentials.googlemap[:api_key],  
+      'X-Goog-FieldMask' => 'places.displayName,places.formattedAddress,places.id,places.location'
+    }
+
+    # http通信のスタート
+    http = Net::HTTP.start(url.host, url.port, use_ssl: url.scheme == 'https')
+
+    # POSTリクエスト
+    request = Net::HTTP::Post.new(url.path, headers)
+    request.body = data.to_json
+  
+    response = http.request(request)
+  
+    # http通信のフィニッシュ
+    http.finish
+
+    # レスポンス
+    #head :no_content
+    result_data = JSON.parse(response.body)
+    api_key = Rails.application.credentials.googlemap[:api_key]
+
+    if response.code.to_i == 200
+      render json: { success: true, data: result_data, apikey: api_key}
+    else
+      render json: { success: false, error: 'Request failed' }
+    end
+
+  end
+
  private
 
  def current_todo
@@ -115,7 +159,11 @@ class TodosController < ApplicationController
  end
 
  def todo_spot_params
-  params.require(:todo_spot).permit(:content, :user_id, :public, :name, :address, :latitude, :longitude)
+  params.require(:todo_spot).permit(:content, :spot_group, 
+  :name_0, :address_0, :latitude_0, :longitude_0, 
+  :name_1, :address_1, :latitude_1, :longitude_1,
+  :name_2, :address_2, :latitude_2, :longitude_2, 
+  :public, :user_id)
  end
  
  def destroy_empty_spot
