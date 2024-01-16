@@ -1,5 +1,5 @@
 /* todo、spot_from、publicの外枠 */
-.todo,.spot_search,.public,.map_submit{
+.todo,.spot_search,.public,.submit{
     padding-top: 10px;
     padding-bottom: 10px;
     width: 34vw;
@@ -41,7 +41,7 @@ span input {
 }
 
 /* 検索ボタン */
-.map_submit{
+.submit{
   display: none;
 }
 
@@ -211,7 +211,7 @@ input[type="checkbox"]:focus {
 /* レスポンシブ */
 @media (max-width: 960px) {
 
-  .todo,.spot,.public,.map_submit{
+  .todo,.spot,.public,.submit{
     width: 85vw;
     min-width: 300px;
 }

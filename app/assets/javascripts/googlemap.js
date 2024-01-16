@@ -114,7 +114,7 @@ function initMap() {
         document.getElementById(`result_longitude_${i}`).value =  markerData[i]['lng'];
 
 
-        document.getElementsByClassName("map_submit")[0].style.display ="block";
+        document.getElementsByClassName("submit")[0].style.display ="block";
       }
     }
 }
