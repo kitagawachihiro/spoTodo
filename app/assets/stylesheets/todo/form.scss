@@ -35,16 +35,7 @@ span input {
   min-width: 395px;
 }
 
-/* spotフォームと検索ボタン間の改行 */
-.responsive{
-  display:none;
-}
-
 /* 検索ボタン */
-.submit{
-  display: none;
-}
-
 .search{
     margin-left: 5px;
     width: 50px;
@@ -54,17 +45,16 @@ span input {
     border-radius: 10px;
 }
 
-
 // 結果
 .result{
   padding-top: 10px;
   padding-bottom: 10px;
-  width: 40vw;
-  min-width: 600px;
+  width: 45vw;
+  min-width: 700px;
   margin: 0 auto;
+  display: flex;
   display: none;
 }
-
 
 // 地図
 #map {
@@ -153,10 +143,6 @@ input[type=radio]{
   white-space: normal;
 }
 
-/* 公開設定のチェックボックス */
-.public{
-  margin-bottom: -10px;
-}
 
 input[type="checkbox"] {
   position: relative;
@@ -195,7 +181,13 @@ input[type="checkbox"]:focus {
   outline: none;
 }
 
-/* 作成、編集ボタン */
+/* 作成・更新ボタンのクラス */
+.submit{
+  display: none;
+  padding-bottom: 100px;
+}
+
+/* 作成、編集ボタン自体 */
 .create{
     display: block;
     border-radius: 100vh;
@@ -208,63 +200,88 @@ input[type="checkbox"]:focus {
     font-size: 16px;
 }
 
+
 /* レスポンシブ */
 @media (max-width: 960px) {
 
-  .todo,.spot,.public,.submit{
+  .todo,.spot_search,.public,.submit,.result{
     width: 85vw;
     min-width: 300px;
 }
 
   .todo_form,.spot_form{
     text-align: center;
-}
+  }
 
-/* todoのform 固有 */
-#todo_content{
-  width: 85vw;
-  min-width: 300px;
-}
-/* spotのform 固有 */
-#spot_name{
-  width: 85vw;
-  min-width: 300px;
-}
+  /* todoのform 固有 */
+  #todo_content{
+    width: 85vw;
+    min-width: 300px;
+  }
 
-/* spotのformとsearchを横並びに設定するためのクラス */
-.spot_form{
-  display: block;
-}
+  /* spotのform 固有 */
+  #spot_name{
+    width: 85vw;
+    min-width: 300px;
+  }
 
-span input {
-  display: inline;
-}
+  /* spotのformとsearchを横並びに設定するためのクラス */
+  .spot_form{
+    display: block;
+  }
 
-/* 検索ボタン */
-.search{
-  width: 200px;
-}
+  span input {
+    display: inline;
+  }
 
-/* 検索ボタン 枠 */
-.search_margin{
-  margin-top: 20px;
-  text-align: center;
-}
+  /* 検索ボタン */
+  .search{
+    width: 200px;
+  }
 
-/* spotのform 固有 */
-#map{
-  width: 85vw;
-  min-width: 300px;
-}
+  /* 検索ボタン 枠 */
+  .search_margin{
+    margin-top: 20px;
+    text-align: center;
+  }
 
-.result{
-  display: block;
-  padding-top: 10px;
-  padding-bottom: 10px;
-  width: 34vw;
-  min-width: 450px;
-  margin: 0 auto;
-}
+  /* spotのform 固有 */
+  #map{
+    width: 35vw;
+    min-width: 130px;
+  }
+
+  // 結果枠
+  .result{
+    display: none; 
+  }
+
+  // 場所検索結果枠
+  .spot_result{
+    margin-left: 0px;
+  }
+
+  // 場所検索結果　場所のみ枠
+  .spot_group_container{
+    width: 45vw;
+    min-width: 120px;
+  }
+
+  // 場所検索結果　場所名のみ
+  .result_name{
+    font-size: 12px;
+  }
+
+  // 場所検索結果　住所のみ
+  .result_address{
+    font-size: 10px;
+  }
+
+  // 作成・更新ボタン
+  .submit{
+    display: none;
+  
+  }
 
 }
 
