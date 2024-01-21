@@ -1,5 +1,5 @@
-/* todo、spot、publicの外枠 */
-.todo,.spot,.public,.map_submit{
+/* todo、spot_from、publicの外枠 */
+.todo,.spot_search,.public,.submit{
     padding-top: 10px;
     padding-bottom: 10px;
     width: 34vw;
@@ -35,11 +35,6 @@ span input {
   min-width: 395px;
 }
 
-/* spotフォームと検索ボタン間の改行 */
-.responsive{
-  display:none;
-}
-
 /* 検索ボタン */
 .search{
     margin-left: 5px;
@@ -50,10 +45,104 @@ span input {
     border-radius: 10px;
 }
 
-/* 公開設定のチェックボックス */
-.public{
-  margin-bottom: -10px;
+// 結果
+.result{
+  padding-top: 10px;
+  padding-bottom: 10px;
+  width: 45vw;
+  min-width: 700px;
+  margin: 0 auto;
+  display: flex;
+  display: none;
 }
+
+// 地図
+#map {
+  height: 20vw;
+  min-height: 400px;
+  width: 30vw;
+  min-width: 400px;
+  margin: 0 auto;
+  margin-top: 40px;
+  margin-bottom: 30px;
+  background-color: black;
+}
+
+
+/* 場所選択ボタン　個々 */
+.btn-primary {
+  background: white; //ボタンの背景色
+  color: #5C6060; //ボタンのテキストの色
+  border:1px solid #BEC7C6;
+}
+
+.btn-primary:hover, .btn-primary:focus, 
+.btn-primary:active, .btn-primary:active:focus, .btn-primary:active:hover, .btn-primary:active.focus,
+.btn-primary.active, .btn-primary.active:focus, .btn-primary.active:hover, .btn-primary.active.focus,
+.open > .dropdown-toggle.btn-primary, 
+.open > .dropdown-toggle.btn-primary:hover,
+.open > .dropdown-toggle.btn-primary:focus, 
+.open > .dropdown-toggle.btn-primary.focus,
+.btn-primary.disabled:hover, .btn-primary[disabled]:hover, fieldset[disabled] .btn-primary:hover,
+.btn-primary.disabled:focus, .btn-primary[disabled]:focus, fieldset[disabled] .btn-primary:focus,
+.btn-primary.disabled.focus, .btn-primary[disabled].focus, fieldset[disabled] .btn-primary.focus {
+  background: #A9BABC; //ボタンの上にポインタを持ってきたり、クリックしたりした時の背景色
+  color: #5C6060; //ボタンの上にポインタを持ってきたり、クリックしたりした時のテキストの色
+  border:1px solid #BEC7C6;
+  box-shadow:none;
+}
+
+
+// 場所検索結果枠
+.spot_result{
+  margin-left: 30px;
+  height: 20vw;
+  min-height: 400px;
+  margin-top: 30px;
+}
+
+// 場所検索結果　場所のみ枠
+.spot_group_container{
+  width: 300px;
+}
+
+// 場所検索結果　単体
+.spot_group{
+  margin: 0 auto;
+  margin-bottom: 10px;
+}
+
+// 場所検索結果　単体ボタンのみ
+.btn{
+  padding: 10px;
+  height:5.5vw;
+  min-height: 120px;
+  width: 100%;
+}
+
+// ラジオボタン　レイアウト削除
+input[type=radio]{
+  display: none;
+}
+
+// 場所検索結果　場所名のみ
+.result_name{
+  width: auto;
+  text-align: left;
+  font-size: 16px;
+  margin-bottom: 10px;
+  overflow-wrap: break-all;
+  white-space: normal;
+}
+
+// 場所検索結果　住所のみ
+.result_address{
+  width: auto;
+  text-align: left;
+  overflow-wrap: break-all;
+  white-space: normal;
+}
+
 
 input[type="checkbox"] {
   position: relative;
@@ -92,7 +181,13 @@ input[type="checkbox"]:focus {
   outline: none;
 }
 
-/* 作成、編集ボタン */
+/* 作成・更新ボタンのクラス */
+.submit{
+  display: none;
+  padding-bottom: 100px;
+}
+
+/* 作成、編集ボタン自体 */
 .create{
     display: block;
     border-radius: 100vh;
@@ -104,52 +199,90 @@ input[type="checkbox"]:focus {
     color: white;
     font-size: 16px;
 }
-  
-.map_submit{
-  margin-bottom: 50px;
-}
+
 
 /* レスポンシブ */
 @media (max-width: 960px) {
 
-  .todo,.spot,.public,.map_submit{
+  .todo,.spot_search,.public,.submit,.result{
     width: 85vw;
     min-width: 300px;
 }
 
   .todo_form,.spot_form{
     text-align: center;
+  }
+
+  /* todoのform 固有 */
+  #todo_content{
+    width: 85vw;
+    min-width: 300px;
+  }
+
+  /* spotのform 固有 */
+  #spot_name{
+    width: 85vw;
+    min-width: 300px;
+  }
+
+  /* spotのformとsearchを横並びに設定するためのクラス */
+  .spot_form{
+    display: block;
+  }
+
+  span input {
+    display: inline;
+  }
+
+  /* 検索ボタン */
+  .search{
+    width: 200px;
+  }
+
+  /* 検索ボタン 枠 */
+  .search_margin{
+    margin-top: 20px;
+    text-align: center;
+  }
+
+  /* spotのform 固有 */
+  #map{
+    width: 35vw;
+    min-width: 130px;
+  }
+
+  // 結果枠
+  .result{
+    display: none; 
+  }
+
+  // 場所検索結果枠
+  .spot_result{
+    margin-left: 0px;
+  }
+
+  // 場所検索結果　場所のみ枠
+  .spot_group_container{
+    width: 45vw;
+    min-width: 120px;
+  }
+
+  // 場所検索結果　場所名のみ
+  .result_name{
+    font-size: 12px;
+  }
+
+  // 場所検索結果　住所のみ
+  .result_address{
+    font-size: 10px;
+  }
+
+  // 作成・更新ボタン
+  .submit{
+    display: none;
+  
+  }
+
 }
 
-/* todoのform 固有 */
-#todo_content{
-  width: 85vw;
-  min-width: 300px;
-}
-/* spotのform 固有 */
-#spot_name{
-  width: 85vw;
-  min-width: 300px;
-}
 
-/* spotのformとsearchを横並びに設定するためのクラス */
-.spot_form{
-  display: block;
-}
-
-span input {
-  display: inline;
-}
-
-/* 検索ボタン */
-.search{
-  width: 200px;
-}
-
-/* 検索ボタン 枠 */
-.search_margin{
-  margin-top: 20px;
-  text-align: center;
-}
-
-}

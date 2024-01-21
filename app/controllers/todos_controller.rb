@@ -3,6 +3,9 @@ class TodosController < ApplicationController
  before_action :require_login
  before_action :set_search
 
+ require 'net/http'
+ require 'json'
+
  def index
   if params[:index_type].nil?
     @q = current_user.spots.ransack(@q)
@@ -72,6 +75,7 @@ class TodosController < ApplicationController
  end
 
  def update
+  
   if params[:update_branch].nil?
     @todo_spot = TodoSpot.new(current_user, todo_spot_params, @todo)
     if @todo_spot.update(todo_spot_params)
@@ -115,7 +119,11 @@ class TodosController < ApplicationController
  end
 
  def todo_spot_params
-  params.require(:todo_spot).permit(:content, :user_id, :public, :name, :address, :latitude, :longitude)
+  params.require(:todo_spot).permit(:content, :spot_group, 
+  :name_0, :address_0, :latitude_0, :longitude_0, 
+  :name_1, :address_1, :latitude_1, :longitude_1,
+  :name_2, :address_2, :latitude_2, :longitude_2, 
+  :public, :user_id)
  end
  
  def destroy_empty_spot

@@ -1,6 +1,7 @@
 <%= stylesheet_link_tag 'title', media: 'all', 'data-turbolinks-track': 'reload' %>
 <%= stylesheet_link_tag 'todo/form', media: 'all', 'data-turbolinks-track': 'reload' %>
 
+
 <div class="title">
     <h1><%= title t 'todos.new.title' %></h1>
 </div>
@@ -13,13 +14,67 @@
             </div>
         </div>
 
-        <div class="spot">
+        <div class="spot_search">
             <%= f.label :name, t('.where') %></br>
             <p style="color:orange">※場所を入力後、必ず「検索」ボタンを押してmapで確認してください。</p>
+
             <div class="spot_form">
                 <span><%= f.text_field :name, placeholder:"○×カフェ", id:"spot_name" %></span>
-                <div class="search_margin"><input type="button" value=<%= t('.search') %> class="search" onclick="getAddress()"></div>
+                <div class="search_margin"><input type="button" value=<%= t('.search') %> class="search" onclick="getPlace()"></div>
             </div>
+        </div>
+
+        
+        <div class="result">
+
+            <div id="map"></div>
+
+            <div class="spot_result">
+
+                <div class="spot_group_container" data-toggle="buttons">
+                
+                <p style="font-weight: bold;">場所を選択してください</p>
+                    <div class="spot_group">
+                        <label class="btn btn-primary" id="btnlabel0">
+                            <%= f.radio_button :spot_group,0, {checked: true} %>
+                            <%= f.hidden_field :name_0, id:"result_name_0" %>
+                            <%= f.hidden_field :address_0, id:"result_address_0" %>
+                            <%= f.hidden_field :latitude_0, id:"result_latitude_0" %>
+                            <%= f.hidden_field :longitude_0, id:"result_longitude_0" %>
+
+                            <div class="result_name" id="visible_result_name_0"></div>
+                            <div class="result_address" id="visible_result_address_0"></div>
+                        </label>
+                    </div>
+
+                    <div class="spot_group">
+                        <label class="btn btn-primary" id="btnlabel1">
+                            <%= f.radio_button :spot_group, 1, {} %>
+                            <%= f.hidden_field :name_1, id:"result_name_1" %>
+                            <%= f.hidden_field :address_1, id:"result_address_1" %>
+                            <%= f.hidden_field :latitude_1, id:"result_latitude_1" %>
+                            <%= f.hidden_field :longitude_1, id:"result_longitude_1" %>
+
+                            <div class="result_name" id="visible_result_name_1"></div>
+                            <div class="result_address" id="visible_result_address_1"></div>
+                        </label>
+                    </div>
+
+                    <div class="spot_group">
+                        <label class="btn btn-primary" id="btnlabel2">
+                            <%= f.radio_button :spot_group, 2, {} %>
+                            <%= f.hidden_field :name_2, id:"result_name_2" %>
+                            <%= f.hidden_field :address_2, id:"result_address_2" %>
+                            <%= f.hidden_field :latitude_2, id:"result_latitude_2" %>
+                            <%= f.hidden_field :longitude_2, id:"result_longitude_2" %>
+
+                            <div class="result_name" id="visible_result_name_2"></div>
+                            <div class="result_address" id="visible_result_address_2"></div>
+                        </label>
+                    </div>        
+                </div>
+            </div>
+
         </div>
 
         <div class="public">
@@ -28,21 +83,10 @@
         </div>
 
         <div>
-            <%= f.hidden_field :address, id: "spot_address" %>
-        </div>
-
-        <div>
-            <%= f.hidden_field :latitude, id:"spot_lat" %>
-            <%= f.hidden_field :longitude, id:"spot_lon"%>
             <%= f.hidden_field :user_id, value: current_user.id %>
         </div>
 
-        <div class="map_submit">
-            <%= render 'todos/map' %>
+        <div class="submit">
             <%= f.submit t('.create'), class:"create" %>
         </div>
 <% end %>
-
-
-<script src="https://maps.googleapis.com/maps/api/js?key=<%= Rails.application.credentials.dig(:googlemap, :api_key) %>&libraries=places&callback=initMap">
-</script>
