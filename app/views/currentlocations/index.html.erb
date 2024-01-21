@@ -16,14 +16,16 @@
 
 <div class="container">
   <div class="card_container">
-
-        <% @spots.each do |spot| %>
-          <% if spot.todos.any? { |t| !t.finished && t.user_id == current_user.id || t.finished == true && t.updated_at > Date.yesterday && t.user_id == current_user.id } %>
-            <%= render 'todo_card', spot: spot %>
-          <% else %>
-            <%= render 'none' %>
-          <% end %>
-        <% end %>
+    <% has_matching_spot = false %>
+    <% @spots.each do |spot| %>
+      <% if spot.todos.any? { |t| !t.finished && t.user_id == current_user.id || t.finished == true && t.updated_at > Date.yesterday && t.user_id == current_user.id } %>
+        <%= render 'todo_card', spot: spot %>
+        <% has_matching_spot = true %>
+      <% end %>
+    <% end %>
+    <% unless has_matching_spot %>
+      <%= render 'none' %>
+    <% end %>
   </div>
 </div>
 
