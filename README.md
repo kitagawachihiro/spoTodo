@@ -67,7 +67,7 @@
 ![LINEを使用する場合](https://i.gyazo.com/3b74c9baf182322f1c6fc352ed932984.png)
 ![PC/スマホでブラウザを使用する場合](https://i.gyazo.com/713c73de31f4c33ce73ee6b76e35cda2.png)
 
-![todoを実行したら、「できた！」をクリック](https://github.com/kitagawachihiro/spoTodo/assets/116005214/762657ec-b132-4c34-b777-3e3c15d0e7c0)
+https://github.com/kitagawachihiro/spoTodo/assets/116005214/762657ec-b132-4c34-b777-3e3c15d0e7c0.mp4
 
 ※追加機能予定
  - LINEでTodo登録、Todoチェックができるようにする
