@@ -60,17 +60,21 @@
 ## ■サービス使用イメージ
 
 ⓪LINEでサービスにログインします。
+
 ①Todoを登録します。（Todo他のユーザーに匿名で公開できます）
 
 https://github.com/kitagawachihiro/spoTodo/assets/116005214/2b115cad-728f-43f1-8f8b-264001638e0e
 
 ②隙間時間ができた際に、ユーザーは現在の位置情報をサービスに送信します。
+
 　※ブラウザで位置情報共有許可が必要です。
+
 ③現在の位置情報の近くでできるTodo一覧が表示されます。（"近く"と判定する距離はユーザーにて選択できます）
 
 https://github.com/kitagawachihiro/spoTodo/assets/116005214/c96991ba-09ee-4d7d-ab3f-ffa58a52f467
 
 ④実行したTodoはチェックします。
+
 ⑤実行したTodoのレビューを書きたい場合は作成できます。
 
 https://github.com/kitagawachihiro/spoTodo/assets/116005214/a81c29d6-62a6-4d49-b72a-e93acfb1d74c
@@ -84,8 +88,11 @@ https://github.com/kitagawachihiro/spoTodo/assets/116005214/352e4199-bac2-45e9-a
 「spoTodo」を友達登録した場合、②、③、④をLINE上で行えます。
 
 ②隙間時間ができた際に、ユーザーは現在の位置情報をサービスに送信します。
+
 　LINEのリッチメニュー「現在地を送る」を押下で簡単に送付できます。
+
 ③現在の位置情報の近くでできるTodoがメッセージで送られてきます。（"近く"と判定する距離はユーザーにて選択できます）
+
 
 https://github.com/kitagawachihiro/spoTodo/assets/116005214/05ae7e2d-2fd6-4098-94a4-b6f282069f2f
 
@@ -118,7 +125,6 @@ README〜ER図作成：~7/10
 
 ※ブラウザで位置情報共有を許可する必要がある
 
-## ============================================================
 ## ■画面遷移図
 
 Figma:
