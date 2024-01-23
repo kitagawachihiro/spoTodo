@@ -34,7 +34,6 @@ class TodoSpot
   end
 
   def save(params)
-
     setting_spot(params)
 
     spot = Spot.find_by(address: @address)
@@ -48,7 +47,6 @@ class TodoSpot
   end
 
   def update(params)
-
     setting_spot(params)
 
     spot = Spot.find_by(address: @address)
@@ -69,14 +67,14 @@ class TodoSpot
   private
 
   def setting_spot(params)
-    #spot_groupの値によって、name、address、latitude、longitudeのパラメーター名が変わる
-    if (0..2).include?(params[:spot_group].to_i)
-      index = params[:spot_group].to_i
-      @name = params[:"name_#{index}"]
-      @address = params[:"address_#{index}"]
-      @latitude = params[:"latitude_#{index}"]
-      @longitude = params[:"longitude_#{index}"]
-    end
+    # spot_groupの値によって、name、address、latitude、longitudeのパラメーター名が変わる
+    return unless (0..2).include?(params[:spot_group].to_i)
+
+    index = params[:spot_group].to_i
+    @name = params[:"name_#{index}"]
+    @address = params[:"address_#{index}"]
+    @latitude = params[:"latitude_#{index}"]
+    @longitude = params[:"longitude_#{index}"]
   end
 
   # 紐づくtodoが0になってしまったspotは削除する

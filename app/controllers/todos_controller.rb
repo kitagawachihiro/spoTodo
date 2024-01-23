@@ -18,7 +18,7 @@ class TodosController < ApplicationController
       end
     end
 
-    @todos = @todos.sort_by { |todo| todo.updated_at }.reverse
+    @todos = @todos.sort_by(&:updated_at).reverse
     @todos = Kaminari.paginate_array(@todos).page(params[:page]).per(5)
 
     render 'achieved_todos/index'
@@ -30,7 +30,7 @@ class TodosController < ApplicationController
       end
     end
 
-    @todos = @todos.sort_by { |todo| todo.updated_at }.reverse
+    @todos = @todos.sort_by(&:updated_at).reverse
     @todos = Kaminari.paginate_array(@todos).page(params[:page]).per(10)
 
     render 'everyone_todos/index'
@@ -120,10 +120,10 @@ class TodosController < ApplicationController
 
  def todo_spot_params
   params.require(:todo_spot).permit(:content, :spot_group, 
-  :name_0, :address_0, :latitude_0, :longitude_0, 
-  :name_1, :address_1, :latitude_1, :longitude_1,
-  :name_2, :address_2, :latitude_2, :longitude_2, 
-  :public, :user_id)
+                                    :name_0, :address_0, :latitude_0, :longitude_0, 
+                                    :name_1, :address_1, :latitude_1, :longitude_1,
+                                    :name_2, :address_2, :latitude_2, :longitude_2, 
+                                    :public, :user_id)
  end
  
  def destroy_empty_spot
