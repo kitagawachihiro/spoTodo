@@ -114,6 +114,12 @@ README〜ER図作成：~7/10
 β版をRUNTEQ内リリース（MVP）：9/2
 本番リリース：11/11
 
+## ◾️ER図
+
+drawio:
+https://drive.google.com/file/d/1z0gD1A_BpuyNwairhWH-mivsEDAeA9qM/view?usp=sharing
+
+
 ## ■技術選定
 - Ruby on Rails
 - JavaScript
