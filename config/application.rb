@@ -26,5 +26,12 @@ module SpoTodo
 
     # moduleを自動で読み込む設定
     config.autoload_paths += %W[#{config.root}/lib]
+
+    # 不要なファイルを生成しないように設定
+    config.generators do |g|
+      g.stylesheets false
+      g.javascripts false
+      g.helper false
+    end
   end
 end
