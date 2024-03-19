@@ -88,6 +88,12 @@ group :development, :test do
   gem 'pry-rails'
   gem 'sqlite3'
   gem 'rubocop', require: false
+
+  gem 'factory_bot_rails', '~> 4.11'
+
+  #omniauthの導入
+  gem 'omniauth'
+  gem "omniauth-rails_csrf_protection"
 end
 
 group :development do
@@ -106,6 +112,9 @@ group :test do
   # Easy installation and use of chromedriver to run system tests with Chrome
   #gem 'chromedriver-helper' #2019年3月31日に廃止し、以降webdrivers推奨になっている
   gem 'webdrivers'
+
+  #テスト
+  gem 'rspec-rails'
 end
 
 # 本番環境用
