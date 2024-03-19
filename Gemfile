@@ -91,9 +91,6 @@ group :development, :test do
 
   gem 'factory_bot_rails', '~> 4.11'
 
-  #omniauthの導入
-  gem 'omniauth'
-  gem "omniauth-rails_csrf_protection"
 end
 
 group :development do
