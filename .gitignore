@@ -35,5 +35,6 @@
 /config/environments/*.local.yml
 
 /config/settings/development.yml
+/config/settings/test.yml
 /config/settings/*.yml
 /.env

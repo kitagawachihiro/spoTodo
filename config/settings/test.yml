@@ -1,0 +1,5 @@
+sorcery:
+    line_callback_url: 'https://0c97-103-5-140-131.ngrok-free.app/oauth/callback?provider=line'
+app:
+    url: 'https://0c97-103-5-140-131.ngrok-free.app'
+    host: 'https://0c97-103-5-140-131.ngrok-free.app'

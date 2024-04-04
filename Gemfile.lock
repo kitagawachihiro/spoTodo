@@ -102,6 +102,7 @@ GEM
     crass (1.0.6)
     date (3.3.3)
     deep_merge (1.2.2)
+    diff-lcs (1.5.1)
     dockerfile-rails (1.5.9)
       rails
     dry-configurable (1.0.1)
@@ -138,6 +139,11 @@ GEM
       zeitwerk (~> 2.6)
     erubi (1.12.0)
     execjs (2.9.1)
+    factory_bot (4.11.1)
+      activesupport (>= 3.0.0)
+    factory_bot_rails (4.11.1)
+      factory_bot (~> 4.11.1)
+      railties (>= 3.0.0)
     faraday (2.7.11)
       base64
       faraday-net_http (>= 2.0, < 3.1)
@@ -286,6 +292,23 @@ GEM
       ffi (~> 1.0)
     regexp_parser (2.8.1)
     rexml (3.2.6)
+    rspec-core (3.13.0)
+      rspec-support (~> 3.13.0)
+    rspec-expectations (3.13.0)
+      diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (~> 3.13.0)
+    rspec-mocks (3.13.0)
+      diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (~> 3.13.0)
+    rspec-rails (6.1.1)
+      actionpack (>= 6.1)
+      activesupport (>= 6.1)
+      railties (>= 6.1)
+      rspec-core (~> 3.12)
+      rspec-expectations (~> 3.12)
+      rspec-mocks (~> 3.12)
+      rspec-support (~> 3.12)
+    rspec-support (3.13.1)
     rubocop (1.56.3)
       base64 (~> 0.1.1)
       json (~> 2.3)
@@ -389,6 +412,7 @@ DEPENDENCIES
   coffee-rails
   config
   dockerfile-rails
+  factory_bot_rails (~> 4.11)
   font-awesome-sass
   geocoder
   jbuilder
@@ -405,6 +429,7 @@ DEPENDENCIES
   rack-cors
   rails (~> 6.1.7)
   ransack
+  rspec-rails
   rubocop
   sass-rails
   selenium-webdriver
