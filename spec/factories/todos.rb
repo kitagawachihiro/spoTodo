@@ -1,8 +1,8 @@
 FactoryBot.define do
     factory :todo do
-        content {"テストで作ったタスクです"}
+        content {"テスト作成のTodoです"}
         finished { false }
-        public { false }
+        public { true }
         spot
         user
     end
